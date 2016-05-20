@@ -14,5 +14,5 @@ CREATE TABLE Users(
   CollegeId INT(6),
   PRIMARY KEY (UserId),
   CONSTRAINT fk_UsersCollege FOREIGN KEY (CollegeId)
-    REFERENCES College(CollegeId)
+  REFERENCES College(CollegeId)
 );
