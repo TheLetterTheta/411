@@ -10,10 +10,13 @@ CREATE TABLE Colleges(
 
 CREATE TABLE Classes(
   ClassId INT UNSIGNED AUTO_INCREMENT,
+  CollegeId INT UNSIGNED,
   CreditHours INT UNSIGNED,
   ShortName VARCHAR(16),
   Name VARCHAR(256),
-  PRIMARY KEY (ClassId)
+  PRIMARY KEY (ClassId),
+  CONSTRAINT fk_ClassCollege FOREIGN KEY (CollegeId)
+    REFERENCES Colleges(CollegeId)
 );
 
 CREATE TABLE ClassificationHours(
@@ -35,6 +38,17 @@ CREATE TABLE Users(
   LastName VARCHAR(64),
   PRIMARY KEY (UserId),
   CONSTRAINT fk_UsersCollege FOREIGN KEY (CollegeId)
+    REFERENCES Colleges(CollegeId)
+);
+
+CREATE TABLE CollegeGpaDefinitions(
+  CollegeGpaDefinitionId INT UNSIGNED AUTO_INCREMENT,
+  CollegeId INT UNSIGNED,
+  PercentGrade DECIMAL(9,4),
+  LetterDefinition CHAR(2),
+  GpaDefinition DECIMAL(9,4),
+  PRIMARY KEY (CollegeGpaDefinitionId),
+  CONSTRAINT fk_CollegeGpaDefinitionCollege FOREIGN KEY (CollegeId)
     REFERENCES Colleges(CollegeId)
 );
 
