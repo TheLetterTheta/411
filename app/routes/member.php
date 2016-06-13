@@ -21,3 +21,7 @@ $app->group('/user', function(){
         return json_encode($user);
     });
 });
+
+$app->group('/class/{universityId:[0-9]+}', function(){
+    
+});

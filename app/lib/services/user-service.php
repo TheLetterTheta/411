@@ -31,6 +31,7 @@ class UserService
                 return $this->MapToUserVM($row);
             }
         }
+        return null;
     }
     
     private function MapToUser(array $row){
