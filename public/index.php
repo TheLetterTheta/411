@@ -24,14 +24,26 @@ $container['db'] = function ($c) {
 };
 
 //Models
+require '/../app/lib/models/class-prerequisite.php';
+require '/../app/lib/models/class-user-prerequisites.php';
+require '/../app/lib/models/classification-hour.php';
+require '/../app/lib/models/college.php';
+require '/../app/lib/models/college-class.php';
+require '/../app/lib/models/college-gpa-definition.php';
+require '/../app/lib/models/concentration.php';
+require '/../app/lib/models/concentration-class.php';
+require '/../app/lib/models/curriculum.php';
+require '/../app/lib/models/department.php';
 require '/../app/lib/models/user.php';
+require '/../app/lib/models/user-class-history-item.php';
+require '/../app/lib/models/user-concentration.php';
 
 //View Models
 require '/../app/lib/dtos/user-dto.php';
 
 //Services
+require '/../app/lib/services/college-class-service.php';
 require '/../app/lib/services/user-service.php';
-
 
 require '../app/routes/session.php';
 require '../app/routes/member.php';

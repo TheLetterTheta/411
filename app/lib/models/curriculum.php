@@ -8,14 +8,20 @@
  */
 class Curriculum
 {
+    #PUBLIC PROPERTIES
     public $CurriculumId;
     public $DepartmentId;
     public $EffectiveDate;
     public $ExpirationDate;
     public $Name;
 
-    function __construct(array $dataRow = null)
+    #PRIVATE PROPERTIES
+    private $db;
+
+    #CONSTRUCTOR
+    function __construct(array $dataRow = null, PDO $dbInstance = null)
     {
+        $this->db = $dbInstance;
         if($dataRow != null){
             $this->CurriculumId = $dataRow["CurriculumId"];
             $this->DepartmentId = $dataRow["DepartmentId"];
@@ -23,5 +29,17 @@ class Curriculum
             $this->ExpirationDate = $dataRow["ExpirationDate"];
             $this->Name = $dataRow["Name"];
         }
+    }
+
+    #RELATIONSHIP PROPERTIES
+    private $department;
+    private $hasDepartment = false;
+    function GetDepartment(){
+        if($this->department && ! $this->hasDepartment){
+            $departmentService = new DepartmentService($this->db);
+            $this->department = $departmentService->GetDepartmentById($this->DepartmentId);
+            $this->hasDepartment = true;
+        }
+        return $this->department;
     }
 }

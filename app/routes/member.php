@@ -9,19 +9,30 @@
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
-$app->group('/user', function(){
-    $this->get('/', function () {
-        $userService = new UserService($this->db);
-        $users = $userService->GetUsers();
-        echo json_encode($users);
+$app->group('/api', function() use ($app){
+    $app->group('/user', function() use ($app){
+        $app->get('', function () {
+            $userService = new UserService($this->db);
+            $users = $userService->GetUsers();
+            echo json_encode($users);
+        });
+        $app->get('/{id:[0-9]+}', function(Request $request, Response $response, $args){
+            $userService = new UserService($this->db);
+            $user = $userService->GetUserDetails($args["id"]);
+            return json_encode($user);
+        });
     });
-    $this->get('/{id:[0-9]+}', function(Request $request, Response $response, $args){
-        $userService = new UserService($this->db);
-        $user = $userService->GetUserDetails($args["id"]);
-        return json_encode($user);
-    });
-});
 
-$app->group('/class/{universityId:[0-9]+}', function(){
-    
+    $app->group('/class', function() use ($app){
+        $app->get('/university/{universityId:[0-9]+}', function(Request $request, Response $response, $args){
+            $classService = new CollegeClassService($this->db);
+            $classes = $classService->GetClasses($args["universityId"]);
+            return json_encode($classes);
+        });
+        $app->get('/{classId:[0-9]+}', function(Request $request, Response $response, $args){
+            $classService = new CollegeClassService($this->db);
+            $class = $classService->GetClassById($args["classId"]);
+            return json_encode($class);
+        });
+    });
 });

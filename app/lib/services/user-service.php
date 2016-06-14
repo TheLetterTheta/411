@@ -33,9 +33,21 @@ class UserService
         }
         return null;
     }
+
+    public function GetUserById($userId)
+    {
+        $preparedSql = $this->db->prepare(SqlPreparedStatements::GET_USER_BY_ID);
+        $preparedSql->bindParam(':userId', $userId);
+        if($preparedSql->execute()){
+            if($row = $preparedSql->fetch()) {
+                return $this->MapToUser($row);
+            }
+        }
+        return null;
+    }
     
     private function MapToUser(array $row){
-        return new User($row);
+        return new User($row, $this->db);
     }
 
     private function MapToUserVM(array $row){

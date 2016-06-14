@@ -8,6 +8,7 @@
  */
 class User
 {
+    #PUBLIC PROPERTIES
     public $UserId;
     public $CollegeId;
     public $Email;
@@ -15,8 +16,14 @@ class User
     public $FirstName;
     public $LastName;
 
-    function __construct(array $dataRow = null)
+    #PRIVATE PROPERTIES
+    private $db;
+
+    #CONSTRUCTOR
+    function __construct(array $dataRow = null, PDO $dbInstance = null)
     {
+        $this->db = $dbInstance;
+
         if($dataRow != null){
             $this->UserId = $dataRow["UserId"];
             $this->CollegeId = $dataRow["CollegeId"];
@@ -25,5 +32,17 @@ class User
             $this->FirstName = $dataRow["FirstName"];
             $this->LastName = $dataRow["LastName"];
         }
+    }
+
+    #RELATIONSHIP PROPERTIES
+    private $college;
+    private $hasCollege = false;
+    function GetCollege(){
+        if($this->college == null && ! $this->hasCollege){
+            $collegeService = new CollegeService($this->db);
+            $this->college = $collegeService->GetCollegeById($this->CollegeId);
+            $this->hasCollege = true;
+        }
+        return $this->college;
     }
 }

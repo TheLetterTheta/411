@@ -8,6 +8,7 @@
  */
 class UserClassHistoryItem
 {
+    #PUBLIC PROPERTIES
     public $ClassId;
     public $UserId;
     public $PercentGrade;
@@ -16,8 +17,13 @@ class UserClassHistoryItem
     public $Status;
     public $TakenDate;
 
-    function __construct(array $dataRow = null)
+    #PRIVATE PROPERTIES
+    private $db;
+
+    #CONSTRUCTOR
+    function __construct(array $dataRow = null, PDO $dbInstance = null)
     {
+        $this->db = $dbInstance;
         if($dataRow != null){
             $this->ClassId = $dataRow["ClassId"];
             $this->UserId = $dataRow["UserId"];
@@ -27,5 +33,28 @@ class UserClassHistoryItem
             $this->Status = $dataRow["Status"];
             $this->TakenDate = $dataRow["TakenDate"];
         }
+    }
+
+    #RELATIONSHIP PROPERTIES
+    private $class;
+    private $hasClass = false;
+    function GetClass(){
+        if($this->class == null && ! $this->hasClass){
+            $classService = new CollegeClassService($this->db);
+            $this->class = $classService->GetClassById($this->ClassId);
+            $this->hasClass = true;
+        }
+        return $this->class;
+    }
+    
+    private $user;
+    private $hasUser = false;
+    function GetUser(){
+        if($this->user == null && ! $this->hasUser){
+            $userService = new UserService($this->db);
+            $this->user = $userService->GetUserById($this->UserId);
+            $this->hasUser = true;
+        }
+        return $this->user;
     }
 }

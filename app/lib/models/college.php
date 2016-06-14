@@ -8,14 +8,22 @@
  */
 class College
 {
+    #PUBLIC PROPERTIES
     public $CollegeId;
     public $Name;
 
-    function __construct(array $dataRow = null)
+    #PRIVATE PROPERTIES
+    private $db;
+
+    #CONSTRUCTOR
+    function __construct(array $dataRow = null, PDO $dbInstance = null)
     {
+        $this->db = $dbInstance;
         if($dataRow != null){
             $this->CollegeId = $dataRow["CollegeId"];
             $this->Name = $dataRow["Name"];
         }
     }
+
+    #RELATIONSHIP PROPERTIES
 }
