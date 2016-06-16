@@ -131,6 +131,7 @@ CREATE TABLE UserConcentrations(
 CREATE TABLE ConcentrationClass(
   ConcentrationId INT UNSIGNED,
   ClassId INT UNSIGNED,
+  IsMajorClass BIT,
   PRIMARY KEY (ConcentrationId, ClassId),
   CONSTRAINT fk_ConcentrationClassConcentration FOREIGN KEY (ConcentrationId)
     REFERENCES Concentrations(ConcentrationId),

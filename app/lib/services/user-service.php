@@ -16,36 +16,23 @@ class UserService
     }
 
     function GetUsers(){
-        $userResults = [];
-        foreach($this->db->query(SqlPreparedStatements::GET_ALL_USERS) as $row){
-            array_push($userResults, $this->MapToUser($row));
-        }
-        return $userResults;
+        $query = $this->db->query(SqlPreparedStatements::GET_ALL_USERS);
+        return FUNCTIONS::queryAndMapArray($query, 'UserService::MapToUser');
     }
 
     function GetUserDetails($userId){
-        $preparedSql = $this->db->prepare(SqlPreparedStatements::GET_USER_VIEW);
-        $preparedSql->bindParam(':userId', $userId);
-        if($preparedSql->execute()){
-            if($row = $preparedSql->fetch()) {
-                return $this->MapToUserVM($row);
-            }
-        }
-        return null;
+        $query = $this->db->prepare(SqlPreparedStatements::GET_USER_VIEW);
+        $query->bindParam(':userId', $userId);
+        return FUNCTIONS::queryAndMapItem($query, 'UserService::MapToUserVM');
     }
 
     public function GetUserById($userId)
     {
-        $preparedSql = $this->db->prepare(SqlPreparedStatements::GET_USER_BY_ID);
-        $preparedSql->bindParam(':userId', $userId);
-        if($preparedSql->execute()){
-            if($row = $preparedSql->fetch()) {
-                return $this->MapToUser($row);
-            }
-        }
-        return null;
+        $query = $this->db->prepare(SqlPreparedStatements::GET_USER_BY_ID);
+        $query->bindParam(':userId', $userId);
+        return FUNCTIONS::queryAndMapItem($query, 'UserService::MapToUser');
     }
-    
+
     private function MapToUser(array $row){
         return new User($row, $this->db);
     }

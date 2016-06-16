@@ -2,6 +2,7 @@
 
 require '../vendor/autoload.php';
 require '../app/data/const/constants.php';
+require '../app/data/const/functions.php';
 require '../app/data/const/prepared-statements.php';
 
 $config['displayErrorDetails'] = true;
@@ -40,6 +41,7 @@ require '/../app/lib/models/user-concentration.php';
 
 //View Models
 require '/../app/lib/dtos/user-dto.php';
+require '/../app/lib/dtos/class-dto.php';
 
 //Services
 require '/../app/lib/services/college-class-service.php';

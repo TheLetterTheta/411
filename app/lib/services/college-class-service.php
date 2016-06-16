@@ -15,40 +15,29 @@ class CollegeClassService
     }
 
     function GetClassById($classId){
-        $query = $this->db->prepare(SqlPreparedStatements::GET_CLASS_BY_ID);
+        $query = $this->db->prepare(SqlPreparedStatements::GET_CLASS_VIEW);
         $query->bindParam(":classId", $classId);
-        if($query->execute()){
-            return $this->MapToCollegeClass($query->fetch());
-        }
-        return null;
+        return FUNCTIONS::queryAndMapItem($query, 'CollegeClassService::MapToClassDTO');
     }
     
-    function GetClasses($collegeId){
-        $classResults = [];
+    function GetClassesByCollegeId($collegeId){
         $query = $this->db->prepare(SqlPreparedStatements::GET_ALL_CLASSES_BY_COLLEGE);
         $query->bindParam(":collegeId", $collegeId);
-        if($query->execute()){
-            foreach($query->fetchAll() as $row){
-                array_push($classResults, $this->MapToCollegeClass($row));
-            }
-        }
-        return $classResults;
+        return FUNCTIONS::queryAndMapArray($query, 'CollegeClassService::MapToCollegeClass');
     }
 
     public function GetClassPrerequisites($classId)
     {
-        $classResults = [];
         $query = $this->db->prepare(SqlPreparedStatements::GET_CLASS_PREREQUISITES);
         $query->bindParam(":classId", $classId);
-        if($query->execute()){
-            foreach($query->fetchAll() as $row){
-                array_push($classResults, $this->MapToCollegeClass($row));
-            }
-        }
-        return $classResults;
+        return FUNCTIONS::queryAndMapArray($query, 'CollegeClassService::MapToCollegeClass');
     }
 
     function MapToCollegeClass(array $row){
         return new CollegeClass($row);
+    }
+
+    function MapToClassDTO(array $row){
+        return new ClassDTO($row);
     }
 }

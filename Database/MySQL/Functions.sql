@@ -1,7 +1,7 @@
 USE `cmps_411`;
 
-DROP FUNCTION IF EXISTS `CollegeHourClassification`;
-CREATE FUNCTION `CollegeHourClassification`
+DROP FUNCTION IF EXISTS `CollegeClassificationByHour`;
+CREATE FUNCTION `CollegeClassificationByHour`
   (collegeId INT UNSIGNED, hours INT)
   RETURNS VARCHAR(64)
 BEGIN
@@ -28,5 +28,17 @@ BEGIN
                 AND cgd.PercentGrade <= grade
               ORDER BY cgd.PercentGrade DESC
               LIMIT 1);
+  RETURN ret;
+END;
+
+DROP FUNCTION IF EXISTS `UserCollegeGpa`;
+CREATE FUNCTION `UserCollegeGpa`
+  (userId INT UNSIGNED, collegeId INT UNSIGNED)
+  RETURNS DECIMAL(9,4)
+BEGIN
+  DECLARE ret DECIMAL(9,4);
+  SET ret = (SELECT AVG(CollegeGradeGpa(collegeId, uh.PercentGrade))
+              FROM userclasshistory AS uh
+              WHERE uh.UserId = userId);
   RETURN ret;
 END;

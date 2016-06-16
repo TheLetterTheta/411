@@ -15,20 +15,14 @@ class ConcentrationService
     }
 
     function GetConcentrations(){
-        $concentrationResults = [];
-        foreach($this->db->query(SqlPreparedStatements::GET_ALL_CONCENTRATIONS) as $row) {
-            array_push($concentrationResults, $this->MapToConcentration($row));
-        }
-        return $concentrationResults;
+        $query = $this->db->query(SqlPreparedStatements::GET_ALL_CONCENTRATIONS);
+        return FUNCTIONS::queryAndMapArray($query, 'ConcentrationService::MapToConcentration');
     }
 
     function GetConcentrationById($concentrationId){
         $query = $this->db->prepare(SqlPreparedStatements::GET_CONCENTRATION_BY_ID);
         $query->bindParam(":concentrationId", $concentrationId);
-        if($query->execute()){
-            return $this->MapToConcentration($query->fetch());
-        }
-        return null;
+        return FUNCTIONS::queryAndMapItem($query, 'ConcentrationService::MapToConcentration');
     }
 
     function MapToConcentration(array $row){

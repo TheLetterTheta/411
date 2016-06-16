@@ -15,20 +15,14 @@ class CurriculumService
     }
     
     function GetCurricula(){
-        $curriculaResults = [];
-        foreach($this->db->query(SqlPreparedStatements::GET_ALL_CURRICULA) as $row){
-            array_push($curriculaResults, $this->MapToCurriculum($row));
-        }
-        return $curriculaResults;
+        $query = $this->db->query(SqlPreparedStatements::GET_ALL_CURRICULA);
+        return FUNCTIONS::queryAndMapArray($query, 'CurriculumService::MapToCurriculum');
     }
 
     function GetCurriculumById($curriculumId){
         $query = $this->db->prepare(SqlPreparedStatements::GET_CURRICULUM_BY_ID);
         $query->bindParam(":curriculumId", $curriculumId);
-        if($query->execute()){
-            return $this->MapToCurriculum($query->fetch());
-        }
-        return null;
+        return FUNCTIONS::queryAndMapItem($query, 'CurriculumService::MapToCurriculum');
     }
 
     function MapToCurriculum(array $row){

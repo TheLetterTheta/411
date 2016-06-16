@@ -15,20 +15,14 @@ class CollegeService
     }
 
     function GetColleges(){
-        $collegeResults = [];
-        foreach($this->db->query(SqlPreparedStatements::GET_ALL_COLLEGES) as $row){
-            array_push($collegeResults, $this->MapToCollege($row));
-        }
-        return $collegeResults;
+        $query = $this->db->query(SqlPreparedStatements::GET_ALL_COLLEGES);
+        return FUNCTIONS::queryAndMapArray($query, 'CollegeService::MapToCollege');
     }
     
     function GetCollegeById($collegeId){
         $query = $this->db->prepare(SqlPreparedStatements::GET_COLLEGE_BY_ID);
         $query->bindParam(":collegeId", $collegeId);
-        if($query->execute()){
-            return $this->MapToCollege($query->fetch());
-        }
-        return null;
+        return FUNCTIONS::queryAndMapItem($query, 'CollegeService::MapToCollege');
     }
 
     function MapToCollege(array $row){

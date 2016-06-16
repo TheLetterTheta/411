@@ -26,7 +26,7 @@ $app->group('/api', function() use ($app){
     $app->group('/class', function() use ($app){
         $app->get('/university/{universityId:[0-9]+}', function(Request $request, Response $response, $args){
             $classService = new CollegeClassService($this->db);
-            $classes = $classService->GetClasses($args["universityId"]);
+            $classes = $classService->GetClassesByCollegeId($args["universityId"]);
             return json_encode($classes);
         });
         $app->get('/{classId:[0-9]+}', function(Request $request, Response $response, $args){
