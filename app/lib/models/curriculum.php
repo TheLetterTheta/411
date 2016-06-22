@@ -42,4 +42,15 @@ class Curriculum
         }
         return $this->department;
     }
+
+    private $concentrations = [];
+    private $hasConcentrations = false;
+    function GetGpaDefinitions(){
+        if(empty($this->concentrations) && ! $this->hasConcentrations){
+            $concentrationService = new ConcentrationService($this->db);
+            $this->concentrations = $concentrationService->GetConcentrationsByCurriculum($this->CurriculumId);
+            $this->hasConcentrations = true;
+        }
+        return $this->concentrations;
+    }
 }

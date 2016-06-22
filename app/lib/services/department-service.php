@@ -25,6 +25,12 @@ class DepartmentService
         return FUNCTIONS::queryAndMapItem($query, 'DepartmentService::MapToDepartment');
     }
 
+    function GetDepartmentsByCollege($collegeId){
+        $query = $this->db->prepare(SqlPreparedStatements::GET_DEPARTMENTS_BY_COLLEGE);
+        $query->bindParam(":collegeId", $collegeId);
+        return FUNCTIONS::queryAndMapItem($query, 'DepartmentService::MapToDepartment');
+    }
+
     function MapToDepartment(array $row){
         return new Department($row, $this->db);
     }

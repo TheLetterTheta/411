@@ -25,6 +25,12 @@ class CurriculumService
         return FUNCTIONS::queryAndMapItem($query, 'CurriculumService::MapToCurriculum');
     }
 
+    function GetCurriculaByDepartment($departmentId){
+        $query = $this->db->prepare(SqlPreparedStatements::GET_CURRICULA_BY_DEPARTMENT);
+        $query->bindParam(":departmentId", $departmentId);
+        return FUNCTIONS::queryAndMapItem($query, 'CurriculumService::MapToCurriculum');
+    }
+
     function MapToCurriculum(array $row){
         return new Curriculum($row, $this->db);
     }

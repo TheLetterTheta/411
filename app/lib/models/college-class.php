@@ -32,15 +32,15 @@ class CollegeClass
     }
 
     #RELATIONSHIP PROPERTIES
-    private $class;
-    private $hasClass = false;
+    private $college;
+    private $hasCollege = false;
     function GetClass(){
-        if($this->class == null && ! $this->hasClass){
-            $classService = new CollegeClassService($this->db);
-            $this->class= $classService->GetClassById($this->ClassId);
-            $this->hasClass = true;
+        if($this->college == null && ! $this->hasCollege){
+            $collegeService = new CollegeService($this->db);
+            $this->college= $collegeService->GetCollegeById($this->CollegeId);
+            $this->hasCollege = true;
         }
-        return $this->class;
+        return $this->college;
     }
 
     private $classPrerequisites = [];
@@ -52,5 +52,16 @@ class CollegeClass
             $this->hasClassPrerequisites = true;
         }
         return $this->classPrerequisites;
+    }
+
+    private $classUserPrerequisites = [];
+    private $hasClassUserPrerequisites = false;
+    function GetClassUserPrerequisites(){
+        if(empty($this->classUserPrerequisites) && ! $this->hasClassUserPrerequisites){
+            $userPrerequisiteService = new UserPrerequisiteService($this->db);
+            $this->classUserPrerequisites = $userPrerequisiteService->GetClassUserPrerequisites($this->ClassId);
+            $this->hasClassUserPrerequisites = true;
+        }
+        return $this->classUserPrerequisites;
     }
 }

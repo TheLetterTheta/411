@@ -38,4 +38,15 @@ class Concentration
         }
         return $this->curriculum;
     }
+
+    private $classes = [];
+    private $hasClasses = false;
+    function GetGpaDefinitions(){
+        if(empty($this->classes) && ! $this->hasClasses){
+            $classService = new CollegeClassService($this->db);
+            $this->classes = $classService->GetClassesByConcentration($this->CurriculumId);
+            $this->hasClasses = true;
+        }
+        return $this->classes;
+    }
 }

@@ -26,10 +26,15 @@ class CollegeClassService
         return FUNCTIONS::queryAndMapArray($query, 'CollegeClassService::MapToCollegeClass');
     }
 
-    public function GetClassPrerequisites($classId)
-    {
+    function GetClassPrerequisites($classId){
         $query = $this->db->prepare(SqlPreparedStatements::GET_CLASS_PREREQUISITES);
         $query->bindParam(":classId", $classId);
+        return FUNCTIONS::queryAndMapArray($query, 'CollegeClassService::MapToCollegeClass');
+    }
+
+    function GetClassesByConcentration($curriculumId){
+        $query = $this->db->prepare(SqlPreparedStatements::GET_CLASSES_BY_CURRICULUM);
+        $query->bindParam(":curriculumId", $curriculumId);
         return FUNCTIONS::queryAndMapArray($query, 'CollegeClassService::MapToCollegeClass');
     }
 

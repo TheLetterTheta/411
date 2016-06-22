@@ -25,6 +25,12 @@ class ConcentrationService
         return FUNCTIONS::queryAndMapItem($query, 'ConcentrationService::MapToConcentration');
     }
 
+    function GetConcentrationsByCurriculum($curriculumId){
+        $query = $this->db->prepare(SqlPreparedStatements::GET_CONCENTRATIONS_BY_CURRICULUM);
+        $query->bindParam(":curriculumId", $curriculumId);
+        return  FUNCTIONS::queryAndMapArray($query, 'ConcentrationService::MapToConcentration');
+    }
+
     function MapToConcentration(array $row){
         return new Concentration($row, $this->db);
     }

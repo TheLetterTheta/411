@@ -38,4 +38,15 @@ class Department
         }
         return $this->college;
     }
+
+    private $curricula= [];
+    private $hasCurricula = false;
+    function GetCurricula(){
+        if(empty($this->curricula) && ! $this->hasCurricula){
+            $curriculaService = new CurriculumService($this->db);
+            $this->curricula = $curriculaService->GetCurriculaByDepartment($this->DepartmentId);
+            $this->hasCurricula = true;
+        }
+        return $this->curricula;
+    }
 }

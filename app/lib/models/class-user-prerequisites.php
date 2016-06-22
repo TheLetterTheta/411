@@ -6,7 +6,7 @@
  * Date: 6/12/2016
  * Time: 22:06 PM
  */
-class ClassUserPrerequisites
+class ClassUserPrerequisite
 {
     #PUBLIC PROPERTIES
     public $ClassUserPrerequisiteId;

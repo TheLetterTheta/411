@@ -45,4 +45,15 @@ class User
         }
         return $this->college;
     }
+    
+    private $classHistory = [];
+    private $hasClassHistory = false;
+    function GetClassHistory(){
+        if(empty($this->classHistory) && ! $this->hasClassHistory){
+            $classService = new UserClassHistoryService($this->db);
+            $this->classHistory = $classService->GetClassHistoryByUserId($this->UserId);
+            $this->hasClassHistory = true;
+        }
+        return $this->classHistory;
+    }
 }
