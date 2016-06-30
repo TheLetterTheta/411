@@ -15,8 +15,8 @@ CREATE OR REPLACE VIEW VEW_Users AS
     users AS u
     LEFT OUTER JOIN
     userclasshistory AS uh ON u.UserId = uh.UserId
-      LEFT OUTER JOIN
-      classes AS c ON uh.ClassId = c.ClassId
+    LEFT OUTER JOIN
+    classes AS c ON uh.ClassId = c.ClassId
   GROUP BY u.UserId;
 
 CREATE OR REPLACE VIEW VEW_Classes AS
@@ -33,3 +33,9 @@ CREATE OR REPLACE VIEW VEW_Classes AS
     LEFT OUTER JOIN
     userclasshistory AS u ON c.ClassId = u.ClassId
   GROUP BY c.ClassId;
+
+CREATE OR REPLACE VIEW VEW_Colleges AS
+  SELECT c.CollegeId AS 'CollegeId'
+    , c.Name AS 'Name'
+    , (SELECT COUNT(*) FROM users AS u WHERE u.CollegeId = c.CollegeId) AS 'NumberOfStudents'
+  FROM colleges AS c;

@@ -102,19 +102,31 @@ CREATE TABLE Concentrations(
     REFERENCES Curricula(CurriculumId)
 );
 
+CREATE TABLE SemesterType(
+  SemesterTypeId INT UNSIGNED  AUTO_INCREMENT,
+  CollegeId INT UNSIGNED,
+  Name VARCHAR(128),
+  PRIMARY KEY (SemesterTypeId),
+  CONSTRAINT fk_SemesterTypeCollege FOREIGN KEY (CollegeId)
+    REFERENCES Colleges(CollegeId)
+);
+
 CREATE TABLE UserClassHistory (
   UserId INT UNSIGNED,
   ClassId INT UNSIGNED,
+  SemesterTypeId INT UNSIGNED,
   PercentGrade DECIMAL(9,4),
   Status TINYINT,
-  TakenDate DATE,
+  YearTaken DATE,
   Rating INT,
   Review VARCHAR(512),
   PRIMARY KEY (UserId, ClassId),
   CONSTRAINT fk_UserClassHistoryUser FOREIGN KEY (UserId)
     REFERENCES Users(UserId),
   CONSTRAINT fk_UserClassHistoryClass FOREIGN KEY (ClassId)
-    REFERENCES Classes(ClassId)
+    REFERENCES Classes(ClassId),
+  CONSTRAINT fk_UserClassHistorySemesterType FOREIGN KEY (SemesterTypeId)
+    REFERENCES SemesterType(SemesterTypeId)
 );
 
 CREATE TABLE UserConcentrations(

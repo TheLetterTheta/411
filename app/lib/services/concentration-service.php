@@ -30,7 +30,7 @@ class ConcentrationService
         $query->bindParam(":curriculumId", $curriculumId);
         return  FUNCTIONS::queryAndMapArray($query, 'ConcentrationService::MapToConcentration');
     }
-
+    
     function MapToConcentration(array $row){
         return new Concentration($row, $this->db);
     }

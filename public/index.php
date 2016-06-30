@@ -44,7 +44,16 @@ require '/../app/lib/dtos/user-dto.php';
 require '/../app/lib/dtos/class-dto.php';
 
 //Services
+require '/../app/lib/services/classification-service.php';
 require '/../app/lib/services/college-class-service.php';
+require '/../app/lib/services/college-service.php';
+require '/../app/lib/services/concentration-service.php';
+require '/../app/lib/services/curriculum-service.php';
+require '/../app/lib/services/department-service.php';
+require '/../app/lib/services/gpa-definition-service.php';
+require '/../app/lib/services/user-class-history-service.php';
+require '/../app/lib/services/user-concentration-service.php';
+require '/../app/lib/services/user-prerequisite-service.php';
 require '/../app/lib/services/user-service.php';
 
 require '../app/routes/session.php';

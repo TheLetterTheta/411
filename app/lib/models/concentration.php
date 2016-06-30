@@ -49,4 +49,16 @@ class Concentration
         }
         return $this->classes;
     }
+
+
+    private $userConcentrations = [];
+    private $hasUserConcentration = false;
+    function GetUserConcentrations(){
+        if(empty($this->userConcentrations) && !  $this->hasUserConcentration){
+            $userConcentrationService = new UserConcentrationService($this->db);
+            $this->userConcentrations = $userConcentrationService->GetUserConcentrationsByConcentrationId($this->ConcentrationId);
+            $this->hasUserConcentration = true;
+        }
+        return $this->userConcentrations;
+    }
 }

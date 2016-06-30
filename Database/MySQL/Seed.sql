@@ -1577,32 +1577,49 @@ ON DUPLICATE KEY UPDATE
   `CurriculumId` = VALUES(`CurriculumId`),
   `Name` = VALUES(`Name`);
 
+INSERT INTO semestertype
+(`SemesterTypeId`,
+  `CollegeId`,
+  `Name`)
+VALUES
+  (1, 1, 'Spring'),
+  (2, 1, 'Fall'),
+  (3, 1, 'Summer'),
+  (4, 1, 'Spring'),
+  (5, 1, 'Summer'),
+  (6, 1, 'Summer')
+ON DUPLICATE KEY UPDATE
+  `CollegeId` = VALUES(`CollegeId`),
+  `Name` = VALUES(`Name`);
+
 INSERT INTO userclasshistory
 (`UserId`,
  `ClassId`,
+ `SemesterTypeId`,
  `PercentGrade`,
  `Status`,
- `TakenDate`,
+ `YearTaken`,
  `Rating`,
  `Review`)
-  (SELECT 1, c.ClassId, RAND() * 50 + 50, 1, NOW(), RAND() * 100, 'Great Class!'
+  (SELECT 1, c.ClassId, RAND() * 3 + 1, RAND() * 50 + 50, 1, NOW(), RAND() * 100, 'Great Class!'
    FROM classes AS c
    WHERE c.ShortName LIKE 'CMPS%'
    LIMIT 10)
   UNION
-  (SELECT 1, c.ClassId, RAND() * 50 + 50, 1, NOW(), RAND() * 100, 'Great Class!'
+  (SELECT 1, c.ClassId, RAND() * 3 + 1, RAND() * 50 + 50, 1, NOW(), RAND() * 100, 'Great Class!'
    FROM classes AS c
    WHERE c.ShortName LIKE 'MATH%'
    LIMIT 15)
   UNION
-  (SELECT 2, c.ClassId, RAND() * 50 + 50, 1, NOW(), RAND() * 100, 'Great Class!'
+  (SELECT 2, c.ClassId, RAND() * 3 + 1, RAND() * 50 + 50, 1, NOW(), RAND() * 100, 'Great Class!'
    FROM classes AS c
    WHERE c.ShortName LIKE 'CMPS%'
    LIMIT 10)
 ON DUPLICATE KEY UPDATE
   `ClassId` = VALUES(`ClassId`),
+  `SemesterTypeId` = VALUES(`SemesterTypeId`),
   `PercentGrade` = VALUES(`PercentGrade`),
   `Status` = VALUES(`Status`),
-  `TakenDate` = VALUES(`TakenDate`),
+  `YearTaken` = VALUES(`YearTaken`),
   `Rating` = VALUES(`Rating`),
   `Review` = VALUES(`Review`);

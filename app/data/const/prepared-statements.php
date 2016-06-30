@@ -223,4 +223,22 @@ class SqlPreparedStatements{
                                                     , uch.TakenDate
                                             FROM userclasshistory AS uch
                                             WHERE uch.UserId = :userId;";
+
+    #USER CONCENTRATIONS
+    const GET_ALL_USER_CONCENTRATION = "SELECT ucs.ConcentrationId
+                                                , ucs.UserId
+                                                , ucs.StartDate
+                                            FROM userconcentrations AS ucs;";
+
+    const GET_USER_CONCENTRATION_BY_USER = "SELECT ucs.ConcentrationId
+                                                , ucs.UserId
+                                                , ucs.StartDate
+                                            FROM userconcentrations AS ucs
+                                            WHERE ucs.UserId = :userId;";
+
+    const GET_USER_CONCENTRATION_BY_CONCENTRATION = "SELECT ucs.ConcentrationId
+                                                        , ucs.UserId
+                                                        , ucs.StartDate
+                                                    FROM userconcentrations AS ucs
+                                                    WHERE ucs.ConcentrationId = :concentrationId;";
 }
