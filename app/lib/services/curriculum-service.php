@@ -16,22 +16,22 @@ class CurriculumService
     
     function GetCurricula(){
         $query = $this->db->query(SqlPreparedStatements::GET_ALL_CURRICULA);
-        return FUNCTIONS::queryAndMapArray($query, 'CurriculumService::MapToCurriculum');
+        return FUNCTIONS::queryAndMapArray($query, 'CurriculumService::MapToCurriculum', $this->db);
     }
 
     function GetCurriculumById($curriculumId){
         $query = $this->db->prepare(SqlPreparedStatements::GET_CURRICULUM_BY_ID);
         $query->bindParam(":curriculumId", $curriculumId);
-        return FUNCTIONS::queryAndMapItem($query, 'CurriculumService::MapToCurriculum');
+        return FUNCTIONS::queryAndMapItem($query, 'CurriculumService::MapToCurriculum', $this->db);
     }
 
     function GetCurriculaByDepartment($departmentId){
         $query = $this->db->prepare(SqlPreparedStatements::GET_CURRICULA_BY_DEPARTMENT);
         $query->bindParam(":departmentId", $departmentId);
-        return FUNCTIONS::queryAndMapItem($query, 'CurriculumService::MapToCurriculum');
+        return FUNCTIONS::queryAndMapItem($query, 'CurriculumService::MapToCurriculum', $this->db);
     }
 
-    function MapToCurriculum(array $row){
-        return new Curriculum($row, $this->db);
+    public static function MapToCurriculum(array $row, PDO $db){
+        return new Curriculum($row, $db);
     }
 }

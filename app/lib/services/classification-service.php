@@ -17,10 +17,10 @@ class ClassificationService
     function GetClassificationsByCollege($collegeId){
         $query = $this->db->prepare(SqlPreparedStatements::GET_CLASSIFICATIONS_BY_COLLEGE);
         $query->bindParam(":collegeId", $collegeId);
-        return FUNCTIONS::queryAndMapArray($query, 'ClassificationService::MapToClassification');
+        return FUNCTIONS::queryAndMapArray($query, 'ClassificationService::MapToClassification', $this->db);
     }
 
-    function MapToClassification(array $row){
-        return new ClassificationHour($row, $this->db);
+    public static function MapToClassification(array $row, PDO $db){
+        return new ClassificationHour($row, $db);
     }
 }

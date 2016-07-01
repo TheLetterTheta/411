@@ -17,10 +17,10 @@ class UserPrerequisiteService
     function GetClassUserPrerequisites($classId){
         $query = $this->db->prepare(SqlPreparedStatements::GET_USER_PREREQUISITES_BY_CLASS);
         $query->bindParam(":classId", $classId);
-        return FUNCTIONS::queryAndMapArray($query, 'UserPrerequisiteService::MapToUserPrerequisite');
+        return FUNCTIONS::queryAndMapArray($query, 'UserPrerequisiteService::MapToUserPrerequisite', $this->db);
     }
     
-    function MapToUserPrerequisite(array $row){
-        return new ClassUserPrerequisite($row, $this->db);
+    public static function MapToUserPrerequisite(array $row, PDO $db){
+        return new ClassUserPrerequisite($row, $db);
     }
 }

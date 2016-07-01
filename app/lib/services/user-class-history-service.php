@@ -17,10 +17,10 @@ class UserClassHistoryService
     function GetClassHistoryByUserId($userId){
         $query = $this->db->prepare(SqlPreparedStatements::GET_USER_CLASS_HISTORY_BY_USER);
         $query->bindParam(":userId", $userId);
-        return FUNCTIONS::queryAndMapArray($query, 'UserClassHistoryService::MapToUserClassHistoryItem');
+        return FUNCTIONS::queryAndMapArray($query, 'UserClassHistoryService::MapToUserClassHistoryItem', $this->db);
     }
 
-    function MapToUserClassHistoryItem(array $row){
-        return new UserClassHistoryItem($row, $this->db);
+    public static function MapToUserClassHistoryItem(array $row, PDO $db){
+        return new UserClassHistoryItem($row, $db);
     }
 }

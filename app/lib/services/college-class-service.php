@@ -17,32 +17,32 @@ class CollegeClassService
     function GetClassById($classId){
         $query = $this->db->prepare(SqlPreparedStatements::GET_CLASS_VIEW);
         $query->bindParam(":classId", $classId);
-        return FUNCTIONS::queryAndMapItem($query, 'CollegeClassService::MapToClassDTO');
+        return FUNCTIONS::queryAndMapItem($query, 'CollegeClassService::MapToClassDTO', $this->db);
     }
     
     function GetClassesByCollegeId($collegeId){
         $query = $this->db->prepare(SqlPreparedStatements::GET_ALL_CLASSES_BY_COLLEGE);
         $query->bindParam(":collegeId", $collegeId);
-        return FUNCTIONS::queryAndMapArray($query, 'CollegeClassService::MapToCollegeClass');
+        return FUNCTIONS::queryAndMapArray($query, 'CollegeClassService::MapToCollegeClass', $this->db);
     }
 
     function GetClassPrerequisites($classId){
         $query = $this->db->prepare(SqlPreparedStatements::GET_CLASS_PREREQUISITES);
         $query->bindParam(":classId", $classId);
-        return FUNCTIONS::queryAndMapArray($query, 'CollegeClassService::MapToCollegeClass');
+        return FUNCTIONS::queryAndMapArray($query, 'CollegeClassService::MapToCollegeClass', $this->db);
     }
 
     function GetClassesByConcentration($curriculumId){
         $query = $this->db->prepare(SqlPreparedStatements::GET_CLASSES_BY_CURRICULUM);
         $query->bindParam(":curriculumId", $curriculumId);
-        return FUNCTIONS::queryAndMapArray($query, 'CollegeClassService::MapToCollegeClass');
+        return FUNCTIONS::queryAndMapArray($query, 'CollegeClassService::MapToCollegeClass', $this->db);
     }
 
-    function MapToCollegeClass(array $row){
-        return new CollegeClass($row);
+    function MapToCollegeClass(array $row, PDO $db){
+        return new CollegeClass($row, $db);
     }
 
-    function MapToClassDTO(array $row){
+    function MapToClassDTO(array $row, PDO $db){
         return new ClassDTO($row);
     }
 }

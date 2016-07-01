@@ -16,16 +16,16 @@ class CollegeService
 
     function GetColleges(){
         $query = $this->db->query(SqlPreparedStatements::GET_ALL_COLLEGES);
-        return FUNCTIONS::queryAndMapArray($query, 'CollegeService::MapToCollege');
+        return FUNCTIONS::queryAndMapArray($query, 'CollegeService::MapToCollege', $this->db);
     }
     
     function GetCollegeById($collegeId){
         $query = $this->db->prepare(SqlPreparedStatements::GET_COLLEGE_BY_ID);
         $query->bindParam(":collegeId", $collegeId);
-        return FUNCTIONS::queryAndMapItem($query, 'CollegeService::MapToCollege');
+        return FUNCTIONS::queryAndMapItem($query, 'CollegeService::MapToCollege', $this->db);
     }
 
-    function MapToCollege(array $row){
-        return new College($row, $this->db);
+    public static function MapToCollege(array $row, PDO $db){
+        return new College($row, $db);
     }
 }

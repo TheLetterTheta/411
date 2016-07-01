@@ -16,22 +16,22 @@ class DepartmentService
 
     function GetDepartments(){
         $query = $this->db->query(SqlPreparedStatements::GET_ALL_DEPARTMENTS);
-        return FUNCTIONS::queryAndMapArray($query, 'DepartmentService::MapToDepartment');
+        return FUNCTIONS::queryAndMapArray($query, 'DepartmentService::MapToDepartment', $this->db);
     }
 
     function GetDepartmentById($departmentId){
         $query = $this->db->prepare(SqlPreparedStatements::GET_DEPARTMENT_BY_ID);
         $query->bindParam(":departmentId", $departmentId);
-        return FUNCTIONS::queryAndMapItem($query, 'DepartmentService::MapToDepartment');
+        return FUNCTIONS::queryAndMapItem($query, 'DepartmentService::MapToDepartment', $this->db);
     }
 
     function GetDepartmentsByCollege($collegeId){
         $query = $this->db->prepare(SqlPreparedStatements::GET_DEPARTMENTS_BY_COLLEGE);
         $query->bindParam(":collegeId", $collegeId);
-        return FUNCTIONS::queryAndMapItem($query, 'DepartmentService::MapToDepartment');
+        return FUNCTIONS::queryAndMapItem($query, 'DepartmentService::MapToDepartment', $this->db);
     }
 
-    function MapToDepartment(array $row){
-        return new Department($row, $this->db);
+    public static function MapToDepartment(array $row, PDO $db){
+        return new Department($row, $db);
     }
 }

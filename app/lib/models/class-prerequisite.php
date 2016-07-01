@@ -41,6 +41,10 @@ class ClassPrerequisite
         }
         return $this->class;
     }
+    public function SetClass($newClass){
+        $this->class = $newClass;
+        $this->hasClass = true;
+    }
 
     private $prevClass;
     private $hasPrevClass = false;
@@ -51,5 +55,9 @@ class ClassPrerequisite
             $this->hasPrevClass = true;
         }
         return $this->prevClass;
+    }
+    public function SetPrevClass($newPrevClass){
+        $this->prevClass = $newPrevClass;
+        $this->hasPrevClass = true;
     }
 }

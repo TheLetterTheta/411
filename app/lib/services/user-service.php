@@ -17,27 +17,27 @@ class UserService
 
     function GetUsers(){
         $query = $this->db->query(SqlPreparedStatements::GET_ALL_USERS);
-        return FUNCTIONS::queryAndMapArray($query, 'UserService::MapToUser');
+        return FUNCTIONS::queryAndMapArray($query, "UserService::MapToUser", $this->db);
     }
 
     function GetUserDetails($userId){
         $query = $this->db->prepare(SqlPreparedStatements::GET_USER_VIEW);
         $query->bindParam(':userId', $userId);
-        return FUNCTIONS::queryAndMapItem($query, 'UserService::MapToUserVM');
+        return FUNCTIONS::queryAndMapItem($query, 'UserService::MapToUserVM',  $this->db);
     }
 
     public function GetUserById($userId)
     {
         $query = $this->db->prepare(SqlPreparedStatements::GET_USER_BY_ID);
         $query->bindParam(':userId', $userId);
-        return FUNCTIONS::queryAndMapItem($query, 'UserService::MapToUser');
+        return FUNCTIONS::queryAndMapItem($query, 'UserService::MapToUser', $this->db);
     }
 
-    private function MapToUser(array $row){
-        return new User($row, $this->db);
+    public static function MapToUser(array $row, PDO $db){
+        return new User($row, $db);
     }
 
-    private function MapToUserVM(array $row){
+    public static function MapToUserVM(array $row, PDO $db){
         return new UserDTO($row);
     }
 }
