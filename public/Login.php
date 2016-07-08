@@ -4,6 +4,26 @@
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script>
+
+            function pressMe(){
+                $.ajax({
+                    url:'/411/public/api/user',
+                    type:'POST',
+                    datatype:'json',
+                    data:{
+                        collegeId: 1,
+                        email: "test@test.com",
+                        apiKey: "",
+                        firstName: "Bob",
+                        lastName: "Bobby"
+                    },
+                    success:function(data) {
+                        console.log(data);
+                    }
+                })
+            }
+        </script>
     </head>
     <body>
         <?php
@@ -14,6 +34,7 @@
                 {
                     session_start();
                 }
+                echo"<button value='hello' onclick='pressMe()'></button>";
                 $client = new Google_Client();
                 $client->setClientId('630519487028-7rgetifcjskk4tdbagbmi7ib0rr3j3oe.apps.googleusercontent.com');
                 $client->setClientSecret('9ESYPq2HejybZeBdH6E-WEwz');

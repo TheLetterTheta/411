@@ -21,6 +21,20 @@ $app->group('/api', function() use ($app){
             $user = $userService->GetUserDetails($args["id"]);
             return json_encode($user);
         });
+        $app->post('', function (Request $request, Response $response, $args) {
+            $user = new user();
+            $data=$request->getParsedBody();
+            $user->Email=$data['email'];
+            $user->FirstName= $data['firstName'];
+            $user->LastName = $data['lastName'];
+            $user->CollegeId = $data['collegeId'];
+            $user->ApiKey = $data['apiKey'];
+            $userService = new UserService($this->db);
+            $result=$userService->PostUser($user);
+            return $result;
+
+
+        });
     });
 
     $app->group('/class', function() use ($app){
