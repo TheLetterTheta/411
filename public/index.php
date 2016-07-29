@@ -5,8 +5,8 @@ require '../app/data/const/constants.php';
 require '../app/data/const/functions.php';
 require '../app/data/const/prepared-statements.php';
 
-$config['displayErrorDetails'] = true;
 
+$config['displayErrorDetails'] = true;
 $config['db']['host']   = CONSTANTS::DB_HOST;
 $config['db']['user']   = CONSTANTS::DB_USER;
 $config['db']['pass']   = CONSTANTS::DB_PASSWORD;

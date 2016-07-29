@@ -34,7 +34,6 @@
                 {
                     session_start();
                 }
-                echo"<button value='hello' onclick='pressMe()'></button>";
                 $client = new Google_Client();
                 $client->setClientId('630519487028-7rgetifcjskk4tdbagbmi7ib0rr3j3oe.apps.googleusercontent.com');
                 $client->setClientSecret('9ESYPq2HejybZeBdH6E-WEwz');

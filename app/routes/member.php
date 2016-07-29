@@ -18,7 +18,7 @@ $app->group('/api', function() use ($app){
         });
         $app->get('/{id:[0-9]+}', function(Request $request, Response $response, $args){
             $userService = new UserService($this->db);
-            $user = $userService->GetUserDetails($args["id"]);
+            $user = $userService->GetUserById($args["id"]);
             return json_encode($user);
         });
         $app->post('', function (Request $request, Response $response, $args) {
@@ -31,9 +31,22 @@ $app->group('/api', function() use ($app){
             $user->ApiKey = $data['apiKey'];
             $userService = new UserService($this->db);
             $result=$userService->PostUser($user);
-            return $result;
+            return json_encode($result);
 
 
+        });
+        $app->put('',function(Request $request, Response $response, $args){
+            $user = new user();
+            $data=$request->getParsedBody();
+            $user->Email=$data['email'];
+            $user->FirstName= $data['firstName'];
+            $user->LastName = $data['lastName'];
+            $user->CollegeId = $data['collegeId'];
+            $user->ApiKey = $data['apiKey'];
+            $user->UserId= $data['userId'];
+            $userService = new UserService($this->db);
+            $request=$userService->PutUser($user);
+            return json_encode($request);
         });
     });
 

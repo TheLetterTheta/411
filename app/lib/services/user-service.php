@@ -30,6 +30,13 @@ class UserService
         return $query->execute();
         
     }
+    
+    function PutUser($user){
+        
+        $query = $this->db->query("UPDATE users set firstName='$user->FirstName',lastName='$user->LastName' WHERE UserId='$user->UserId'");
+
+        return $query->execute();
+    }
 
     function GetUserDetails($userId){
         $query = $this->db->prepare(SqlPreparedStatements::GET_USER_VIEW);
