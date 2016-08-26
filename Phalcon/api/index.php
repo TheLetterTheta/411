@@ -41,5 +41,6 @@ $app = new Micro($di);
 
 // Define the routes here
 require 'routes/userRoutes.php';
+require 'routes/classRoutes.php';
 
 $app->handle();
