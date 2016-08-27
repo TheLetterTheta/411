@@ -25,6 +25,16 @@ try {
     // Create a DI
     $di = new FactoryDefault();
 
+    $di->set('db', function () {
+        return new DbAdapter([
+            "host"     => "localhost",
+            "username" => "root",
+            "password" => "",
+            "dbname"   => "cmps_411"
+        ]);
+    });
+
+
     // Setup the view component
     $di->set('view', function () {
         $view = new View();
