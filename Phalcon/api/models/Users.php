@@ -28,25 +28,25 @@ class Users extends Model
     {
 
         //Act scores must be between 0 and 36 and not null
-        if($this->IsAct == 'true' && ($this->TestEnglish < 0 || $this->TestEnglish > 36)){
+        if($this->IsAct == true && ($this->TestEnglish < 0 || $this->TestEnglish > 36)){
             $this->appendMessage(new Message("ACT English score must be between 0 and 36"));
         }
-        else if( $this->TestEnglish < 200 || $this->TestEnglish > 800){
+        else if( $this->IsAct == false && ($this->TestEnglish < 200 || $this->TestEnglish > 800)){
             $this->appendMessage(new Message("SAT English score must be between 0 and 800"));
         }
 
-        if($this->IsAct == 'true' && ($this->TestMath < 0 || $this->TestMath > 36)){
+        if($this->IsAct == true && ($this->TestMath < 0 || $this->TestMath > 36)){
             $this->appendMessage(new Message("ACT Math score must be between 0 and 36"));
         }
-        else if( $this->TestMath < 200 || $this->TestMath > 800 ){
+        else if($this->IsAct == false && ($this->TestMath < 200 || $this->TestMath > 800) ){
             $this->appendMessage(new Message("SAT Math score must be between 0 and 800"));
         }
 
-        if($this->IsAct == 'true' && ($this->TestReading < 0 || $this->TestReading > 36)){
+        if($this->IsAct == true && ($this->TestReading < 0 || $this->TestReading > 36)){
             $this->appendMessage(new Message("ACT Reading score must be between 0 and 36"));
         }
 
-        if($this->IsAct == 'true' && ($this->TestScience < 0 || $this->TestScience > 36)){
+        if($this->IsAct ==true && ($this->TestScience < 0 || $this->TestScience > 36)){
             $this->appendMessage(new Message("ACT Science score must be between 0 and 36"));
         }
 

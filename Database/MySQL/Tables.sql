@@ -47,7 +47,7 @@ CREATE TABLE Users(
   LastModifiedDate DATETIME,
   PRIMARY KEY (UserId),
   CONSTRAINT fk_UsersCollege FOREIGN KEY (CollegeId)
-    REFERENCES Colleges(CollegeId)
+    REFERENCES Colleges(CollegeId) ON DELETE CASCADE
 );
 
 CREATE TABLE CollegeGpaDefinitions(
@@ -60,7 +60,7 @@ CREATE TABLE CollegeGpaDefinitions(
   LastModifiedDate DATETIME,
   PRIMARY KEY (CollegeGpaDefinitionId),
   CONSTRAINT fk_CollegeGpaDefinitionCollege FOREIGN KEY (CollegeId)
-    REFERENCES Colleges(CollegeId)
+    REFERENCES Colleges(CollegeId)ON DELETE CASCADE
 );
 
 CREATE TABLE Departments(
@@ -71,7 +71,7 @@ CREATE TABLE Departments(
   LastModifiedDate DATETIME,
   PRIMARY KEY (DepartmentId),
   CONSTRAINT fk_DepartmentCollege FOREIGN KEY (CollegeId)
-    REFERENCES Colleges(CollegeId)
+    REFERENCES Colleges(CollegeId)ON DELETE CASCADE
 );
 
 CREATE TABLE ClassPrerequisites(
@@ -81,9 +81,9 @@ CREATE TABLE ClassPrerequisites(
   LastModifiedDate DATETIME,
   PRIMARY KEY (ClassId,  PrevClassId),
   CONSTRAINT fk_ClassPrerequisitesClass FOREIGN KEY (ClassId)
-    REFERENCES Classes(ClassId),
+    REFERENCES Classes(ClassId)ON DELETE CASCADE,
   CONSTRAINT fk_ClassPrerequisitesPrevClass FOREIGN KEY (PrevClassId)
-    REFERENCES Classes(ClassId)
+    REFERENCES Classes(ClassId)ON DELETE CASCADE
 );
 
 CREATE TABLE ClassUserPrerequisites(
@@ -96,7 +96,7 @@ CREATE TABLE ClassUserPrerequisites(
   LastModifiedDate DATETIME,
   PRIMARY KEY (ClassUserPrerequisiteId),
   CONSTRAINT fk_ClassUserPrerequisiteClass FOREIGN KEY (ClassId)
-  REFERENCES Classes(ClassId)
+  REFERENCES Classes(ClassId)ON DELETE CASCADE
 );
 
 CREATE TABLE Curricula(
@@ -109,7 +109,7 @@ CREATE TABLE Curricula(
   LastModifiedDate DATETIME,
   PRIMARY KEY (CurriculumId),
   CONSTRAINT fk_CurriculumDepartment FOREIGN KEY (DepartmentId)
-    REFERENCES Departments(DepartmentId)
+    REFERENCES Departments(DepartmentId)ON DELETE CASCADE
 );
 
 CREATE TABLE Concentrations(
@@ -120,7 +120,7 @@ CREATE TABLE Concentrations(
   LastModifiedDate DATETIME,
   PRIMARY KEY (ConcentrationId),
   CONSTRAINT fk_ConcentrationCurriculum FOREIGN KEY (CurriculumId)
-    REFERENCES Curricula(CurriculumId)
+    REFERENCES Curricula(CurriculumId)ON DELETE CASCADE
 );
 
 CREATE TABLE SemesterType(
@@ -131,7 +131,7 @@ CREATE TABLE SemesterType(
   LastModifiedDate DATETIME,
   PRIMARY KEY (SemesterTypeId),
   CONSTRAINT fk_SemesterTypeCollege FOREIGN KEY (CollegeId)
-    REFERENCES Colleges(CollegeId)
+    REFERENCES Colleges(CollegeId)ON DELETE CASCADE
 );
 
 CREATE TABLE UserClassHistory (
@@ -147,11 +147,11 @@ CREATE TABLE UserClassHistory (
   LastModifiedDate DATETIME,
   PRIMARY KEY (UserId, ClassId),
   CONSTRAINT fk_UserClassHistoryUser FOREIGN KEY (UserId)
-    REFERENCES Users(UserId),
+    REFERENCES Users(UserId)ON DELETE CASCADE,
   CONSTRAINT fk_UserClassHistoryClass FOREIGN KEY (ClassId)
-    REFERENCES Classes(ClassId),
+    REFERENCES Classes(ClassId)ON DELETE CASCADE,
   CONSTRAINT fk_UserClassHistorySemesterType FOREIGN KEY (SemesterTypeId)
-    REFERENCES SemesterType(SemesterTypeId)
+    REFERENCES SemesterType(SemesterTypeId)ON DELETE CASCADE
 );
 
 CREATE TABLE UserConcentrations(
@@ -162,9 +162,9 @@ CREATE TABLE UserConcentrations(
   LastModifiedDate DATETIME,
   PRIMARY KEY (UserId,ConcentrationId),
   CONSTRAINT fk_UserConcentrationUser FOREIGN KEY (UserId)
-    REFERENCES Users(UserId),
+    REFERENCES Users(UserId)ON DELETE CASCADE,
   CONSTRAINT fk_UserConcentrationConcentration FOREIGN KEY (ConcentrationId)
-    REFERENCES Concentrations(ConcentrationId)
+    REFERENCES Concentrations(ConcentrationId)ON DELETE CASCADE
 );
 
 CREATE TABLE ConcentrationClass(
@@ -175,7 +175,7 @@ CREATE TABLE ConcentrationClass(
   LastModifiedDate DATETIME,
   PRIMARY KEY (ConcentrationId, ClassId),
   CONSTRAINT fk_ConcentrationClassConcentration FOREIGN KEY (ConcentrationId)
-    REFERENCES Concentrations(ConcentrationId),
+    REFERENCES Concentrations(ConcentrationId)ON DELETE CASCADE,
   CONSTRAINT fk_ConcentrationClassClass FOREIGN KEY (ClassId)
-    REFERENCES Classes(ClassId)
+    REFERENCES Classes(ClassId)ON DELETE CASCADE
 );
