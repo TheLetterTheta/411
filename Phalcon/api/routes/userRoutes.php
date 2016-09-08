@@ -46,7 +46,7 @@ $app->get('/user/{id}', function ($id) use($app) {
     return $response;
 });
 
-// Adds a new robot
+
 $app->post('/user', function () use($app) {
 
     $user = $app->request->getPost();
@@ -60,7 +60,8 @@ $app->post('/user', function () use($app) {
         'TestMath' => $user['TestMath'],
         'TestReading'=>$user['TestReading'],
         'TestScience'=>$user['TestScience'],
-        'IsAct'=>$user['IsAct']
+        'IsAct'=>$user['IsAct'],
+        'LastModifiedDate' =>date("Y-m-d H:i:s")
     ));
 
     // Create a response
@@ -103,7 +104,6 @@ $app->post('/user', function () use($app) {
     return $response;
 });
 
-// Updates robots based on primary key
 $app->put('/user/{id}', function ($id) use ($app) {
 
     $user = $app->request->getPut();
@@ -116,7 +116,9 @@ $app->put('/user/{id}', function ($id) use ($app) {
         'TestMath' => $user['TestMath'],
         'TestReading'=>$user['TestReading'],
         'TestScience'=>$user['TestScience'],
-        'IsAct'=>$user['IsAct']
+        'IsAct'=>$user['IsAct'],
+        'IsActive'=> $user['IsActive'],
+        'LastModifiedDate' =>$user['LastModifiedDate']
     ));
 
     // Create a response
@@ -150,18 +152,27 @@ $app->put('/user/{id}', function ($id) use ($app) {
     return $response;
 });
 
-// Deletes robots based on primary key
 $app->delete('/user/{id}', function ($id) use($app) {
 
-    $phql = "DELETE FROM users WHERE users.UserId = :id:";
-    $status = $app->modelsManager->executeQuery($phql, array(
-        'id' => $id
-    ));
+    $user =Users::findFirst(
+        [
+            'columns'    => '*',
+            'conditions' => 'UserId = ?1',
+            'bind'       => [
+                1 => $id
+
+            ]
+        ]
+     );
+    $user->IsActive=false;
+    $user->LastModifiedDate =date("Y-m-d H:i:s");
+    $user->save();
+
 
     // Create a response
     $response = new Response();
 
-    if ($status->success() == true) {
+    if ($user != null) {
         $response->setJsonContent(
             array(
                 'status' => 'OK'
@@ -173,10 +184,6 @@ $app->delete('/user/{id}', function ($id) use($app) {
         $response->setStatusCode(409, "Conflict");
 
         $errors = array();
-        foreach ($status->getMessages() as $message) {
-            $errors[] = $message->getMessage();
-        }
-
         $response->setJsonContent(
             array(
                 'status'   => 'ERROR',

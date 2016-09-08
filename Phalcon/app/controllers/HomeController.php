@@ -7,4 +7,8 @@ class HomeController extends Controller
     public function indexAction()
     {
     }
+    public function registerAction()
+    {
+        
+    }
 }
