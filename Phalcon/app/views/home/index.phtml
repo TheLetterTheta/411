@@ -18,39 +18,15 @@
                  $client->setRedirectUri('http://localhost/411/phalcon/public/home');
                  $client->addScope("email");
                  $client->addScope("profile");
+                $ticket = $client->verifyIdToken('eyJhbGciOiJSUzI1NiIsImtpZCI6IjEzNmQ3NmYwMDc2YWYwOTBjNTAyZTdlM2JhYWRmZTE1MGYyMzQ3YTUifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXRfaGFzaCI6IjZ1OVdaRDVmczNHQlY3VVlrOGJNSVEiLCJhdWQiOiI1MTAzNzk3Mzc3Ny0yaTAzYTdybWZobGJtZTRjcjUxOG8xbXE4NjYxczVmby5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjEwMjUyNTUyMDIxMDgwMzA5MjY4MyIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhenAiOiI1MTAzNzk3Mzc3Ny0yaTAzYTdybWZobGJtZTRjcjUxOG8xbXE4NjYxczVmby5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImVtYWlsIjoiamVzc2llYmFkb25rQGdtYWlsLmNvbSIsImlhdCI6MTQ3MzQ3MDQxNiwiZXhwIjoxNDczNDc0MDE2LCJuYW1lIjoiSmVzc2llIEJhZG9uIiwicGljdHVyZSI6Imh0dHBzOi8vbGg0Lmdvb2dsZXVzZXJjb250ZW50LmNvbS8tLUhhVEtGRURkcnMvQUFBQUFBQUFBQUkvQUFBQUFBQUFBQUEvQUdObC1PcjdGWDFMN2JGbS1XRVUyOU5kSU84ZDdQVlM4US9zOTYtYy9waG90by5qcGciLCJnaXZlbl9uYW1lIjoiSmVzc2llIiwiZmFtaWx5X25hbWUiOiJCYWRvbiIsImxvY2FsZSI6ImVuIn0.PTmx0GN-knTxLQ67TDkqfnrWUsPLeWxOC4jlsqu09d-DdiKPPkpokI0iCYeLAPmB64eDDdE-wS_sc46sV-GeyehR7h6MTdmeTLb6z2MXrjGEdC4h1-jPdupuxDe-20wLIgMPEXmsNjEBM6qkzRdlFLBIRmhO6orxJiU_2Yuu5BrVwAdyO35Ajj7MSqlh0WLUG8Goa8UgkwHflPnTTxuEv6hOlJucVJMi2MNpixrR3QUGX2l78KbZ3Lze1uoWQIOx16X5Ms5fmi_CwTowqWuJ5lNq8djCppuEE7lrwHsnpRr1Fsohu38UPQAdPMf9vq3j60uOPf1WSBsek7BGSrO8Iw');
+                if ($ticket) {
+                    $data = $ticket->getAttributes();
+                    echo $data['payload']['email']; // user ID
+                    echo "Welcome back, $userInfo->name ";
+                    echo "</br>";
+                    echo "Client Id:" . $id;
+                }
 
-                 $service = new Google_Service_Oauth2($client);
-                 if (isset($_GET['code'])) {
-                        $client->authenticate($_GET['code']);
-                        $_SESSION['access_token'] = $client->getAccessToken();
-                        header('Location: ' . filter_var('http://localhost/411/phalcon/public/home', FILTER_SANITIZE_URL));
-                        exit;
-                    }
-                 if (isset($_REQUEST['logout'])) {
-                        unset($_SESSION['access_token']);
-                     header('Location: https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']);
-                 }
-
-
-                if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
-                        $client->setAccessToken($_SESSION['access_token']);
-                   } else {
-                        $authUrl = $client->createAuthUrl('http://localhost/411/phalcon/public/home');
-                    }
-
-                         echo '<div style="margin:20px">';
-                         if (isset($authUrl)){
-
-                                echo '<div align="center">';
-                             echo '<h3>Welcome to 411 project!</h3>';
-                             echo '<div>Please click login button to connect to Google!</div>';
-                             echo "<a class='btn btn-default btn-outline btn-circle collapsed' href=  $authUrl >Sign In</a>";
-                            echo '</div>';
-
-                         }else {
-
-                             $userInfo = $service->userinfo->get(); //get user info
-                             $id = $userInfo->id;
                              $user = Users::findFirst([
                                  'columns' => '*',
                                  'conditions' => 'UserId = ?1',
@@ -64,7 +40,7 @@
                                  echo "</br>";
                                  echo "Client Id:" . $id;
 
-                         }
+                         
 ?>
 </body>
 </html>

@@ -1,24 +1,10 @@
-import {Todo} from './todo';
-
 export class App {
-    constructor() {
-        this.heading = "Changed";
-        this.todos = [];
-        this.todos.push(new Todo("new"));
-        this.todoDescription = '';
-    }
-
-    addTodo() {
-        if (this.todoDescription) {
-            this.todos.push(new Todo(this.todoDescription));
-            this.todoDescription = '';
-        }
-    }
-
-    removeTodo(todo) {
-        let index = this.todos.indexOf(todo);
-        if (index !== -1) {
-            this.todos.splice(index, 1);
-        }
+    configureRouter(config, router) {
+        config.title = 'Lion Planner';
+        config.map([
+            { route: ['','home'], name: 'home', moduleId: 'src/home/home' , nav: true , title:'Lion Planner'},
+            { route: 'profile', name: 'profile', moduleId: 'src/profile/profile' , nav: true , title:'Lion Planner'}
+        ]);
+        this.router = router;
     }
 }

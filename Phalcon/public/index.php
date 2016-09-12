@@ -14,6 +14,7 @@ use Phalcon\Mvc\Url as UrlProvider;
 use Phalcon\Db\Adapter\Pdo\Mysql as DbAdapter;
 
 try {
+    session_start();
 
     // Register an autoloader
     $loader = new Loader();
@@ -25,6 +26,7 @@ try {
     // Create a DI
     $di = new FactoryDefault();
 
+
     $di->set('db', function () {
         return new DbAdapter([
             "host"     => "localhost",
@@ -33,7 +35,6 @@ try {
             "dbname"   => "cmps_411"
         ]);
     });
-
 
     // Setup the view component
     $di->set('view', function () {
