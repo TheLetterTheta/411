@@ -13,6 +13,9 @@ use Phalcon\Db\Adapter\Pdo\Mysql as PdoMysql;
 
 require 'const/CONSTANTS.php';
 require 'const/FUNCTIONS.php';
+require '../../vendor/autoload.php';
+
+session_start();
 
 // Use Loader() to autoload our model
 $loader = new Loader();

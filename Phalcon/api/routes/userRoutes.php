@@ -1,23 +1,29 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Nick
- * Date: 8/24/2016
- * Time: 21:21 PM
- */
 use Phalcon\Http\Response;
 
 
 $app->get('/user', function () use ($app) {
-    $phql = "SELECT * FROM users";
-    $users = $app->modelsManager->executeQuery($phql);
 
-    $data = array();
-    foreach ($users as $user) {
-        array_push($data,$user);
+    $ticket= FUNCTIONS::UserGoogleTokenVarify($_GET['token']);
+    $data = $ticket->getAttributes();
+    $phql = "SELECT * FROM users WHERE users.UserId = :id:";
+    $user = $app->modelsManager->executeQuery($phql, array(
+            'id' =>  $data['payload']['sub']
+        ));
+    $response = new Response();
+
+    if (count($user)==0) {
+        $response->setJsonContent(
+            array(
+                'UserId' => $data['payload']['sub'],
+                'Status' => 'Not Found'
+            )
+        );
+    } else {
+        $_SESSION['UserId']= $data['payload']['sub'];
     }
 
-    echo json_encode($data);
+    return $response;
 });
 
 $app->get('/user/{id}', function ($id) use($app) {
