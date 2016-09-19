@@ -26,7 +26,6 @@ class Users extends Model
 
     public function validation()
     {
-
         //Act scores must be between 0 and 36 and not null
         if($this->IsAct == true && ($this->TestEnglish < 0 || $this->TestEnglish > 36)){
             $this->appendMessage(new Message("ACT English score must be between 0 and 36"));

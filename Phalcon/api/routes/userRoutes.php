@@ -7,40 +7,39 @@
  */
 use Phalcon\Http\Response;
 
-
-$app->get('/user', function () use ($app) {
-    $phql = "SELECT * FROM users";
-    $users = $app->modelsManager->executeQuery($phql);
-
-    $data = array();
-    foreach ($users as $user) {
-        array_push($data,$user);
-    }
-
-    echo json_encode($data);
-});
-
-$app->get('/user/{id}', function ($id) use($app) {
-    $phql = "SELECT * FROM users WHERE users.UserId = :id:";
-    $user = $app->modelsManager->executeQuery($phql, array(
-        'id' => $id
-    ));
-
+$app->get('/user', function() use($app) {
+    $userToken = $_GET["userId"];
     // Create a response
     $response = new Response();
 
-    if (count($user)==0) {
+    $ticket = FUNCTIONS::GET_GOOGLE_LOGIN($userToken);
+    if ($ticket) {
+        $googleUserId = $ticket['sub']; //Get user Id
+
+        $phql = "SELECT * FROM users WHERE users.UserId = :id:";
+        $user = $app->modelsManager->executeQuery($phql, array(
+            'id' => $googleUserId
+        ));
+
+        if (count($user)==0) {
+            $response->setJsonContent(
+                array(
+                    'status' => 'NOT-FOUND'
+                )
+            );
+            $response->setStatusCode(404,"NOT FOUND");
+        } else {
+            $data = array();
+            array_push($ticket, $user);
+            echo json_encode($data);
+        }
+    }else{
         $response->setJsonContent(
             array(
-                'status' => 'NOT-FOUND'
+                'status'=>'BAD-REQUEST'
             )
         );
-    } else {
-        $data =array();
-        array_push($data, $user);
-
-
-        echo json_encode($data);
+        $response->setStatusCode(400,"BAD REQUEST");
     }
 
     return $response;
@@ -48,7 +47,6 @@ $app->get('/user/{id}', function ($id) use($app) {
 
 
 $app->post('/user', function () use($app) {
-
     $user = $app->request->getPost();
 
     $phql = "INSERT INTO users (UserId,CollegeId,TestEnglish, TestMath,TestReading,TestScience,IsAct) VALUES (:UserId:,:CollegeId:, :TestEnglish:, :TestMath:,:TestReading:,:TestScience:,:IsAct:)";

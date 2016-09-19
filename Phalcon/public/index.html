@@ -10,13 +10,15 @@
           if (!location.origin)
               location.origin = location.protocol + "//" + location.host;
           $.ajax({
-              type: "POST",
-              url: "http://localhost/411/phalcon/public/home/login",
+              type: "GET",
+              url: "http://localhost/411/phalcon/api/user",
               data:{
-                  token:id_token },
+                  userId:id_token
+              },
               dataType: "text",
               success: function(resultData){
-                  window.location='#profile';
+                  console.log(resultData);
+                  //window.location='#profile';
               }
           });
       }
@@ -24,10 +26,10 @@
     </script>
   </head>
   <body aurelia-app="src/main">
-    <script src="app/scripts/system.js"></script>
-    <script src="app/scripts/aurelia-routing.js"></script>
-    <script src="app/scripts/config-esnext.js"></script>
-    <script src="app/scripts/aurelia-core.min.js"></script>
+    <script src="scripts/system.js"></script>
+    <script src="scripts/aurelia-routing.js"></script>
+    <script src="scripts/config-esnext.js"></script>
+    <script src="scripts/aurelia-core.min.js"></script>
     <script>
       System.import('aurelia-bootstrapper');
     </script>
