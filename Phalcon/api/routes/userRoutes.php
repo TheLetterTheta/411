@@ -1,45 +1,52 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Nick
- * Date: 8/24/2016
- * Time: 21:21 PM
- */
 use Phalcon\Http\Response;
 
-$app->get('/user', function() use($app) {
-    $userToken = $_GET["userId"];
+
+$app->get('/user', function () use ($app) {
+
+    $ticket= FUNCTIONS::UserGoogleTokenVarify($_GET['token']);
+    $data = $ticket->getAttributes();
+    $phql = "SELECT * FROM users WHERE users.UserId = :id:";
+    $user = $app->modelsManager->executeQuery($phql, array(
+            'id' =>  $data['payload']['sub']
+        ));
+    $response = new Response();
+
+    if (count($user)==0) {
+        $response->setJsonContent(
+            array(
+                'UserId' => $data['payload']['sub'],
+                'Status' => 'Not Found'
+            )
+        );
+    } else {
+        $_SESSION['UserId']= $data['payload']['sub'];
+    }
+
+    return $response;
+});
+
+$app->get('/user/{id}', function ($id) use($app) {
+    $phql = "SELECT * FROM users WHERE users.UserId = :id:";
+    $user = $app->modelsManager->executeQuery($phql, array(
+        'id' => $id
+    ));
+
     // Create a response
     $response = new Response();
 
-    $ticket = FUNCTIONS::GET_GOOGLE_LOGIN($userToken);
-    if ($ticket) {
-        $googleUserId = $ticket['sub']; //Get user Id
-
-        $phql = "SELECT * FROM users WHERE users.UserId = :id:";
-        $user = $app->modelsManager->executeQuery($phql, array(
-            'id' => $googleUserId
-        ));
-
-        if (count($user)==0) {
-            $response->setJsonContent(
-                array(
-                    'status' => 'NOT-FOUND'
-                )
-            );
-            $response->setStatusCode(404,"NOT FOUND");
-        } else {
-            $data = array();
-            array_push($ticket, $user);
-            echo json_encode($data);
-        }
-    }else{
+    if (count($user)==0) {
         $response->setJsonContent(
             array(
-                'status'=>'BAD-REQUEST'
+                'status' => 'NOT-FOUND'
             )
         );
-        $response->setStatusCode(400,"BAD REQUEST");
+    } else {
+        $data =array();
+        array_push($data, $user);
+
+
+        echo json_encode($data);
     }
 
     return $response;
