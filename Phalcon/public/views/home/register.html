@@ -1,0 +1,58 @@
+<md-content flex="" layout-padding="" >
+    <div layout="row"  layout-align="space-around center" layout-padding="100px">
+        <md-whiteframe class="md-whiteframe-6dp" flex-gt-md="50">
+            <h2 class="md-title">Please enter your test scores: </h2>
+            <br>
+            <md-radio-group layout="row" layout-align="space-around center" ng-model="testMethod">
+                <md-radio-button ng-value="actTestMethod">ACT</md-radio-button>
+                <md-radio-button ng-value="satTestMethod"> SAT </md-radio-button>
+            </md-radio-group>
+            <br/>
+            <h4 class="md-subhead">Composite Score: {{computeAverage(testMethod) | number:0}}</h4>
+            <div layout="row" ng-show="testMethod === actTestMethod">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>English</label>
+                    <input type="number" min="0" max="36" ng-model="testMethod.testEnglish">
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Math</label>
+                    <input type="number" min="0" max="36" ng-model="testMethod.testMath">
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Reading</label>
+                    <input type="number" min="0" max="36" ng-model="testMethod.testReading">
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Science</label>
+                    <input type="number" min="0" max="36" ng-model="testMethod.testScience">
+                </md-input-container>
+            </div>
+            <div ng-show="testMethod == satTestMethod" layout="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>English</label>
+                    <input type="number" min="200" max="1200" ng-model="testMethod.testEnglish">
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Math</label>
+                    <input type="number" min="200" max="1200" ng-model="testMethod.testMath">
+                </md-input-container>
+            </div>
+        </md-whiteframe>
+    </div>
+    <div layout="row" layout-align="space-around center" layout-padding="100px">
+        <md-whiteframe class="md-whiteframe-6dp" flex-gt-md="50">
+            <h2 class="md-title">Please select a University to attend from the list: </h2>
+            <br/>
+            <md-autocomplete
+                md-selected-item="selectedCollege"
+                md-items="school in searchColleges(searchText)"
+                md-item-text="school.name"
+                md-mid-length="0"
+                placeholder="Search for University">
+                <md-item-template>
+                    <span md-highlight-text="searchText">{{school.name}}</span>
+                </md-item-template>
+            </md-autocomplete>
+        </md-whiteframe>
+    </div>
+</md-content>

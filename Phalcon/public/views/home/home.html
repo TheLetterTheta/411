@@ -4,34 +4,8 @@
         <h2 class="md-flex">Welcome!</h2>
     </div>
 </md-toolbar>
-<div ng-show="show">
-    <md-content flex="" layout-padding=""  layout-align="center center" layout="column" >
-            <h3>Welcome to Lion Planners! </h3>
-            <div>Please click login button to connect to Google!</div>
-            <div class="g-signin2" data-onsuccess="onSignIn" ></div>
-    </md-content>
-</div>
-<div ng-hide="show">
-    <md-content flex="" layout-padding="" >
-        <div layout="row"  layout-align="space-around center" layout-padding="100px" class="whiteframedemoBasicClassUsage" layout-wrap="">
-            <md-whiteframe class="md-whiteframe-6dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="60">
-                <h3>Select standardized testing method: </h3>
-                <br>
-                <md-radio-group ng-model="data.group3" layout="row"  layout-align="space-around center">
-
-                    <md-radio-button value="ACT">ACT</md-radio-button>
-                    <md-radio-button value="SAT"> SAT </md-radio-button>
-
-                </md-radio-group>
-            </md-whiteframe>
-
-        </div>
-        <div layout="row"  layout-align="space-around center">
-            <md-whiteframe class="md-whiteframe-6dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="60" layout="" layout-align="center center">
-                <h3>Input Scores:</h3>
-                
-            </md-whiteframe>
-
-        </div>
-    </md-content>
-</div>
+<md-content flex="" layout-padding=""  layout-align="center center" layout="column" >
+        <h3>Welcome to Lion Planners! </h3>
+        <div>Please click login button to connect to Google!</div>
+        <div class="g-signin2" data-onsuccess="onSignIn" ></div>
+</md-content>

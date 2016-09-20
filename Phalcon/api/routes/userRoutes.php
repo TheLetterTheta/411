@@ -3,55 +3,37 @@ use Phalcon\Http\Response;
 
 
 $app->get('/user', function () use ($app) {
+    $response = new Response();
 
-    $ticket= FUNCTIONS::UserGoogleTokenVarify($_GET['token']);
-    $data = $ticket->getAttributes();
-    $phql = "SELECT * FROM users WHERE users.UserId = :id:";
-    $user = $app->modelsManager->executeQuery($phql, array(
-            'id' =>  $data['payload']['sub']
+    $ticket = FUNCTIONS::VERIFY_GOOGLE_TOKEN($_GET['token']);
+    if(!$ticket){
+        $response->setJsonContent(
+            array(
+                'Status' => 'Forbidden'
+            )
+        );
+        $response->setStatusCode(403, 'FORBIDDEN');
+    } else {
+
+        $phql = "SELECT * FROM users WHERE users.UserId = :id:";
+        $users = $app->modelsManager->executeQuery($phql, array(
+            'id' => $ticket['sub']
         ));
-    $response = new Response();
 
-    if (count($user)==0) {
-        $response->setJsonContent(
-            array(
-                'UserId' => $data['payload']['sub'],
-                'Status' => 'Not Found'
-            )
-        );
-    } else {
-        $_SESSION['UserId']= $data['payload']['sub'];
+        if (count($users) == 0) {
+            $response->setJsonContent(
+                array(
+                    'UserId' => $ticket['sub'],
+                    'Status' => 'Not Found'
+                )
+            );
+            $response->setStatusCode(404, 'NOT FOUND');
+        } else {
+            $_SESSION['UserId'] = $ticket['sub'];
+        }
     }
-
     return $response;
 });
-
-$app->get('/user/{id}', function ($id) use($app) {
-    $phql = "SELECT * FROM users WHERE users.UserId = :id:";
-    $user = $app->modelsManager->executeQuery($phql, array(
-        'id' => $id
-    ));
-
-    // Create a response
-    $response = new Response();
-
-    if (count($user)==0) {
-        $response->setJsonContent(
-            array(
-                'status' => 'NOT-FOUND'
-            )
-        );
-    } else {
-        $data =array();
-        array_push($data, $user);
-
-
-        echo json_encode($data);
-    }
-
-    return $response;
-});
-
 
 $app->post('/user', function () use($app) {
     $user = $app->request->getPost();
