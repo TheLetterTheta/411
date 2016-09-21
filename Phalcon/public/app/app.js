@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngRoute','ngMaterial','homeCtrl','registerCtrl']);
+var app = angular.module('app', ['ngRoute','ngMaterial','homeCtrl','registerCtrl','plannerCtrl']);
 
 app.config(function($routeProvider) {
     $routeProvider
@@ -9,6 +9,10 @@ app.config(function($routeProvider) {
         .when('/register',{
             templateUrl : 'public/views/home/register.html',
             controller : 'registerController'
+        })
+        .when('/planner',{
+            templateUrl : 'public/views/planner/planner.html',
+            controller : 'plannerController'
         })
         .otherwise({redirectTo: '/'});
 });

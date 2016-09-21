@@ -9,6 +9,7 @@
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
     <body data-ng-app="app">
         <div data-ng-view></div>
@@ -16,6 +17,7 @@
         <script src="public/app/app.js"></script>
         <script src="public/controllers/homeController.js"></script>
         <script src="public/controllers/registerController.js"></script>
+        <script src="public/controllers/plannerController.js"></script>
         <script src="public/services/userService.js"></script>
     </body>
 </html>
