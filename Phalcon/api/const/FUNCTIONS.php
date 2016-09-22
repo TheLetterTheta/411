@@ -18,10 +18,11 @@ class FUNCTIONS
         $client->addScope("profile");
 
         $ticket = $client->verifyIdToken($token);
+        $data = $ticket->getAttributes();
 
-        if($ticket && $ticket["aud"] == CONSTANTS::GOOGLE_CLIENT_ID)
+        if($ticket && $data["payload"]["aud"] == CONSTANTS::GOOGLE_CLIENT_ID)
         {
-           return $ticket;
+           return $data['payload'];
         }
         return null;
     }

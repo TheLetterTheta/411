@@ -12,10 +12,16 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
     <body data-ng-app="app">
+
+        <div ng-controller="headerController">
+            <div ng-include src="header.url"></div>
+            <script type="text/ng-template" id="header.html"></script>
+        </div>
         <div data-ng-view></div>
 
         <script src="public/app/app.js"></script>
         <script src="public/controllers/homeController.js"></script>
+        <script src="public/controllers/headerController.js"></script>
         <script src="public/controllers/registerController.js"></script>
         <script src="public/controllers/plannerController.js"></script>
         <script src="public/services/userService.js"></script>

@@ -14,5 +14,15 @@ app.config(function($routeProvider) {
             templateUrl : 'public/views/planner/planner.html',
             controller : 'plannerController'
         })
+        .when('/header',{
+            templateUrl: 'public/views/layout/header.html',
+            controller : 'headerController'
+        })
         .otherwise({redirectTo: '/'});
 });
+app.controller("headerController",  ["$scope", "$mdSidenav", function($scope, $mdSidenav){
+    $scope.header ={name: "header.html", url: "public/views/layout/header.html"};
+    $scope.toggleRight =function() {
+        $mdSidenav('left').toggle();
+    };
+}]);

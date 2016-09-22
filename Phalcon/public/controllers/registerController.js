@@ -60,6 +60,7 @@
             if(newMajor && ! $scope.selectedMajors.includes(newMajor)){
                 $scope.selectedMajors.push(newMajor);
             }
+            $scope.curriculumSearchText = "";
         };
 
         $scope.searchCurricula = function(text){
