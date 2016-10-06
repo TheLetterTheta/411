@@ -55,6 +55,27 @@
             }
         ];
 
+        $scope.selectedSemester = $scope.semesters[0];
+
+        $scope.selectSemester = function(semester){
+            if($scope.selectedSemester === semester){
+                $scope.selectedSemester = null;
+            }else {
+                $scope.selectedSemester = semester;
+            }
+        };
+
+        $scope.getStarRating = function(rateClass){
+            var ret  = [];
+            for (var i = 1; i <= rateClass.averageRating; i++){
+                ret.push("full");
+            }
+            if(rateClass.averageRating % 1 >= 0.5){
+                ret.push("half");
+            }
+            return ret;
+        };
+
         $scope.totalSemesterHours = function(semester){
             var ret = 0;
             for (var i = 0; i < semester.classes.length; i++){

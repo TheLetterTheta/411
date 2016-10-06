@@ -10,8 +10,6 @@
             .accentPalette('yellow');
         $mdThemingProvider.setDefaultTheme('altTheme');
         $mdThemingProvider.alwaysWatchTheme(true);
-        $mdThemingProvider.theme('grey').backgroundPalette('blue-grey');
-        $mdThemingProvider.theme('black').backgroundPalette('grey');
 
         $routeProvider
            .when("/home",{
