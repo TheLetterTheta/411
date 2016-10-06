@@ -9,8 +9,8 @@
     function profileController($scope){
         $scope.user={
             id: 1,
-            name: "Mr.Klansman",
-            email:"Harambe.vanKlansman@selu.edu",
+            name: "Mr.Champion",
+            email:"Harambe.vanChampion@selu.edu",
             majors: [
                 {
                     id: 1,
