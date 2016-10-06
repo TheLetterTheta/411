@@ -1,0 +1,18 @@
+<div ng-repeat="semester in semesters" layout-padding>
+    <md-toolbar class="md-primary">
+        <div class="md-toolbar-tools" layout="row">
+            <h2 class="md-flex">{{semester.name}} {{semester.year}}</h2>
+        </div>
+    </md-toolbar>
+    <md-content>
+        <md-list>
+            <md-subheader class="md-no-sticky">Total Hours: {{totalSemesterHours(semester)}}</md-subheader>
+            <md-list-item class="md-3-line" ng-repeat="class in semester.classes">
+                <div class="md-list-item-text" layout="column">
+                    <h4>{{class.name}}</h4>
+                    <p>{{class.fullName}}</p>
+                </div>
+            </md-list-item>
+        </md-list>
+    </md-content>
+</div>

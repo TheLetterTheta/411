@@ -1,0 +1,25 @@
+<md-toolbar class="md-hue-2">
+    <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleRight()">
+            <md-icon  md-font-library="material-icons">menu</md-icon>
+        </md-button>
+        <h2>
+            <span>Planner</span>
+        </h2>
+    </div>
+</md-toolbar>
+</md-toolbar><md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left" md-is-open="isSidenavOpen" >
+
+    <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools">Lion Planner</h1>
+    </md-toolbar>
+    <md-content>
+        <md-list>
+            <md-list-item class="md-3-line" ng-repeat="navigation in navigations" ng-click="changeNavigation(navigation.nav)">
+                <div class="md-list-item-text" layout="column">
+                    <h3>{{ navigation.title }}</h3>
+                </div>
+            </md-list-item>
+        </md-list>
+    </md-content>
+</md-sidenav>

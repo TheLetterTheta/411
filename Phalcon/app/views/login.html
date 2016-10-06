@@ -1,0 +1,26 @@
+<div class="fullscreen-login-image" layout-align="center center" layout="column" flex="auto">
+    <md-card>
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">Welcome to the Lion Planner!</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-actions layout="column" layout-align="end center">
+            <div layout="row">
+                <md-input-container>
+                    <label>W Number</label>
+                    <input ng-model="user.WNumber" type="text">
+                </md-input-container>
+                <md-input-container>
+                    <label>Password</label>
+                    <input ng-model="user.Password" type="password">
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-input-container>
+                    <md-button ng-click="login(user.WNumber, user.Password);" class="md-raised md-primary">Submit</md-button>
+                </md-input-container>
+            </div>
+        </md-card-actions>
+    </md-card>
+</div>

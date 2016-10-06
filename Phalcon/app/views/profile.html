@@ -1,0 +1,62 @@
+<md-card class="md-whiteframe-24dp" layout-padding>
+    <md-card-title-media >
+        <md-card-avatar layout = "row" layout-padding layout-align="center center">
+            <img class="md-user-avatar" style = "width: 10%; height: auto;" src="http://tr3.cbsistatic.com/fly/bundles/techrepubliccore/images/icons/standard/icon-user-default.png">
+        </md-card-avatar>
+    </md-card-title-media>
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline" layout = "row" layout-align="center center">{{user.name}}</span>
+            <p layout = "row" layout-align="center center">{{user.email}}</p>
+            <b layout="row" layout-align="center center">GPA: {{user.GPA}}</b>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-content layout="row">
+        <md-list flex class="md-dense">
+            <h2>Majors:</h2>
+            <md-list-item class="md-3-line" ng-repeat="major in user.majors | filter: {isMinor:false}">
+                <md-card>
+                    <md-card-title-media>
+                        <md-card-title>
+                            <md-card-title-text layout="row">
+                                <h2 class="md-display-1" style="margin-right:10px;">{{ major.name }} </h2>
+                                <md-progress-circular md-mode="determinate" class="md-warn" ng-show="major.progress < 33" md-diameter="75" value="{{major.progress}}"></md-progress-circular>
+                                <md-progress-circular md-mode="determinate" class="md-accent" ng-show="major.progress >=33 && major.progress < 66" md-diameter="75" value="{{major.progress}}"></md-progress-circular>
+                                <md-progress-circular md-mode="determinate" ng-show="major.progress >= 66" md-diameter="75" value="{{major.progress}}"></md-progress-circular>
+                                <p class="md-caption" style="top:17px;left:-50px;position: relative;">{{major.progress | number:0}}%</p>
+                            </md-card-title-text>
+                        </md-card-title>
+                    </md-card-title-media>
+                    <md-card-content layout="row">
+                        <p class="md-caption">{{ major.description }}</p>
+                    </md-card-content>
+                </md-card>
+            </md-list-item>
+        </md-list>
+        <md-list flex class="md-dense">
+            <h2>Minors:</h2>
+            <md-list-item class="md-3-line" ng-repeat="major in user.majors | filter: {isMinor:true}">
+                <md-card>
+                    <md-card-title-media>
+                        <md-card-title>
+                            <md-card-title-text layout="row">
+                                <h2 class="md-display-1" style="margin-right:10px;">{{ major.name }} </h2>
+                                <md-progress-circular md-mode="determinate" class="md-warn" ng-show="major.progress < 3" md-diameter="75" value="{{major.progress}}"></md-progress-circular>
+                                <md-progress-circular md-mode="determinate" class="md-accent" ng-show="major.progress >=33 && major.progress < 66" md-diameter="75" value="{{major.progress}}"></md-progress-circular>
+                                <md-progress-circular md-mode="determinate" ng-show="major.progress >= 66" md-diameter="75" value="{{major.progress}}"></md-progress-circular>
+                                <p class="md-caption" style="top:17px;left:-50px;position: relative;">{{major.progress | number:0}}%</p>
+                            </md-card-title-text>
+                        </md-card-title>
+                    </md-card-title-media>
+                    <md-card-content layout="row">
+                        <p class="md-caption">{{ major.description }}</p>
+                    </md-card-content>
+                </md-card>
+            </md-list-item>
+        </md-list>
+    </md-card-content>
+    <md-button class="md-primary">Change Major</md-button>
+</md-card>
+<!-------------------------------------------------------------------------------------------------------------------->
+<!-- TODO Add button later for each major that:    -- Manage the catalog preferences (in a modal)                   -->
+<!-------------------------------------------------------------------------------------------------------------------->
