@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: Jessie Badon
+ * Date: 10/12/2016
+ * Time: 4:16 PM
+ */
+class User
+{
+    public $id;
+    public $firstName;
+    public $lastName;
+    public $englishActScore;
+    public $mathActScore;
+    public $readingActScore;
+    public $scienceActScore;
+    public $isActive;
+    public $lastModifided;
+}

@@ -40,6 +40,10 @@ $di->set('db', function () {
     );
 });
 
+$di->set('userService', function(){
+    return new InMemoryUserService();
+});
+
 $app = new Micro($di);
 
 // Define the routes here
