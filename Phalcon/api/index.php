@@ -13,6 +13,8 @@ use Phalcon\Db\Adapter\Pdo\Mysql as PdoMysql;
 
 require 'const/CONSTANTS.php';
 require 'const/FUNCTIONS.php';
+require 'services/UserService/InMemoryUserService.php';
+require  'services/MajorService/InMemoryMajorService.php';
 require '../../vendor/autoload.php';
 
 session_start();
@@ -28,20 +30,11 @@ $loader->registerDirs(
 
 $di = new FactoryDefault();
 
-// Set up the database service
-$di->set('db', function () {
-    return new PdoMysql(
-        array(
-            "host"     => CONSTANTS::DB_HOST,
-            "username" => CONSTANTS::DB_USER,
-            "password" => CONSTANTS::DB_PASSWORD,
-            "dbname"   => CONSTANTS::DB_DATABASE
-        )
-    );
-});
-
 $di->set('userService', function(){
     return new InMemoryUserService();
+});
+$di->set('majorService', function(){
+    return new InMemoryMajorService();
 });
 
 $app = new Micro($di);

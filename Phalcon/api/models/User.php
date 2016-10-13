@@ -11,10 +11,13 @@ class User
     public $id;
     public $firstName;
     public $lastName;
+    public $email;
     public $englishActScore;
     public $mathActScore;
     public $readingActScore;
     public $scienceActScore;
+    public $gpa;
+    public $profileImgageUrl;
     public $isActive;
     public $lastModifided;
 }
