@@ -12,9 +12,12 @@ use Phalcon\Di\FactoryDefault;
 use Phalcon\Db\Adapter\Pdo\Mysql as PdoMysql;
 
 require 'const/FUNCTIONS.php';
-require 'const/CONSTANTS.php';
-require 'services/UserService/UserService.php';
 require '../../vendor/autoload.php';
+require 'services/UserService/IUserService.php';
+require 'services/MajorService/IMajorService.php';
+
+require 'services/UserService/InMemoryUserService.php';
+require 'services/MajorService/InMemoryMajorService.php';
 
 session_start();
 
@@ -30,12 +33,16 @@ $loader->registerDirs(
 $di = new FactoryDefault();
 
 $di->set('userService', function(){
-    return new UserService();
+    return new InMemoryUserService();
+});
+$di->set('majorService', function(){
+    return new InMemoryMajorService();
 });
 
 $app = new Micro($di);
 
 // Define the routes here
 require 'routes/userRoutes.php';
+require 'routes/classRoutes.php';
 
 $app->handle();

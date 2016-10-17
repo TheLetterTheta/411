@@ -2,8 +2,9 @@
 use Phalcon\Http\Response;
 
 
-$app->get('/user/login', function () use ($app) {
-    $wNumber = $_GET['wNumber'];
-    $password = $_GET['encryptedPassword'];
-    $app->di['userService']->Login($wNumber, $password);
-}
+$app->post('/user/login', function () use ($app) {
+    $wNumber = $_POST['wNumber'];
+    $password = $_POST['password'];
+    
+    $app->di['userService']->login($wNumber, $password);
+});

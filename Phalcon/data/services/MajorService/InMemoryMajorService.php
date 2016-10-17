@@ -131,8 +131,6 @@ Majors;
 ]
 Minors;
 
-
-
     public function GetMajors()
     {
         $majors = json_decode($this->_majors);

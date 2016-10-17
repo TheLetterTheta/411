@@ -6,31 +6,15 @@
  * Date: 8/24/2016
  * Time: 22:15 PM
  */
+use Phalcon\Http\Request;
+
 class FUNCTIONS
 {
-    public static function VERIFY_GOOGLE_TOKEN($token)
-    {
-        $client = new Google_Client();
-        $client->setClientId('51037973777-2i03a7rmfhlbme4cr518o1mq8661s5fo.apps.googleusercontent.com');
-        $client->setClientSecret('Zp87u9QXHEONlEsZlWsCQxgm');
-        $client->setRedirectUri('http://localhost/411/phalcon/public/home');
-        $client->addScope("email");
-        $client->addScope("profile");
-
-        $ticket = $client->verifyIdToken($token);
-        $data = $ticket->getAttributes();
-
-        if($ticket && $data["payload"]["aud"] == CONSTANTS::GOOGLE_CLIENT_ID)
-        {
-           return $data['payload'];
-        }
-        return null;
-    }
 	public static function CURRENT_URL()    {
         return sprintf(
             "%s://%s%s",
             isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
-            $_SERVER['SERVER_NAME']
+            $_SERVER['HTTP_HOST']
             ,$_SERVER['REQUEST_URI']
         );
     }
@@ -39,7 +23,17 @@ class FUNCTIONS
         return sprintf(
             "%s://%s",
             isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
-            $_SERVER['SERVER_NAME']
+            $_SERVER['HTTP_HOST']
+        );
+    }
+
+    public static function DATA_API_URL(){
+        return sprintf(
+            "%s://%s%s%s",
+            isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
+            $_SERVER['HTTP_HOST'],
+            CONSTANTS::FILE_PATH,
+            "/data"
         );
     }
 }
