@@ -10,6 +10,8 @@ require 'UserService/IUserService.php';
 require 'UserService/InMemoryUserService.php';
 require 'MajorMinorService/IMajorMinorDataService.php';
 require 'MajorMinorService/InMemoryMajorMinorService.php';
+require 'classService/IClassDataService.php';
+require 'classService/InMemoryClass.php';
 
 class dataServiceConf
 {
@@ -19,5 +21,9 @@ class dataServiceConf
     public function GetMajorMinorService()
     {
         return new InMemoryMajorMinorService();
+    }
+    public function GetClassService()
+    {
+        return new InMemoryClass();
     }
 }

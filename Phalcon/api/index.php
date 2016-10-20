@@ -19,6 +19,8 @@ require '../data/dataServiceConf.php';
 require '../../vendor/autoload.php';
 require 'services/MajorMinorService/IMajorMinorService.php';
 require 'services/MajorMinorService/MajorMinorService.php';
+require 'services/ClassService/IClassService.php';
+require 'services/ClassService/ClassService.php';
 
 session_start();
 
@@ -47,11 +49,19 @@ $di->set('dataMajorMinorService', function(){
     $serviceConf = new dataServiceConf();
     return $serviceConf->GetMajorMinorService();
 });
+$di->set('classService', function(){
+    return new ClassService();
+});
+$di->set('dataClassService', function(){
+    $serviceConf = new dataServiceConf();
+    return $serviceConf->GetClassService();
+});
 
 $app = new Micro($di);
 
 // Define the routes here
 require 'routes/userRoutes.php';
 require 'routes/majorMinorRoutes.php';
+require  'routes/classRoutes.php';
 
 $app->handle();
