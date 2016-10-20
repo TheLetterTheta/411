@@ -21,6 +21,8 @@ require 'services/MajorMinorService/IMajorMinorService.php';
 require 'services/MajorMinorService/MajorMinorService.php';
 require 'services/ClassService/IClassService.php';
 require 'services/ClassService/ClassService.php';
+require 'services/PlannerService/IPlannerService.php';
+require 'services/PlannerService/PlannerService.php';
 
 session_start();
 
@@ -55,6 +57,9 @@ $di->set('classService', function(){
 $di->set('dataClassService', function(){
     $serviceConf = new dataServiceConf();
     return $serviceConf->GetClassService();
+});
+$di->set('plannerService', function(){
+    return new PlannerService();
 });
 
 $app = new Micro($di);
