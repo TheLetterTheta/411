@@ -8,5 +8,5 @@
  */
 interface IPlannerService
 {
-    public function createPlanner($userId);
+    public function createPlanner();
 }

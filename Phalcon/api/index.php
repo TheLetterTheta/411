@@ -15,14 +15,14 @@ require 'const/FUNCTIONS.php';
 require 'const/CONSTANTS.php';
 require 'services/UserService/IUserService.php';
 require 'services/UserService/UserService.php';
+require 'services/PlannerService/IPlannerService.php';
+require 'services/PlannerService/PlannerService.php';
 require '../data/dataServiceConf.php';
 require '../../vendor/autoload.php';
 require 'services/MajorMinorService/IMajorMinorService.php';
 require 'services/MajorMinorService/MajorMinorService.php';
 require 'services/ClassService/IClassService.php';
 require 'services/ClassService/ClassService.php';
-require 'services/PlannerService/IPlannerService.php';
-require 'services/PlannerService/PlannerService.php';
 
 session_start();
 
@@ -65,8 +65,9 @@ $di->set('plannerService', function(){
 $app = new Micro($di);
 
 // Define the routes here
+require 'routes/plannerRoutes.php';
 require 'routes/userRoutes.php';
 require 'routes/majorMinorRoutes.php';
-require  'routes/classRoutes.php';
+require 'routes/classRoutes.php';
 
 $app->handle();

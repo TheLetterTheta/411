@@ -735,5 +735,5 @@ class InMemoryClass implements IClassDataService
     {
         return $this->classes;
     }
-    
+
 }

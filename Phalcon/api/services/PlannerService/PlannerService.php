@@ -1,35 +1,34 @@
 <?php
 
+use Phalcon\Di;
 /**
  * Created by PhpStorm.
  * User: ThatGuyJustNow
  * Date: 10/19/2016
  * Time: 10:55 PM
  */
-class PlannerService
+class PlannerService implements IPlannerService
 {
-    public function createPlanner($userId)
+    private $di;
+    public function __construct()
     {
-        echo FUNCTIONS::DATA_API_URL().'/class/classes';
-        $curl = curl_init();
-        // Set some options - we are passing in a useragent too here
-        curl_setopt_array($curl, array(
-            CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_URL => FUNCTIONS::DATA_API_URL().'/class/classes',
-        ));
-        // Send the request & save response to $resp
-        $resp = curl_exec($curl);
-        // Close request to clear up some resources
-        curl_close($curl);
-        $remainingClasses = $resp;
+        $this->di = DI::getDefault();
+    }
+
+    public function createPlanner()
+    {
+        $response = $this->di["dataClassService"]->GetClasses();
+        $remainingClasses = json_encode($response);
         $remainingClasses = $this->modifyClassesArray($remainingClasses);
         $headerClasses = $this->generateHeaderClasses($remainingClasses);
-
+        //echo $remainingClasses;
 
     }
 
     private function modifyClassesArray($classList)
     {
+        echo $classList;
+        //breaks at at foreach 32 and  at 42
         foreach($classList as $class)
         {
             array_push($class, ['earliestSemester' => 0], ['isPlanned' => false]);
