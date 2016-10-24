@@ -15,7 +15,7 @@ class InMemoryClass implements IClassDataService
         $this->classes = array(
             array(
                 'id' => 1,
-                'shortName' => 'MATH',
+                'shortName' => 'Math',
                 'classNumber' => 200,
                 'fullName' => 'Calculus I',
                 'prerequisites' =>array(
@@ -37,13 +37,16 @@ class InMemoryClass implements IClassDataService
             ),
             array(
                 'id' => 2,
-                'shortName' => 'MATH',
+                'shortName' => 'Math',
                 'classNumber' => 201,
                 'fullName' => 'Calculus II',
                 'prerequisites' =>array(
                     array(
-                        'type' => 'class',
-                        'value' =>'Math 200')
+                        array(
+                            'type' => 'class',
+                            'value' =>'Math 200'
+                        )
+                    )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
@@ -52,13 +55,15 @@ class InMemoryClass implements IClassDataService
             ),
             array(
                 'id' => 3,
-                'shortName' => 'MATH',
+                'shortName' => 'Math',
                 'classNumber' => 380,
                 'fullName' => 'Mathematical Statistics',
                 'prerequisites' =>array(
                     array(
-                        'type' => 'class',
-                        'value' =>'Math 201'
+                        array(
+                            'type' => 'class',
+                            'value' =>'Math 201'
+                        )
                     )
                 ),
                 'semester' =>array(
@@ -98,7 +103,7 @@ class InMemoryClass implements IClassDataService
                 ),
                 'semester' =>array(
                 'fa','sp','su'
-            ),
+                ),
                 'hours' => 3
             ),            array(
                 'id' => 11,
@@ -119,7 +124,7 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                         'type' => 'class',
-                        'name' => 'Math 155'
+                        'value' => 'Math 155'
                         ),
                         array(
                             'type' => 'class',
@@ -213,7 +218,7 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'name' => 'CMPS 120'
+                            'value' => 'CMPS 120'
                         ),
                         array(
                             'type' => 'class',
@@ -296,8 +301,10 @@ class InMemoryClass implements IClassDataService
                         )
                     ),
                     array(
-                        'type' => 'class',
-                        'value' => 'Math 360'
+                        array(
+                            'type' => 'class',
+                            'value' => 'Math 360'
+                        )
                     )
                 ),
                 'semester' =>array(
@@ -334,8 +341,10 @@ class InMemoryClass implements IClassDataService
                         )
                     ),
                     array(
-                        'type' => 'standing',
-                        'value' => 'senior'
+                        array(
+                            'type' => 'standing',
+                            'value' => 'senior'
+                        )
                     )
                 ),
                 'semester' =>array(
@@ -394,10 +403,8 @@ class InMemoryClass implements IClassDataService
                             'value' => 'CMPS 257'
                         ),
                          array(
-                             array(
-                                 'type' => 'class',
-                                 'value' => 'Math 223'
-                             )
+                             'type' => 'class',
+                             'value' => 'Math 223'
                          )
                     )
                 ),
@@ -553,8 +560,10 @@ class InMemoryClass implements IClassDataService
                 'fullName' => 'Science Sequence II',
                 'prerequisites' =>array(
                     array(
-                        'type' => 'class',
-                        'value' => 'Science Sequence I'
+                        array(
+                            'type' => 'class',
+                            'value' => 'Science Sequence I'
+                        )
                     )
                 ),
                 'semester' =>array(
@@ -568,8 +577,10 @@ class InMemoryClass implements IClassDataService
                 'fullName' => 'Science Sequence Lab II',
                 'prerequisites' =>array(
                     array(
-                        'type' => 'class',
-                        'value' => 'Science Sequence Lab I'
+                        array(
+                            'type' => 'class',
+                            'value' => 'Science Sequence Lab I'
+                        )
                     )
                 ),
                 'semester' =>array(
@@ -583,8 +594,10 @@ class InMemoryClass implements IClassDataService
                 'fullName' => 'Science Sequence Lab II',
                 'prerequisites' =>array(
                     array(
-                        'type' => 'class',
-                        'value' => 'Science Sequence Lab I'
+                        array(
+                            'type' => 'class',
+                            'value' => 'Science Sequence Lab I'
+                        )
                     )
                 ),
                 'semester' =>array(
@@ -609,8 +622,10 @@ class InMemoryClass implements IClassDataService
                 'fullName' => 'Science Course Lab',
                 'prerequisites' =>array(
                     array(
-                        'type' => 'class',
-                        'value' => 'Science Course Lecture'
+                        array(
+                            'type' => 'class',
+                            'value' => 'Science Course Lecture'
+                        )
                     )
                 ),
                 'semester' =>array(

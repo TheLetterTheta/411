@@ -10,6 +10,9 @@ use Phalcon\Di;
 class PlannerService implements IPlannerService
 {
     private $di;
+    private $remainingClasses;
+    private $headerClasses;
+
     public function __construct()
     {
         $this->di = DI::getDefault();
@@ -18,53 +21,86 @@ class PlannerService implements IPlannerService
     public function createPlanner()
     {
         $response = $this->di["dataClassService"]->GetClasses();
-        $remainingClasses = json_encode($response);
-        $remainingClasses = $this->modifyClassesArray($remainingClasses);
-        $headerClasses = $this->generateHeaderClasses($remainingClasses);
-        //echo $remainingClasses;
-
-    }
-
-    private function modifyClassesArray($classList)
-    {
-        echo $classList;
-        //breaks at at foreach 32 and  at 42
-        foreach($classList as $class)
-        {
-            array_push($class, ['earliestSemester' => 0], ['isPlanned' => false]);
+        $this->remainingClasses = $this->modifyClassesArray($response);
+        $this->generateHeaderClasses();
+        if(is_array($this->headerClasses) || is_object($this->headerClasses)) {
+            foreach ($this->headerClasses as &$class) {
+                $class['earliestSemester'] = $this->calculateSemestersTillCompletion($class);
+            }
         }
+        echo json_encode($this->remainingClasses);
 
-        return $classList;
     }
 
-    private function generateHeaderClasses($classList)
+    private function modifyClassesArray(&$response)
     {
-        $headList = $classList;
-        foreach($classList as $class)
-        {
+        //echo $classList;
+        //breaks at at foreach 32 and  at 42
+        if(is_array($response)  || is_object($response)) {
+            foreach ($response as &$class) {
+                //echo(json_encode($class));
+                $class['earliestSemester'] = 0;
+                $class['isPlanned'] = false;
+            }
+        }
+        else{
+            echo('no array given');
+        }
+        return $response;
+    }
+
+    private function generateHeaderClasses()
+    {
+        $this->headerClasses = $this->remainingClasses;
+        if(! (is_array($this->remainingClasses) || is_object($this->remainingClasses))) return;
+        foreach ($this->remainingClasses as $class) {
             $prerequisites = $class['prerequisites'];
-            foreach($prerequisites as $andLayer)
-            {
-                foreach ($andLayer as $orLayer)
-                {
-                    foreach($orLayer as $prerequisite)
-                    {
-                        if($prerequisite['type'] == 'class')
-                        {
-                            $i = 0;
-                            foreach($headList as $class)
-                            {
-                                if(($class['shortname'].' '.$class['classNumber']) == $prerequisite)
-                                {
-                                    unset($headList[i]);
-                                }
-                                $i++;
+            if(empty($prerequisites)){
+                continue;
+            }
+            foreach ($prerequisites as $andLayer) {
+                foreach ($andLayer as $prerequisite) {
+                    if ($prerequisite['type'] == 'class') {
+                        foreach ($this->headerClasses as $key => $value) {
+                            if (strtoupper($value['shortName'] . ' ' . $value['classNumber']) == strtoupper($prerequisite['value'])) {
+                                unset($this->headerClasses[$key]);
+                                break;
                             }
                         }
                     }
                 }
             }
         }
-        return $headList;
+    }
+
+    private function calculateSemestersTillCompletion(&$class)
+    {
+        if(empty($class['prerequisites'])){
+            $class['earliestSemester'] = 0;
+            return 0;
+        }
+        $maxChildren = 0;
+        foreach ($class['prerequisites'] as $andLayer) {
+            foreach ($andLayer as $prerequisite) {
+                if ($prerequisite['type'] == 'class') {
+                    foreach ($this->remainingClasses as $key => $value) {
+                        if (strtoupper($value['shortName'] . ' ' . $value['classNumber']) == strtoupper($prerequisite['value'])) {
+                            if($value['earliestSemester'] > 0){
+                                $semesters = $value['earliestSemester'];
+                            }
+                            else {
+                                $semesters = $this->calculateSemestersTillCompletion($this->remainingClasses[$key]);
+                            }
+                            if ($semesters > $maxChildren) {
+                                $maxChildren = $semesters;
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        $class['earliestSemester'] = 1 + $maxChildren;
+        return $class['earliestSemester'];
     }
 }
