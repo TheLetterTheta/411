@@ -35,11 +35,11 @@ class InMemoryMajorMinorService implements IMajorMinorDataService
         );
         $this->userMajors = array(
             'userId' => 1,
-            $this->majors[1]
+            'majors' => $this->majors[1]
         );
         $this->userMinors = array(
             'userId' => 1,
-            $this->minors[0]
+            'minors' => $this->minors[0]
         );
     }
 

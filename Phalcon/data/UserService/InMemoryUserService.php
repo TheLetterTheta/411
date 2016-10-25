@@ -12,7 +12,7 @@ class InMemoryUserService implements IDataUserService
     private $users;
 
     public function __construct(){
-        $this->loginResponse = array("successful" => true, "apiKey" => "A@^BfgXghbfG58122");
+        $this->loginResponse = array("successful" => true, "apiKey" => "A@^BfgXghbfG58122" ,'userId' => 1);
         $this->users = array(
             array(
                 "userId" => 1,
@@ -23,7 +23,8 @@ class InMemoryUserService implements IDataUserService
                 "actMath" => 32,
                 "actReading" => 21,
                 "actScience" => 34,
-                "email" => "nicholas.dolan@selu.edu"
+                "email" => "nicholas.dolan@selu.edu",
+                'gpa' => 3.9
             ),
             array(
                 "userId" => 2,
@@ -34,7 +35,8 @@ class InMemoryUserService implements IDataUserService
                 "actMath" => 36,
                 "actReading" => 36,
                 "actScience" => 36,
-                "email" => "Joe.Wifi@selu.edu"
+                "email" => "Joe.Wifi@selu.edu",
+                'gpa' => 4.5
             )
         );
     }

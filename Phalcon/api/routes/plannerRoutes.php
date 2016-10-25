@@ -7,5 +7,5 @@
  */
 $app->get('/planner/buildPlanner', function () use ($app) {
     $response = $app->di['plannerService']->createPlanner();
-    return json_encode($response);
+    //return json_encode($response);
 });

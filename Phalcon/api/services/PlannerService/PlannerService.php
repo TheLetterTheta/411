@@ -16,6 +16,7 @@ class PlannerService implements IPlannerService
     public function __construct()
     {
         $this->di = DI::getDefault();
+        $this->headerClasses = array();
     }
 
     public function createPlanner()
@@ -24,10 +25,13 @@ class PlannerService implements IPlannerService
         $this->remainingClasses = $this->modifyClassesArray($response);
         $this->generateHeaderClasses();
         if(is_array($this->headerClasses) || is_object($this->headerClasses)) {
-            foreach ($this->headerClasses as &$class) {
-                $class['earliestSemester'] = $this->calculateSemestersTillCompletion($class);
+            foreach ($this->headerClasses as $class) {
+                $this->calculateSemestersTillCompletion($class, -1);
             }
         }
+        usort($this->remainingClasses, function($a, $b){
+            return $b['postRequisites'] <=> $a['postRequisites'];
+        });
         echo json_encode($this->remainingClasses);
 
     }
@@ -39,19 +43,16 @@ class PlannerService implements IPlannerService
         if(is_array($response)  || is_object($response)) {
             foreach ($response as &$class) {
                 //echo(json_encode($class));
-                $class['earliestSemester'] = 0;
+                $class['postRequisites'] = -1;
                 $class['isPlanned'] = false;
             }
-        }
-        else{
-            echo('no array given');
         }
         return $response;
     }
 
     private function generateHeaderClasses()
     {
-        $this->headerClasses = $this->remainingClasses;
+        $this->headerClasses = array_keys($this->remainingClasses);
         if(! (is_array($this->remainingClasses) || is_object($this->remainingClasses))) return;
         foreach ($this->remainingClasses as $class) {
             $prerequisites = $class['prerequisites'];
@@ -62,7 +63,7 @@ class PlannerService implements IPlannerService
                 foreach ($andLayer as $prerequisite) {
                     if ($prerequisite['type'] == 'class') {
                         foreach ($this->headerClasses as $key => $value) {
-                            if (strtoupper($value['shortName'] . ' ' . $value['classNumber']) == strtoupper($prerequisite['value'])) {
+                            if (strtoupper($this->remainingClasses[$value]['shortName'] . ' ' . $this->remainingClasses[$value]['classNumber']) == strtoupper($prerequisite['value'])) {
                                 unset($this->headerClasses[$key]);
                                 break;
                             }
@@ -73,26 +74,18 @@ class PlannerService implements IPlannerService
         }
     }
 
-    private function calculateSemestersTillCompletion(&$class)
+    private function calculateSemestersTillCompletion($classKeyPosition, $previousDepth)
     {
-        if(empty($class['prerequisites'])){
-            $class['earliestSemester'] = 0;
-            return 0;
+        if($this->remainingClasses[$classKeyPosition]['postRequisites'] < $previousDepth + 1) {
+            $this->remainingClasses[$classKeyPosition]['postRequisites'] = $previousDepth + 1;
         }
-        $maxChildren = 0;
-        foreach ($class['prerequisites'] as $andLayer) {
+        foreach ($this->remainingClasses[$classKeyPosition]['prerequisites'] as $andLayer) {
             foreach ($andLayer as $prerequisite) {
                 if ($prerequisite['type'] == 'class') {
                     foreach ($this->remainingClasses as $key => $value) {
                         if (strtoupper($value['shortName'] . ' ' . $value['classNumber']) == strtoupper($prerequisite['value'])) {
-                            if($value['earliestSemester'] > 0){
-                                $semesters = $value['earliestSemester'];
-                            }
-                            else {
-                                $semesters = $this->calculateSemestersTillCompletion($this->remainingClasses[$key]);
-                            }
-                            if ($semesters > $maxChildren) {
-                                $maxChildren = $semesters;
+                            if ($value['postRequisites'] < $previousDepth + 1) {
+                                $this->calculateSemestersTillCompletion($key, $previousDepth + 1);
                             }
                             break;
                         }
@@ -100,7 +93,7 @@ class PlannerService implements IPlannerService
                 }
             }
         }
-        $class['earliestSemester'] = 1 + $maxChildren;
-        return $class['earliestSemester'];
     }
+
+
 }
