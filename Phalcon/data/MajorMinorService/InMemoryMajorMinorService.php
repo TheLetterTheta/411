@@ -43,12 +43,12 @@ class InMemoryMajorMinorService implements IMajorMinorDataService
         );
     }
 
-    public function getMajors()
+    public function getMajors($userId)
     {
         return $this->majors;
     }
 
-    public function getMinors()
+    public function getMinors($userId)
     {
         return $this->minors;
     }

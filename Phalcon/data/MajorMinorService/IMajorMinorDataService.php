@@ -8,8 +8,8 @@
  */
 interface IMajorMinorDataService
 {
-    public function getMajors();
-    public function getMinors();
+    public function getMajors($userId);
+    public function getMinors($userId);
     public function getUserMajors($userId);
     public function getUserMinors($userId);
 }

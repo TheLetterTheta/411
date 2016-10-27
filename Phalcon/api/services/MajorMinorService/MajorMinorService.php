@@ -10,14 +10,14 @@ class MajorMinorService implements IMajorMinorService
         $this->di = DI::getDefault();
     }
 
-    public function getMajors()
+    public function getMajors($userId)
     {
-     return $this->di["dataMajorMinorService"]->getMajors();
+     return $this->di["dataMajorMinorService"]->getMajors($userId);
     }
 
-    public function getMinors()
+    public function getMinors($userId)
     {
-        return $this->di["dataMajorMinorService"]->getMinors();
+        return $this->di["dataMajorMinorService"]->getMinors($userId);
     }
 
     public function getUserMajors($userId)

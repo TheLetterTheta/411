@@ -12,11 +12,33 @@ class PlannerService implements IPlannerService
     private $di;
     private $remainingClasses;
     private $headerClasses;
+    private $plannedSemester;
 
     public function __construct()
     {
         $this->di = DI::getDefault();
         $this->headerClasses = array();
+        $this->plannedSemester = array(
+            array(
+                'id' =>1,
+                'sequence'=>'0',
+                'name'=>'Spring 2016',
+                'classes'=>array(),
+                'semesterType'=>'sp'
+            ),array(
+                'id' =>2,
+                'sequence'=>'1',
+                'name'=>'Fall 2016',
+                'classes'=>array(),
+                'semesterType'=>'fa'
+            ),array(
+                'id' =>3,
+                'sequence'=>'2',
+                'name'=>'Spring 2017',
+                'classes'=>array(),
+                'semesterType'=>'sp'
+            )
+        );
     }
 
     public function createPlanner()
@@ -32,8 +54,16 @@ class PlannerService implements IPlannerService
         usort($this->remainingClasses, function($a, $b){
             return $b['postRequisites'] <=> $a['postRequisites'];
         });
+        array_push($this->plannedSemester[0], $this->remainingClasses[0]);
+        array_push($this->plannedSemester[0][0], $this->remainingClasses[1]);
         echo json_encode($this->remainingClasses);
+        while(empty($this->remainingClasses))
+        {
+            foreach ($this->remainingClasses as $class)
+            {
 
+            }
+        }
     }
 
     private function modifyClassesArray(&$response)
