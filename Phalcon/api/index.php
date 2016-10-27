@@ -11,36 +11,63 @@ use Phalcon\Mvc\Micro;
 use Phalcon\Di\FactoryDefault;
 use Phalcon\Db\Adapter\Pdo\Mysql as PdoMysql;
 
-require 'const/CONSTANTS.php';
 require 'const/FUNCTIONS.php';
+require 'const/CONSTANTS.php';
+require 'services/UserService/IUserService.php';
+require 'services/UserService/UserService.php';
+require 'services/PlannerService/IPlannerService.php';
+require 'services/PlannerService/PlannerService.php';
+require '../data/dataServiceConf.php';
+require '../../vendor/autoload.php';
+require 'services/MajorMinorService/IMajorMinorService.php';
+require 'services/MajorMinorService/MajorMinorService.php';
+require 'services/ClassService/IClassService.php';
+require 'services/ClassService/ClassService.php';
+
+session_start();
 
 // Use Loader() to autoload our model
 $loader = new Loader();
 
 $loader->registerDirs(
     array(
-        __DIR__ . '/models/'
+        __DIR__ . '../models/'
     )
 )->register();
 
 $di = new FactoryDefault();
 
-// Set up the database service
-$di->set('db', function () {
-    return new PdoMysql(
-        array(
-            "host"     => CONSTANTS::DB_HOST,
-            "username" => CONSTANTS::DB_USER,
-            "password" => CONSTANTS::DB_PASSWORD,
-            "dbname"   => CONSTANTS::DB_DATABASE
-        )
-    );
+$di->set('userService', function(){
+    return new UserService();
+});
+$di->set('dataUserService', function(){
+    $serviceConf = new dataServiceConf();
+    return $serviceConf->GetUserDataService();
+});
+$di->set('majorMinorService', function(){
+    return new majorMinorService();
+});
+$di->set('dataMajorMinorService', function(){
+    $serviceConf = new dataServiceConf();
+    return $serviceConf->GetMajorMinorService();
+});
+$di->set('classService', function(){
+    return new ClassService();
+});
+$di->set('dataClassService', function(){
+    $serviceConf = new dataServiceConf();
+    return $serviceConf->GetClassService();
+});
+$di->set('plannerService', function(){
+    return new PlannerService();
 });
 
 $app = new Micro($di);
 
 // Define the routes here
+require 'routes/plannerRoutes.php';
 require 'routes/userRoutes.php';
+require 'routes/majorMinorRoutes.php';
 require 'routes/classRoutes.php';
 
 $app->handle();
