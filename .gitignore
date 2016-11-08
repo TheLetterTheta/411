@@ -56,34 +56,34 @@ fabric.properties
 /Phalcon/vendor/
 
 # compiled output
-/dist
-/tmp
+LionPlannerFrontEnd/dist
+LionPlannerFrontEnd/tmp
 
 # dependencies
-/node_modules
-/bower_components
+LionPlannerFrontEnd/node_modules
+LionPlannerFrontEnd/bower_components
 
 # IDEs and editors
-/.idea
-.project
-.classpath
-*.launch
-.settings/
+/LionPlannerFrontEnd/.idea
+LionPlannerFrontEnd/.project
+LionPlannerFrontEnd/.classpath
+LionPlannerFrontEnd/*.launch
+LionPlannerFrontEnd/.settings/
 
 # misc
-/.sass-cache
-/connect.lock
-/coverage/*
-/libpeerconnection.log
-npm-debug.log
-testem.log
-/typings
+LionPlannerFrontEnd/.sass-cache
+LionPlannerFrontEnd/connect.lock
+LionPlannerFrontEnd/coverage/*
+LionPlannerFrontEnd/libpeerconnection.log
+LionPlannerFrontEnd/npm-debug.log
+LionPlannerFrontEnd/testem.log
+LionPlannerFrontEnd/typings
 
 # e2e
-/e2e/*.js
-/e2e/*.map
+LionPlannerFrontEnd/e2e/*.js
+LionPlannerFrontEnd/e2e/*.map
 
 #System Files
-.DS_Store
-Thumbs.db
+LionPlannerFrontEnd/.DS_Store
+LionPlannerFrontEnd/Thumbs.db
 
