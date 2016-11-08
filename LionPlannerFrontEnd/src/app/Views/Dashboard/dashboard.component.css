@@ -1,0 +1,7 @@
+.logo-wrapper {
+  height: 150px;
+}
+
+.green-skin .side-nav .logo-wrapper {
+  background: none;
+}

@@ -1,0 +1,77 @@
+<!--Navigation & Intro-->
+<header class="wow fadeIn">
+
+  <!--Mask-->
+  <div id="login" class="view hm-black-strong">
+    <div class="full-bg-img flex-center">
+      <div class="container">
+        <div class="row" id="home">
+
+          <!--First column-->
+          <div class="col-md-12 m-b-r wow fadeInDown">
+            <div class="description">
+              <img src="../../assets/img/lion2.png" width="200px" height="200px" />
+            </div>
+          </div>
+          <!--/.First column-->
+
+          <!--Second column-->
+          <div class="col-md-12 m-b-r wow fadeInUp" data-wow-delay="0.2s">
+
+            <!--Form with header-->
+            <div class="card">
+              <div class="card-block">
+
+                <!--Header-->
+                <div class="form-header login">
+                  <h3>Lion Planner Login</h3>
+                </div>
+
+                <!--Body-->
+                <div class="md-form">
+                  <i class="fa fa-user prefix"></i>
+                  <input type="text" id="form2" class="form-control">
+                  <label for="form2">Your W# Number</label>
+                </div>
+
+                <div class="md-form">
+                  <i class="fa fa-lock prefix"></i>
+                  <input type="password" id="form4" class="form-control">
+                  <label for="form4">Your password</label>
+                </div>
+
+                <div class="text-xs-center">
+                  <button (click)="onLogin()" class="btn login waves-effect" *ngIf="!loggingIn">Login</button>
+                  <!--Medium red-->
+                  <div class="preloader-wrapper small active" *ngIf="loggingIn">
+                    <div class="spinner-layer spinner-green-only">
+                      <div class="circle-clipper left">
+                        <div class="circle"></div>
+                      </div><div class="gap-patch">
+                      <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                      <div class="circle"></div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!--Footer-->
+
+            </div>
+            <!--/Form with header-->
+
+          </div>
+          <!--/Second column-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/.Mask-->
+
+</header>
+<!--/Navigation & Intro-->
+
+

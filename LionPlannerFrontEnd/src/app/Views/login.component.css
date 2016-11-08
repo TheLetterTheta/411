@@ -1,0 +1,54 @@
+/* Navigation*/
+
+.navbar {
+  background-color: transparent;
+}
+
+.top-nav-collapse {
+  background-color: #0A6A60;
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar {
+    background-color: #0A6A60;
+  }
+}
+/*Intro*/
+
+.view {
+  background: url("../../assets/img/studentUnion.jpg") no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@media (max-width: 768px) {
+  .full-bg-img,
+  .view {
+    height: 100%;
+    position: relative;
+  }
+  img {
+    width: 160px;
+    height: 160px;
+  }
+  .description {
+    margin-top: 10%;
+  }
+}
+
+img {
+  margin: auto;
+}
+
+@media (max-width: 992px) {
+  .description {
+    padding-top: 7rem;
+    text-align: center;
+  }
+}
+footer.page-footer {
+  background-color: #2F968B;
+}
+
