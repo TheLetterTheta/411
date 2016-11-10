@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from "../../Login/user.service";
 
 @Component({
   selector: 'lion-top-navbar',
   templateUrl: './top-navbar.component.html',
   styles: []
 })
-export class TopNavbarComponent implements OnInit {
+export class TopNavbarComponent {
 
-  constructor() { }
+  constructor(private _user: UserService) { }
 
-  ngOnInit() {
+  onLogoutClicked() {
+    this._user.Logout();
   }
 
 }

@@ -16,7 +16,7 @@
 /*Intro*/
 
 .view {
-  background: url("../../assets/img/studentUnion.jpg") no-repeat center fixed;
+  background: url("../../../assets/img/studentUnion.jpg") no-repeat center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -44,11 +44,14 @@ img {
 
 @media (max-width: 992px) {
   .description {
-    padding-top: 7rem;
     text-align: center;
   }
 }
 footer.page-footer {
   background-color: #2F968B;
+}
+
+.text-danger {
+  margin-left: 45px;
 }
 

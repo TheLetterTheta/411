@@ -1,6 +1,7 @@
 import {Component, OnInit, AfterViewInit} from '@angular/core';
+import {User} from "../../../shared/Models/User";
 
-declare var jQuery: any;
+declare var $: any;
 
 @Component({
   selector: 'lion-profile',
@@ -11,7 +12,7 @@ export class ProfileComponent implements AfterViewInit {
 
   private percentComplete: number;
   private numCredits: number;
-
+  private _user: User;
 
   constructor() {
     this.numCredits = 90;
@@ -20,7 +21,7 @@ export class ProfileComponent implements AfterViewInit {
 
   ngAfterViewInit() {
 
-    var pb = jQuery("#progressBar").kendoProgressBar({
+    var pb = $("#progressBar").kendoProgressBar({
       min: 0,
       max: 100,
       type: "percent",
@@ -28,6 +29,16 @@ export class ProfileComponent implements AfterViewInit {
         duration: 1000
       }
     }).data("kendoProgressBar");
+
+
+    $(function () {
+      $('.min-chart#chart-sales').easyPieChart({
+        barColor: "#4caf50",
+        onStep: function (from, to, percent) {
+          $(this.el).find('.percent').text(Math.round(percent));
+        }
+      });
+    });
 
     pb.progressStatus.text("Empty");
 

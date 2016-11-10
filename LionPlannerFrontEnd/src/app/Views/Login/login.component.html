@@ -1,0 +1,90 @@
+<!--Navigation & Intro-->
+<header class="wow fadeIn">
+
+  <!--Mask-->
+  <div id="login" class="view hm-black-strong">
+    <div class="full-bg-img flex-center">
+      <div class="container">
+        <div class="row" id="home">
+
+          <!--First column-->
+          <div class="col-md-12 m-b-r wow fadeInDown">
+            <div class="description">
+              <img src="../../../assets/img/lion2.png" width="200px" height="200px" />
+            </div>
+          </div>
+          <!--/.First column-->
+
+          <!--Second column-->
+          <div class="col-md-12 m-b-r wow fadeInUp" data-wow-delay="0.2s">
+
+            <!--Form with header-->
+            <div class="card">
+              <div class="card-block">
+
+                <!--Header-->
+                <div class="form-header login">
+                  <h3>Lion Planner Login</h3>
+                </div>
+
+                <!--Body-->
+                <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                  <div ngModelGroup="userData">
+                  <div class="md-form">
+                    <i class="fa fa-user prefix"></i>
+                    <input type="text" id="wNumber" name="wNumber" [(ngModel)]="user.wNumber" class="form-control" #wNumber="ngModel" required>
+                    <label for="wNumber">Your W# Number</label>
+                    <div *ngIf="!wNumber.valid && wNumber.touched">
+                      <p class="text-danger">*Required</p>
+                    </div>
+                  </div>
+
+                  <div class="md-form">
+                    <i class="fa fa-lock prefix"></i>
+                    <input type="password" id="password" name="password" [(ngModel)]="user.password" class="form-control" #password="ngModel" required>
+                    <label for="password">Your password</label>
+                    <div *ngIf="!password.valid && password.touched">
+                      <p class="text-danger">*Required</p>
+                    </div>
+                  </div>
+
+                  <div class="text-xs-center">
+                    <button type="submit" class="btn login waves-effect" [disabled]="!f.valid" *ngIf="!loggingIn">Login</button>
+                    <!--Medium red-->
+                    <div class="preloader-wrapper small active" *ngIf="loggingIn">
+                      <div class="spinner-layer spinner-green-only">
+                        <div class="circle-clipper left">
+                          <div class="circle"></div>
+                        </div><div class="gap-patch">
+                        <div class="circle"></div>
+                      </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                      </div>
+                      </div>
+                    </div>
+                    <div *ngIf="noMatch">
+                      <p class="text-danger">W Number or Password did not match</p>
+                    </div>
+                  </div>
+                  </div>
+                </form>
+
+              </div>
+
+              <!--Footer-->
+
+            </div>
+            <!--/Form with header-->
+
+          </div>
+          <!--/Second column-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/.Mask-->
+
+</header>
+<!--/Navigation & Intro-->
+
+

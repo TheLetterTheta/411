@@ -24,7 +24,7 @@
       <a class="nav-link dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> <span class="hidden-sm-down">Profile</span></a>
       <div class="dropdown-menu dropdown-primary dd-right" aria-labelledby="dropdownMenu1" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
         <a class="dropdown-item" [routerLink]="['/Dashboard/Profile']">My Account</a>
-        <a class="dropdown-item" [routerLink]="['/Login']">Logout</a>
+        <a class="dropdown-item" (click)="onLogoutClicked()" [routerLink]="['/Login']">Logout</a>
       </div>
     </li>
   </ul>
