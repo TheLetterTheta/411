@@ -6,6 +6,8 @@
  * Time: 21:18
  */
 
+header("Access-Control-Allow-Origin: *");
+
 use Phalcon\Loader;
 use Phalcon\Mvc\Micro;
 use Phalcon\Di\FactoryDefault;
@@ -18,7 +20,6 @@ require 'services/UserService/UserService.php';
 require 'services/PlannerService/IPlannerService.php';
 require 'services/PlannerService/PlannerService.php';
 require '../data/dataServiceConf.php';
-require '../../vendor/autoload.php';
 require 'services/MajorMinorService/IMajorMinorService.php';
 require 'services/MajorMinorService/MajorMinorService.php';
 require 'services/ClassService/IClassService.php';

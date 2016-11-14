@@ -13,30 +13,32 @@ class PlannerService implements IPlannerService
     private $remainingClasses;
     private $headerClasses;
     private $plannedSemester;
+    private $semesterHourThreshold;
 
     public function __construct()
     {
         $this->di = DI::getDefault();
+        $this->semesterHourThreshold = 19;
         $this->headerClasses = array();
         $this->plannedSemester = array(
             array(
                 'id' =>1,
-                'sequence'=>'0',
-                'name'=>'Spring 2016',
+                'ordinal' =>0,
                 'classes'=>array(),
-                'semesterType'=>'sp'
+                'semesterType'=>'sp',
+                'hours' => 0
             ),array(
                 'id' =>2,
-                'sequence'=>'1',
-                'name'=>'Fall 2016',
+                'ordinal' =>1,
                 'classes'=>array(),
-                'semesterType'=>'fa'
+                'semesterType'=>'fa',
+                'hours' => 0
             ),array(
                 'id' =>3,
-                'sequence'=>'2',
-                'name'=>'Spring 2017',
+                'ordinal' =>2,
                 'classes'=>array(),
-                'semesterType'=>'sp'
+                'semesterType'=>'sp',
+                'hours' => 0
             )
         );
     }
@@ -55,21 +57,19 @@ class PlannerService implements IPlannerService
             return $b['postRequisites'] <=> $a['postRequisites'];
         });
         array_push($this->plannedSemester[0], $this->remainingClasses[0]);
-        array_push($this->plannedSemester[0][0], $this->remainingClasses[1]);
         echo json_encode($this->remainingClasses);
-        while(empty($this->remainingClasses))
-        {
-            foreach ($this->remainingClasses as $class)
-            {
+        
+        foreach($this->remainingClasses as $classKey => $class){
+            foreach($this->plannedSemester as $semesterKey => $semester){
+                if($this->canScheduleClass($class,$semester)){
 
+                }
             }
         }
     }
 
     private function modifyClassesArray(&$response)
     {
-        //echo $classList;
-        //breaks at at foreach 32 and  at 42
         if(is_array($response)  || is_object($response)) {
             foreach ($response as &$class) {
                 //echo(json_encode($class));
@@ -125,5 +125,20 @@ class PlannerService implements IPlannerService
         }
     }
 
-
+    private function canScheduleClass($class, $semester)
+    {
+        if($semester->hours > $this->semesterHourThreshold){
+            return false;
+        }
+        foreach($this->plannedSemester as $semesters)
+        {
+            foreach ($semesters['classes'] as $semesterClass)
+            {
+                if($semesterClass ==  $class)
+                {
+                    return false;
+                }
+            }
+        }
+    }
 }
