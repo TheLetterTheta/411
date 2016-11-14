@@ -12,6 +12,15 @@ CREATE TABLE Users
     PRIMARY KEY (UserId)
 );
 
+CREATE TABLE Semesters
+(
+    SemesterId VARCHAR(32) NOT NULL
+  , SemesterName CHAR(7) NOT NULL
+  , `Year` INT NOT NULL
+  , CONSTRAINT PK_Semesters
+PRIMARY KEY (SemesterId)
+);
+
 CREATE TABLE MajorMinors
 (
   MajorMinorId VARCHAR(32) NOT NULL
@@ -55,4 +64,38 @@ CREATE TABLE ClassRatings
     REFERENCES Users(UserId)
   , CONSTRAINT PK_ClassRatings
     PRIMARY KEY (ClassId, UserId)
+);
+
+CREATE TABLE StudentPlan
+(
+  StudentPlanId INT NOT NULL
+  , StudentId VARCHAR(32) NOT NULL
+  , SemesterId VARCHAR(32) NOT NULL
+  , ClassId VARCHAR(32) NOT NULL
+  , CONSTRAINT PK_StudentPlan
+    PRIMARY KEY (StudentPlanId)
+  , CONSTRAINT FK_StudentPlan_Users
+    FOREIGN KEY (StudentId)
+    REFERENCES Users(UserId)
+  , CONSTRAINT FK_StudentPlan_Semester
+    FOREIGN KEY (SemesterId)
+    REFERENCES Semesters(SemesterId)
+  , CONSTRAINT FK_StudentPlan_Classes
+    FOREIGN KEY (ClassId)
+    REFERENCES Classes(ClassId)
+);
+
+CREATE TABLE StudentAlternativeClasses
+(
+  StudentAlternativeClassesId INT NOT NULL
+  , StudentId VARCHAR(32) NOT NULL
+  , ClassId VARCHAR(32) NOT NULL
+  , CONSTRAINT PK_StudentAlternativeClasses
+    PRIMARY KEY (StudentAlternativeClassesId)
+  , CONSTRAINT FK_StudentAlternativeClasses_Users
+    FOREIGN KEY (StudentId)
+    REFERENCES Users(UserId)
+  , CONSTRAINT FK_StudentAlternativeClasses_Classes
+    FOREIGN KEY (ClassId)
+    REFERENCES Classes(ClassId)
 );
