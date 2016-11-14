@@ -18,9 +18,9 @@ import { SettingsComponent } from './Views/Dashboard/settings/settings.component
 import { ClassHistoryComponent } from './Views/Dashboard/class-history/class-history.component';
 import { ContactComponent } from './Views/Dashboard/contact/contact.component';
 import { LocationStrategy, HashLocationStrategy } from "@angular/common";
-import {UserService} from "./Views/Login/user.service";
-import {LoggedInGuard} from "./shared/logged-in.guard";
-import {PlannerService} from "./Views/Dashboard/planner/planner.service";
+import { UserService } from "./Views/Login/user.service";
+import { LoggedInGuard } from "./shared/logged-in.guard";
+import { PlannerService } from "./Views/Dashboard/planner.service";
 
 @NgModule({
   declarations: [
@@ -48,9 +48,9 @@ import {PlannerService} from "./Views/Dashboard/planner/planner.service";
     UserService,
     PlannerService,
     LoggedInGuard,
-    {provide: 'ApiEndpoint', useValue: 'https://www.selu.edu/phalcon/api/'},
-    {provide: LocationStrategy, useClass: HashLocationStrategy},
-    {provide: Headers, useValue: {'Content-Type': 'application/json', 'Accept': 'q=0.8;application/json;q=0.9'}},
+    {provide: 'ApiEndpoint', useValue: 'http://147.174.59.127/411/Phalcon/api/'},
+    {provide: Headers, useValue: {'Content-Type': 'application/x-www-form-urlencoded'}},
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })

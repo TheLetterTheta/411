@@ -7,8 +7,12 @@
     <!--Second column-->
     <div class="col-lg-8 offset-lg-2 col-md-12 m-b-r">
 
+      <div *ngIf="isLoading">
+        <div class="loader">Loading</div>
+      </div>
+
       <!--Card-->
-      <div class="card testimonial-card wow fadeInRight">
+      <div *ngIf="!isLoading" class="card testimonial-card wow fadeInRight">
 
         <!--Background color-->
         <div class="card-up selu-green">
@@ -24,6 +28,7 @@
 
           <h5>kyang@selu.edu</h5>
           <br>
+          <p>English: {{_user.actEnglish}} Math: {{_user.actMath}} Reading: {{_user.actReading}} Science: {{_user.actScience}} </p>
           <!--Quotation-->
           <h4 id="classification">Classification: <strong>Master Jedi</strong></h4>
           <h4 id="major">Majors: <strong>Computer Science</strong></h4>
@@ -34,12 +39,7 @@
           </label>
 
           <h4>Degree Progress: {{numCredits}} Credits / 120 Credits</h4>
-          <br>
-
-          <span class="min-chart" id="chart-sales" data-percent="56"><span class="percent"></span></span>
-
-          <div id="progressBar" style="width: 80%;"></div>
-          <br>
+          <span class="min-chart" id="chart-sales" data-percent=""><span class="percent"></span></span>
 
         </div>
 

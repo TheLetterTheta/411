@@ -1,5 +1,5 @@
 <!--Navigation & Intro-->
-<header class="wow fadeIn">
+<header class="wow">
 
   <!--Mask-->
   <div id="login" class="view hm-black-strong">
@@ -8,7 +8,7 @@
         <div class="row" id="home">
 
           <!--First column-->
-          <div class="col-md-12 m-b-r wow fadeInDown">
+          <div class="col-md-12 m-b-r wow fadeInDown" data-wow-delay="0.5s">
             <div class="description">
               <img src="../../../assets/img/lion2.png" width="200px" height="200px" />
             </div>
@@ -16,7 +16,7 @@
           <!--/.First column-->
 
           <!--Second column-->
-          <div class="col-md-12 m-b-r wow fadeInUp" data-wow-delay="0.2s">
+          <div class="col-md-12 m-b-r wow fadeInUp" data-wow-delay="0.5s">
 
             <!--Form with header-->
             <div class="card">
@@ -49,21 +49,22 @@
                   </div>
 
                   <div class="text-xs-center">
-                    <button type="submit" class="btn login waves-effect" [disabled]="!f.valid" *ngIf="!loggingIn">Login</button>
-                    <!--Medium red-->
-                    <div class="preloader-wrapper small active" *ngIf="loggingIn">
-                      <div class="spinner-layer spinner-green-only">
-                        <div class="circle-clipper left">
+                    <button type="submit" class="btn btn-default login waves-effect" [disabled]="!f.valid" *ngIf="!loggingIn">Login</button>
+                    <div *ngIf="loggingIn">
+                      <div class="preloader-wrapper active">
+                        <div class="spinner-layer spinner-green-only">
+                          <div class="circle-clipper left">
+                            <div class="circle"></div>
+                          </div><div class="gap-patch">
                           <div class="circle"></div>
-                        </div><div class="gap-patch">
-                        <div class="circle"></div>
-                      </div><div class="circle-clipper right">
-                        <div class="circle"></div>
-                      </div>
+                        </div><div class="circle-clipper right">
+                          <div class="circle"></div>
+                        </div>
+                        </div>
                       </div>
                     </div>
-                    <div *ngIf="noMatch">
-                      <p class="text-danger">W Number or Password did not match</p>
+                    <div class="text-xs-center text-danger" *ngIf="noMatch">
+                      W Number or Password did not match
                     </div>
                   </div>
                   </div>

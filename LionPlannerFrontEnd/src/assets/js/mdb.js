@@ -5182,13 +5182,7 @@ Waves.attach('.pager li a', ['waves-light']);
 Waves.attach('.pagination .page-item .page-link', ['waves-effect']);
 Waves.init();//Preloading script
 
-$(document).ready(function () {
-    $('#preloader-markup').load("mdb-addons/preloader.html", function () {
-        $(window).load(function () {
-            $('#mdb-preloader').fadeOut('slow');
-        });
-    });
-});/* CARD REVEAL */
+/* CARD REVEAL */
 
 (function ($) {
     $(document).ready(function () {

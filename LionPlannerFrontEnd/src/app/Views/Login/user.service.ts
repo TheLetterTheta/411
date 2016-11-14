@@ -11,8 +11,6 @@ export class UserService {
 
   constructor(private http: Http, @Inject('ApiEndpoint') private apiUrl: string, @Inject(Headers) private headers: Headers) {
     this.loggedIn = !!localStorage.getItem('apiKey');
-    this.apiKey = localStorage.getItem('apiKey');
-    this.userId = localStorage.getItem('userId');
   }
 
   isLoggedIn() {
@@ -30,30 +28,22 @@ export class UserService {
         .map(res=>res.json())
         .map((res) => {
           console.log(res);
-          if(res.success) {
+          if(res.status = 200) {
             localStorage.setItem('apiKey', res.apiKey);
             localStorage.setItem('userId', res.userId);
             this.loggedIn = true;
-          } else {
-            this.success = this.LoginWithoutPermission(wNumber, password);
-            console.log(this.success);
           }
 
-          if(this.success = true) {
-            return res;
-          } else {
-            return null;
-          }
-
+          return res;
         });
   }
 
   // This is for dev purposes only
   LoginWithoutPermission(wNumber: string, password: string) {
-    if(wNumber == 'w0571092' && password == 'password') {
+    if(wNumber == '0571092' && password == 'password') {
       this.loggedIn = true;
-      localStorage.setItem('apiKey', '81818181');
-      localStorage.setItem('userId', 'acoffin');
+      localStorage.setItem('apiKey', 'A@^BfgXghbfG58122');
+      localStorage.setItem('userId', '1');
       return true;
     } else {
       return false;
@@ -69,9 +59,10 @@ export class UserService {
   GetUserProfile() {
     var requestOptions = new RequestOptions({
       method: RequestMethod.Get,
-      url: this.apiUrl + 'user/profile' + this.userId,
+      url: this.apiUrl + 'user/profile/' + localStorage.getItem('userId'),
       headers: this.headers,
     });
+    console.log(localStorage.getItem('userId'));
     return this.http.request(new Request(requestOptions))
         .map(res=>res.json())
   }
@@ -79,7 +70,7 @@ export class UserService {
   GetUserMajors() {
     var requestOptions = new RequestOptions({
       method: RequestMethod.Get,
-      url: this.apiUrl + 'majorminor/getUserMajors' + this.userId,
+      url: this.apiUrl + 'majorminor/getUserMajors/' + localStorage.getItem('userId'),
       headers: this.headers,
     });
     return this.http.request(new Request(requestOptions))
@@ -89,7 +80,7 @@ export class UserService {
   GetUserMinors() {
     var requestOptions = new RequestOptions({
       method: RequestMethod.Get,
-      url: this.apiUrl + 'majorminor/getUserMinors' + this.userId,
+      url: this.apiUrl + 'majorminor/getUserMinors/' + localStorage.getItem('userId'),
       headers: this.headers,
     });
     return this.http.request(new Request(requestOptions))

@@ -1,5 +1,6 @@
 import {Component, OnInit, AfterViewInit} from '@angular/core';
 import {User} from "../../../shared/Models/User";
+import {UserService} from "../../Login/user.service";
 
 declare var $: any;
 
@@ -8,41 +9,38 @@ declare var $: any;
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements AfterViewInit {
+export class ProfileComponent {
 
   private percentComplete: number;
   private numCredits: number;
   private _user: User;
+  private isLoading: boolean = true;
 
-  constructor() {
+  constructor(private _userService: UserService) {
     this.numCredits = 90;
     this.percentComplete = this.numCredits / 120 * 100;
+    _userService.GetUserProfile().subscribe(user => {
+      this._user = user;
+      console.log(user);
+      this.isLoading = false;
+      this.enablePieChart();
+    });
   }
 
-  ngAfterViewInit() {
-
-    var pb = $("#progressBar").kendoProgressBar({
-      min: 0,
-      max: 100,
-      type: "percent",
-      animation: {
-        duration: 1000
-      }
-    }).data("kendoProgressBar");
+  enablePieChart() {
 
 
-    $(function () {
+    $(function() {
+      // instantiate the plugin
       $('.min-chart#chart-sales').easyPieChart({
         barColor: "#4caf50",
         onStep: function (from, to, percent) {
           $(this.el).find('.percent').text(Math.round(percent));
         }
       });
+      // update
+      var percentage = $('#percentage').val();
+      $('.min-chart').data('easyPieChart').update(percentage);
     });
-
-    pb.progressStatus.text("Empty");
-
-    pb.value(jQuery("#percentage").val());
   }
-
 }

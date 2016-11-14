@@ -14,11 +14,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 
   <!--<link href="assets/css/examples-offline.css" rel="stylesheet">-->
-  <link href="assets/css/kendo.common.min.css" rel="stylesheet">
-  <link href="assets/css/kendo.rtl.min.css" rel="stylesheet">
-  <link href="assets/css/kendo.default.min.css" rel="stylesheet">
-  <link href="assets/css/kendo.default.mobile.min.css" rel="stylesheet">
-  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB1Ug8gxb6v_DQ3sdcmYgvAAkF_H28gIPQ"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1Ug8gxb6v_DQ3sdcmYgvAAkF_H28gIPQ"></script>
 
 
   <!--Bootstrap core CSS-->
@@ -31,6 +27,28 @@
 
 <body class="gray">
 
+<div id="mdb-preloader" class="flex-center">
+  <div id="preloader-markup">
+    <div class="preloader-wrapper big active">
+      <div class="preloader-wrapper big active">
+        <div class="preloader-wrapper big active">
+          <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-green-only">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
   <lion-root>
   </lion-root>
 
@@ -38,6 +56,12 @@
 
 
 <script>
+
+  $(document).ready(function () {
+      $(window).load(function () {
+        $('#mdb-preloader').fadeOut('slow');
+      });
+  });
 
   new WOW().init();
 

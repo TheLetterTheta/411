@@ -31,22 +31,19 @@ export class LoginComponent {
     setTimeout(() => {
       this.loggingIn = false;
 
-      // this._userService.Login(form.value.wNumber, form.value.password)
-      //     .subscribe(result => {
-      //         this.response = result;
-      //         if(result) {
-      //           this.noMatch = false;
-      //           this._router.navigateByUrl('/Dashboard');
-      //         } else {
-      //           this.noMatch = true;
-      //         }
-      //     });
+      this._userService.Login(form.value.wNumber, form.value.password)
+          .subscribe(result => {
+              this.response = result;
+              if(result.status = 200) {
+                this._router.navigateByUrl('/Dashboard');
+              } else {
+                this.noMatch = true;
+              }
+          });
 
-      this.response = this._userService.LoginWithoutPermission(form.value.userData.wNumber, form.value.userData.password);
+      //this.response = this._userService.LoginWithoutPermission(form.value.userData.wNumber, form.value.userData.password);
 
-      if(this.response) {
-        this._router.navigateByUrl('/Dashboard');
-      } else {
+      if(!this.response) {
         this.noMatch = true;
       }
     }, 2000);

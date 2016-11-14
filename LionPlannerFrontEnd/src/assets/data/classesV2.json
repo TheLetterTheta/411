@@ -1,0 +1,489 @@
+{
+  "courses": [
+    {
+      "Accounting (ACCT)": [
+        "ACCT 200 - INTRO TO FINANCIAL ACCOUNTING",
+        "ACCT 221 - INTERMEDIATE FINANCIAL ACCOUNTING I",
+        "ACCT 225 - MANAGERIAL ACCOUNTING",
+        "ACCT 312 - INTERMEDIATE FINANCIAL ACCOUNTING II",
+        "ACCT 313 - INTERMEDIATE FINANCIAL ACCOUNT III",
+        "ACCT 320 - ACCOUNTING INFORMATION SYSTEM & PROCEDURES",
+        "ACCT 320H - ACCOUNTING INFORMATION SYSTEMS & PROCEDURES",
+        "ACCT 331 - COST & MANAGERIAL ACCOUNTING",
+        "ACCT 340 - FINANCIAL STATEMENT ANALYSIS",
+        "ACCT 341 - TAX ACCOUNTING",
+        "ACCT 391 - ACCOUNTING INTERNSHIP",
+        "ACCT 400 - ACCOUNTING FOR GOVERNMENTAL AND NOT-FOR-PROFIT ORGANIZATIONS",
+        "ACCT 406 - ACCOUNTING THEORY",
+        "ACCT 407 - AUDITING",
+        "ACCT 411 - ADV FINANCIAL ACCOUNTING",
+        "ACCT 413 - INDEPENDENT STUDY IN ACCOUNTING",
+        "ACCT 432 - ADVANCED COST ACCOUNTING",
+        "ACCT 442 - ADVANCED TAX ACCOUNTING",
+        "ACCT 500 - ACCOUNTING FOR GOVERNMENTAL AND NOT-FOR-PROFIT ORGANIZATIONS",
+        "ACCT 506 - ACCOUNTING THEORY",
+        "ACCT 542 - ADVANCED TAX ACCOUNTING",
+        "ACCT 607 - ADVANCED AUDITING",
+        "ACCT 620 - ADVANCED ACCOUNTING INFORMATION SYSTEMS",
+        "ACCT 625 - ACCOUNTING FOR BUSINESS DECISIONS",
+        "ACCT 695 - SPECIAL TOPICS IN ACCOUNTING"
+      ],
+      "Anthropology (ANTH)": [
+        "ANTH 101 - CULTURAL ANTHROPOLOGY",
+        "ANTH 110 - INTRODUCTION TO PHYSICAL ANTHROPOLOGY",
+        "ANTH 301 - EXPLORING ARCHAEOLOGY",
+        "ANTH 352 - COMPARATIVE FAMILY PATTERNS",
+        "ANTH 400 - INDEPENDENT STUDY",
+        "ANTH 401 - SPEC TOPICS IN ANTHROPOLOGY",
+        "ANTH 403 - ARCHAEOLOGICAL STUDIES",
+        "ANTH 405 - INDIGENOUS PEOPLE OF THE AMERICAS",
+        "ANTH 411 - RACE AND ETHNIC RELATIONS",
+        "ANTH 500 - INDEPENDENT STUDY",
+        "ANTH 501 - SPEC TOPICS IN ANTHROPOLOGY",
+        "ANTH 505 - INDIGENOUS PEOPLES OF THE AMERICAS",
+        "ANTH 511 - RACE AND ETHNIC RELATIONS",
+        "ANTH 698 - SPECIAL TOPICS IN ANTHROPOLOGY"
+      ],
+      "Art (Visual) (ART)": [
+        "ART 105 - SURVEY WORLD ART HISTORY I",
+        "ART 105M - SURVEY WORLD ART HISTORY I",
+        "ART 106 - SURVEY WORLD ART HISTORY II",
+        "ART 111 - BASIC DRAWING",
+        "ART 112 - INTERMEDIATE DRAWING",
+        "ART 115 - BASIC CERAMICS",
+        "ART 117 - PRINTMAKING I",
+        "ART 121 - PHOTOGRAPHY II",
+        "ART 122 - PHOTOGRAPY I/PHOTOJOURNALISM",
+        "ART 123 - PHOTOGRAPHY II",
+        "ART 151 - BASIC 2/D DESIGN",
+        "ART 152 - INTERMEDIATE 2/D DESIGN",
+        "ART 153 - BASIC 3-D DESIGN",
+        "ART 160 - TYPOGRAPHY",
+        "ART 161 - PRINT DESIGN I",
+        "ART 190 - NEW MEDIA AND ANIMATION I",
+        "ART 215 - INTERMEDIATE CERAMICS",
+        "ART 217 - PRINTMAKING II",
+        "ART 218 - SCREEN PRINTING",
+        "ART 221 - PHOTOGRAPHY III",
+        "ART 231 - SCULPTURE I",
+        "ART 261 - PRINT DESIGN II",
+        "ART 281 - BASIC PAINTING",
+        "ART 288 - SPECIAL TOPICS-PAINTING & DRAWING",
+        "ART 290 - NEW MEDIA AND ANIMATION II",
+        "ART 299 - SOPHOMORE REVIEW",
+        "ART 300 - SPECIAL TOPICS - STUDIO",
+        "ART 311 - ADVANCED DRAWING",
+        "ART 312 - DESIGN",
+        "ART 315 - ADVANCED CERAMICS",
+        "ART 317 - PRINTMAKING III",
+        "ART 321 - PHOTOGRAPHY IV",
+        "ART 333 - SCULPTURE II",
+        "ART 334 - SCULPTURE III",
+        "ART 340 - GREEK AND ROMAN ART",
+        "ART 343 - ART IN CONTEXT",
+        "ART 344 - SPECIAL TOPICS IN ART HISTORY",
+        "ART 345 - SURVEY OF GRAPHIC DESIGN HISTORY",
+        "ART 345H - SURVEY OF GRAPHIC DESIGN HISTORY",
+        "ART 347 - HISTORY OF PHOTOGRAPHIC AND ELECTRONIC IMAGING",
+        "ART 348 - BAROQUE ART",
+        "ART 361 - PRINT DESIGN III",
+        "ART 362 - MOTION DESIGN",
+        "ART 371 - ART FOR THE ELEMENTARY TEACHER",
+        "ART 373 - ART EDUCATION IN THE ELEMENTARY SCHOOL",
+        "ART 374 - ART EDUCATION IN THE SECONDARY SCHOOL",
+        "ART 375 - ARTS AND CRAFTS FOR TEACHERS OF SPECIAL EDUCATION",
+        "ART 383 - INTERMEDIATE PAINTING",
+        "ART 384 - ADVANCED PAINTING",
+        "ART 388 - SPECIAL TOPICS-DRAWING AND PAINTING",
+        "ART 390 - NEW MEDIA AND ANIMATION III",
+        "ART 393 - THREE DIMENSIONAL DIGITAL MEDIA AND ANIMATION",
+        "ART 394 - TIME BASED DIGITAL MEDIA",
+        "ART 395 - INDEPENDENT STUDY",
+        "ART 395G - INDEPENDENT STUDY",
+        "ART 395H - HONORS IN ART",
+        "ART 396 - ADVANCED WEB ARTS",
+        "ART 397 - THE DIGITAL PRINT",
+        "ART 411 - SENIOR PROJECT: DRAWING",
+        "ART 415 - SENIOR PROJECT: CERAMICS",
+        "ART 417 - SENIOR PROJECT: PRINTMAKING",
+        "ART 421 - SENIOR PROJECTS PHOTOGRAPHY",
+        "ART 426 - INTERNSHIP: PHOTOGRAPHY",
+        "ART 433 - SENIOR PROJECT:SCULPTURE",
+        "ART 434 - SCULPTURE IV",
+        "ART 440 - NINETEENTH CENTURY ART",
+        "ART 442 - EARLY 20TH CENTURY ART",
+        "ART 443 - CONTEMPORARY ART, THEORY, CRITICISM",
+        "ART 444 - SEMINAR IN ART HISTORY",
+        "ART 445 - WESTERN MEDIEVAL ART",
+        "ART 446 - NORTHERN RENAISSANCE ART",
+        "ART 447 - ITALIAN RENAISSANCE ART",
+        "ART 449 - SENIOR THESIS: ART HISTORY",
+        "ART 456 - INTERNSHIP: THEATRE DESIGN",
+        "ART 459 - INTERNET DESIGN",
+        "ART 459H - INTERNET DESIGN",
+        "ART 460 - INTERACTIVE AND ENVIRONMENTAL DESIGN",
+        "ART 461 - SENIOR PROJECT: GRAPHIC DESIGN",
+        "ART 466 - INTERNSHIP:GRAPHIC DESIGN",
+        "ART 471 - ARTS AND CRAFTS FOR THE ELEMENTARY SCHOOL",
+        "ART 483 - SENIOR PROJECT:PAINTING",
+        "ART 490 - SENIOR PROJECT: NEW MEDIA AND ANIMATION",
+        "ART 491 - HONORS IN ART",
+        "ART 491H - HONORS IN ART",
+        "ART 492 - SENIOR SEMINAR IN THE VISUAL ARTS",
+        "ART 493 - 3D DIGITAL MODELING AND ANIMATION II",
+        "ART 495 - INDEPENDENT STUDY",
+        "ART 497 - INTERSHIP: NEW MEDIA AND ANIMATION",
+        "ART 499 - THESIS EXHIBITION",
+        "ART 543 - CONTEMPORARY ART, THEORY, CRITICISM",
+        "ART 571 - ARTS AND CRAFTS FOR THE ELEMENTARY SCHOOL",
+        "ART 575 - ARTS AND CRAFTS FOR TEACHERS OF SPECIAL EDUCATION",
+        "ART 595 - INDEPENDENT STUDY"
+      ],
+      "Athletic Training (ATHT)": [
+        "ATHT 141 - PREVENTION & MANAGEMENT OF MOTOR PERFORMANCE INJURIES",
+        "ATHT 203 - FOUNDATIONS OF ATHLETIC TRAINING",
+        "ATHT 205 - FUNCTIONAL ANATOMY FOR ATHLETIC TRAINERS",
+        "ATHT 206 - ATHLETIC TRAINING FOUNDATIONS AND PRACTICE",
+        "ATHT 241 - EMERGENCY HEALTH CARE FOR THE ATHLETIC TRAINER",
+        "ATHT 300 - FIELD EXPERIENCES IN ATHLETIC TRAINING I",
+        "ATHT 305 - LOWER EXTREMITEY SPORTS INJURY MANAGEMENT",
+        "ATHT 315 - FIELD EXPERIENCES IN ATHLETIC TRAINING II",
+        "ATHT 333 - THERAPEUTIC EXERCISE AND REHABILITATION OF ATHLETIC INJURIES",
+        "ATHT 340 - UPPER EXTREMITY SPORTS INJURY MANAGEMENT",
+        "ATHT 363 - SPORTS INJURY MANAGEMENT I",
+        "ATHT 367 - SPORTS INJURY MANAGEMENT II",
+        "ATHT 371 - THERAPEUTIC MODALITIES IN ATHLETIC TRAINING",
+        "ATHT 372 - THERAPEUTIC MODALITIES FOR ATHLETIC INJURIES",
+        "ATHT 400 - FIELD EXPERIENCES IN ATHLETIC TRAINING III",
+        "ATHT 410 - EVIDENCE-BASED PRACTICE FOR THE ATHLETIC TRAINER",
+        "ATHT 415 - FIELD EXPERIENCES IN ATHLETIC TRAINING IV",
+        "ATHT 420 - ATHLETIC TRAINING SENIOR CLINICAL I",
+        "ATHT 425 - ATHLETIC TRAINING SENIOR CLINICAL II",
+        "ATHT 455 - MEDICAL AND PHARMACOLOGICAL ASPECTS OF ATHLETIC TRAINING I",
+        "ATHT 462 - ADMINISTRATION AND PSYCHOSCIAL INTERVENTION IN ATHLETIC TRAINING",
+        "ATHT 466 - MEDICAL AND PHARMACOLOGICAL ASPECTS OF ATHLETIC TRAINING II",
+        "ATHT 468 - CLINICAL COMPETENCY LAB III",
+        "ATHT 469 - SPORTS INJURY MANAGEMENT III",
+        "ATHT 471 - SPORTS INJURY MANAGEMENT IV"
+      ],
+      "Athletic Training Laboratory (ATLB)": [
+        ATLB 209 - ATHLETIC TRAINING FOUNDATIONS LAB
+        ATLB 210 - CLINICAL EXPERIENCE IN EQUIPMENT-INTENSIVE SPORT, BRACING, AND PADDING
+        ATLB 217 - CLINICAL IN ATHLETIC TRAINING
+        ATLB 244 - EMERGENCY HEALTH CARE FOR THE ATHLETIC TRAINER LAB
+        ATLB 300 - LOWER EXTREMITY CLINICAL COMPETENCY LAB
+        ATLB 303 - CLINICAL INTEGRATION AND FIELD EXPERIENCES IN ATHLETIC TRAINING LAB I
+        ATLB 304 - REHABILITATION OF ATHLETIC INJURIES LAB
+        ATLB 305 - CLINICAL INTEGRATION LAB I
+        ATLB 317 - CLINICAL INTEGRATION AND FIELD EXPERIENCES IN ATHLETIC TRAINING LAB II
+        ATLB 320 - CLINICAL INTEGRATION LAB II
+        ATLB 344 - UPPER EXTREMITY CLINICAL COMPETENCY LAB
+        ATLB 358 - CLINICAL COMPETENCY LAB I
+        ATLB 366 - CLINICAL COMPETENCY LAB II
+        ATLB 370 - THERAPEUTIC MODALITIES IN ATHLETIC TRAINING LAB
+        ATLB 403 - CLINICAL INTERGRATION FIELD EXPERIENCES IN ATHLETIC TRAINING LAB III
+        ATLB 405 - CLINICAL INTEGRATION LAB III
+        ATLB 417 - CLINICAL INTEGRATION AND FIELD EXPERIENCES IN ATHLETIC TRAINING LAB IV
+        ATLB 420 - CLINICAL INTEGRATION LAB IV
+        ATLB 468 - CLINICAL COMPETENCY LAB III
+        ATLB 470 - CLINICAL COMPETENCY LAB IV
+      ],
+      "Biology Lab (BIOL)": [{
+
+      }],
+      "BUSINESS LAW (BLAW)": [{
+
+      }],
+      "Botany (BOT)": [{
+
+      }],
+      "BUSN_NTC (BUSN_NTC)": [{
+
+      }],
+      "Counselor Education (CED)": [{
+
+      }],
+      "Chemistry (CHEM)": [{
+
+      }],
+      "Criminal Justice (CJ)": [{
+
+      }],
+      "Chemistry Lab (CLAB)": [{
+
+      }],
+      "Computer Science (CMPS)": [{
+
+      }],
+      "Coaching (COAC)": [{
+
+      }],
+      "Communications (COMM)": [{
+
+      }],
+      "Counseling (COUN)": [{
+
+      }],
+      "Career Planning (CPL)": [{
+
+      }],
+      "Cultural Resource Management (CRMP)": [{
+
+      }],
+      "Communication Sciences Dis (CSD)": [{
+
+      }],
+      "Construction Technology (CTEC)": [{
+
+      }],
+      "Drafting (DDT)": [{
+
+      }],
+      "Dance (DNC)": [{
+
+      }],
+      "Early Childhood Education (ECE)": [{
+
+      }],
+      "Economics (ECON)": [{
+
+      }],
+      "Educational Foundations (EDF)": [{
+
+      }],
+      "Educational Leadership (EDL)": [{
+
+      }],
+      "Education (EDUC)": [{
+
+      }],
+      "Engl/International Students (EGIS)": [{
+
+      }],
+      "English (ENGL)": [{
+
+      }],
+      "Educational Psychology (EPSY)": [{
+
+      }],
+      "Earth and Space Science (ESSC)": [{
+
+      }],
+      "Earth and Space Science Lab (ESSL)": [{
+
+      }],
+      "Engineering Technology (ET)": [{
+
+      }],
+      "Educational Technology (ETEC)": [{
+
+      }],
+      "Family & Consumer Sciences (FCS)": [{
+
+      }],
+      "Finance (FIN)": [{
+
+      }],
+      "Foreign Languages (FLAN)": [{
+
+      }],
+      "French (FREN)": [{
+
+      }],
+      "General Business (GB)": [{
+
+      }],
+      "General Business Business Tech (GBBT)": [{
+
+      }],
+      "General Biology (GBIO)": [{
+
+      }],
+      "Geography (GEOG)": [{
+
+      }],
+      "German (GERM)": [{
+
+      }],
+      "History (HIST)": [{
+
+      }],
+      "Honors (HONR)": [{
+
+      }],
+      "Horticulture (HORT)": [{
+
+      }],
+      "Health Studies (HS)": [{
+
+      }],
+      "HEALTH SCIENCES (HSCI)": [{
+
+      }],
+      "Health Systems Management (HSM)": [{
+
+      }],
+      "Humanities (HUM)": [{
+
+      }],
+      "INTERNATIONAL BACCALAUREATE (IB)": [{
+
+      }],
+      "Integrated Science and Tech (ISAT)": [{
+
+      }],
+      "Industrial Technology (IT)": [{
+
+      }],
+      "Italian (ITAL)": [{
+
+      }],
+      "Industrial Tech Ed (ITE)": [{
+
+      }],
+      "Kinesiology (KIN)": [{
+
+      }],
+      "Kinesiology Lab (KINL)": [{
+
+      }],
+      "Latin (LAT)": [{
+
+      }],
+      "Library Science (LS)": [{
+
+      }],
+      "Library Administration (LSA)": [{
+
+      }],
+      "Library Science Education (LSED)": [{
+
+      }],
+      "Leadership Train:Spec Topics (LT)": [{
+
+      }],
+      "MASTER OF ARTS IN TEACHING (MAT)": [{
+
+      }],
+      "Math (MATH)": [{
+
+      }],
+      "Marriage, Couple, and Family (MCFC)": [{
+
+      }],
+      "Management (MGMT)": [{
+
+      }],
+      "Microbiology (MIC)": [{
+
+      }],
+      "Microbiology Lab (MICL)": [{
+
+      }],
+      "Marketing (MRKT)": [{
+
+      }],
+      "Military Science (MS)": [{
+
+      }],
+      "CONSORTIUM M.S. IN NURSING (MSN)": [{
+
+      }],
+      "Mathematics Education (MTED)": [{
+
+      }],
+      "Music (MUS)": [{
+
+      }],
+      "Music-Applied (MUSA)": [{
+
+      }],
+      "Mythology (MYTH)": [{
+
+      }],
+      "Nursing Lab (NLAB)": [{
+
+      }],
+      "NTCC ACT Math 17 Cross Enroll (NTCC_DM)": [{
+
+      }],
+      "NTCC Dev English Cross Enroll (NTCC_DVE)": [{
+
+      }],
+      "NTCC Dev Math Cross Enroll (NTCC_DVM)": [{
+
+      }],
+      "Nursing (NURS)": [{
+
+      }],
+      "Operations Mgmt & Info Systems (OMIS)": [{
+
+      }],
+      "Occupational Safety and Envir (OSHE)": [{
+
+      }],
+      "Philosophy (PHIL)": [{
+
+      }],
+      "Physical Science (PHSC)": [{
+
+      }],
+      "Physics (PHYS)": [{
+
+      }],
+      "Physics Lab (PLAB)": [{
+
+      }],
+      "Political Science (POLI)": [{
+
+      }],
+      "Psychology (PSYC)": [{
+
+      }],
+      "Process Technology (PTEC)": [{
+
+      }],
+      "Radiologic Technology (RADT)": [{
+
+      }],
+      "Substance Abuse Counseling (SAC)": [{
+
+      }],
+      "Safety Education (SAFT)": [{
+
+      }],
+      "Scientific Computation (SC)": [{
+
+      }],
+      "Southeastern (SE)": [{
+
+      }],
+      "Sociology (SOC)": [{
+
+      }],
+      "SOCL_NTC (SOCL_NTC)": [{
+
+      }],
+      "Spanish (SPAN)": [{
+
+      }],
+      "Special Education (SPED)": [{
+
+      }],
+      "Social Work (SW)": [{
+
+      }],
+      "Theatre (THEA)": [{
+
+      }],
+      "Theatre Lab (TLAB)": [{
+
+      }],
+      "Zoology (ZOO)": [{
+
+      }],
+      "Zoology Lab (ZOOL)": [{
+
+      }]
+    }]
+}

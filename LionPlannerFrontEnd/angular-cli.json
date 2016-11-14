@@ -21,10 +21,9 @@
       ],
       "scripts": [
         "assets/js/jquery-2.2.3.js",
-        "assets/js/mdb.min.js",
+        "assets/js/mdb.js",
         "assets/js/tether.min.js",
-        "assets/js/bootstrap.min.js",
-        "assets/js/kendo.custom.min.js"
+        "assets/js/bootstrap.min.js"
       ],
       "environments": {
         "source": "environments/environment.ts",

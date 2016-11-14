@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+declare var $: any;
+
 @Component({
   selector: 'lion-root',
   template: `
@@ -9,7 +11,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   constructor() {
-
   }
 
 }

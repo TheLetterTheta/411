@@ -1,3 +1,42 @@
-<p>
-  classes-offered works!
-</p>
+<section class="section">
+  <div *ngIf="loading">
+    <div class="loader">Loading</div>
+  </div>
+
+  <div [hidden]="loading" class="row wow fadeIn">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card mb-6">
+        <div class="card-header selu-green white-text text-xs-center">Course Categories</div>
+
+        <div class="card-block">
+        <!--Accordion wrapper-->
+        <div class="accordion" id="accordion" role="tablist" aria-multiselectable="false">
+
+          <!--First panel-->
+          <div *ngFor="let group of courseGroups; let i = index" class="panel panel-default">
+
+            <!--Panel heading-->
+            <div class="panel-heading" role="tab" [id]="'header'+i">
+              <h5 class="panel-title">
+                <a class="arrow-r black-text" data-toggle="collapse" data-parent="#accordion" [href]="'#collapse'+i" aria-expanded="false">
+                  {{group.name}}<i class="fa fa-angle-down rotate-icon"></i>
+                </a>
+              </h5>
+            </div>
+
+            <!--Panel body-->
+            <div [id]="'collapse'+i" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="">
+              <div *ngFor="let class of group.classes">
+                <a class="blue-text text-xs-center">{{class}}</a>
+              </div>
+            </div>
+          </div>
+          <!--/.First panel-->
+
+        </div>
+        <!--/.Accordion wrapper-->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
