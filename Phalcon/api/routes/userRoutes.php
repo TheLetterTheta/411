@@ -15,13 +15,29 @@ $app->post('/user/login', function () use ($app) {
             'userId' => $loginResponse['userId']
         ));
     }
+    else{
+        $response->setStatusCode(400, "Bad Request");
+    }
 });
+
 $app->get('/user/users', function () use ($app) {
-    $response = $app->di['userService']->GetUsers();
+    $users = $app->di['userService']->GetUsers();
+
+    $response = new Response();
+    $response->setStatusCode(200, "Successful");
+
     return json_encode($response);
 });
+
 $app->get('/user/profile/{id}', function ($id) use ($app) {
-    $response = $app->di['userService']->getUser($id);
-    return json_encode($response);
+    $user = $app->di['userService']->getUser($id);
+    $response = new Response();
+    if(empty($user)) {
+        $response->setStatusCode(404, "Not Found");
+    }
+    else{
+        $response->setStatusCode(200, "Successful");
+    }
+    return json_encode($user);
 });
 

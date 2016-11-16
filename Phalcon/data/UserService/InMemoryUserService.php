@@ -48,14 +48,14 @@ class InMemoryUserService implements IDataUserService
     public function GetUsers(){
         return $this->users;
     }
+
     public function getUser($userId)
     {
-        for($i =0; $i<count($this->users);$i++)
-        {
-            if($this->users[$i]['userId'] == $userId)
-            {
-                return $this->users[$i];
+        foreach($this->users as $user){
+            if($user['userId'] == $userId){
+                return $user;
             }
         }
+        return null;
     }
 }

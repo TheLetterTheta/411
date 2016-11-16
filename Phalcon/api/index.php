@@ -62,6 +62,10 @@ $di->set('dataClassService', function(){
 $di->set('plannerService', function(){
     return new PlannerService();
 });
+$di->set('plannerDataService', function(){
+    $serviceConf = new dataServiceConf();
+    return $serviceConf->GetPlannerDataService();
+});
 
 $app = new Micro($di);
 
