@@ -24,7 +24,8 @@ class InMemoryUserService implements IDataUserService
                 "actReading" => 21,
                 "actScience" => 34,
                 "email" => "nicholas.dolan@selu.edu",
-                'gpa' => 3.9
+                'gpa' => 3.9,
+                'transfer' => false
             ),
             array(
                 "userId" => 2,
@@ -36,7 +37,8 @@ class InMemoryUserService implements IDataUserService
                 "actReading" => 36,
                 "actScience" => 36,
                 "email" => "Joe.Wifi@selu.edu",
-                'gpa' => 4.5
+                'gpa' => 4.5,
+                'transfer' => true
             )
         );
     }
