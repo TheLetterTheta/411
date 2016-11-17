@@ -1321,4 +1321,13 @@ class InMemoryClass implements IClassDataService
         return $this->classes;
     }
 
+    public function getClassesById($classId)
+    {
+        foreach($this->classes as $class){
+            if($class['id'] == $classId){
+                return $class;
+            }
+        }
+        return null;
+    }
 }
