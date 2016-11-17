@@ -112,7 +112,7 @@ class InMemoryClass implements IClassDataService
                 'hours' => 3
             ),
             array(
-                'id' => 52,
+                'id' => 70,
                 'shortName' => 'Math',
                 'classNumber' => 370,
                 'fullName' => 'ABSTRACT ALGEBRA I',
@@ -482,7 +482,7 @@ class InMemoryClass implements IClassDataService
                 'hours' => 3
             ),
             array(
-                'id' => 50,
+                'id' => 69,
                 'shortName' => 'MATH',
                 'classNumber' => 312,
                 'fullName' => 'CALCULUS III',
@@ -500,7 +500,7 @@ class InMemoryClass implements IClassDataService
                 'hours' => 3
             ),
             array(
-                'id' => 51,
+                'id' => 68,
                 'shortName' => 'MATH',
                 'classNumber' => 350,
                 'fullName' => 'ORDINARY DIFFERENTIAL EQUATIONS',
