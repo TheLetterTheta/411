@@ -11,7 +11,7 @@ class InMemoryPlannerDataService implements IPlannerDataService
     public function getPlanner($userId)
     {
         return array(
-            "upcommingSemester" => array(
+            "upcomingSemester" => array(
                 "semester" => "Fall",
                 "year" => 2016,
                 "classes" => array(
@@ -472,209 +472,89 @@ class InMemoryPlannerDataService implements IPlannerDataService
                                     "difficultyRating" => 2.0,
                                     "hoursDemandedRating" => 3.0
                                 )
+                            )
+                        ),
+                        array(
+                            "chosenClass" => array(
+                                "name" => "ENGL 231",
+                                "creditHours" => 3,
+                                "difficultyRating" => 2.5,
+                                "hoursDemandedRating" => 3.5
                             ),
-                            array(
-                                "chosenClass" => array(
-                                    "name" => "ENGL 231",
+                            "classOptions" => array(
+                                array(
+                                    "name" => "ENGL  231",
                                     "creditHours" => 3,
                                     "difficultyRating" => 2.5,
                                     "hoursDemandedRating" => 3.5
                                 ),
-                                "classOptions" => array(
-                                    array(
-                                        "name" => "ENGL  231",
-                                        "creditHours" => 3,
-                                        "difficultyRating" => 2.5,
-                                        "hoursDemandedRating" => 3.5
-                                    ),
-                                    array(
-                                        "name" => "ENGL  230",
-                                        "creditHours" => 3,
-                                        "difficultyRating" => 3.5,
-                                        "hoursDemandedRating" => 2.5
-                                    ),
-                                    array(
-                                        "name" => "ENGL  232",
-                                        "creditHours" => 3,
-                                        "difficultyRating" => 4.5,
-                                        "hoursDemandedRating" => 1.5
-                                    )
+                                array(
+                                    "name" => "ENGL  230",
+                                    "creditHours" => 3,
+                                    "difficultyRating" => 3.5,
+                                    "hoursDemandedRating" => 2.5
+                                ),
+                                array(
+                                    "name" => "ENGL  232",
+                                    "creditHours" => 3,
+                                    "difficultyRating" => 4.5,
+                                    "hoursDemandedRating" => 1.5
                                 )
+                            )
+                        ),
+                        array(
+                            "chosenClass" => array(
+                                "name" => "BIO 153",
+                                "creditHours" => 3,
+                                "difficultyRating" => 1.5,
+                                "hoursDemandedRating" => 2.5
                             ),
-                            array(
-                                "chosenClass" => array(
+                            "classOptions" => array(
+                                array(
                                     "name" => "BIO 153",
                                     "creditHours" => 3,
                                     "difficultyRating" => 1.5,
                                     "hoursDemandedRating" => 2.5
                                 ),
-                                "classOptions" => array(
-                                    array(
-                                        "name" => "BIO 153",
-                                        "creditHours" => 3,
-                                        "difficultyRating" => 1.5,
-                                        "hoursDemandedRating" => 2.5
-                                    ),
-                                    array(
-                                        "name" => "PHYS 223",
-                                        "creditHours" => 3,
-                                        "difficultyRating" => 5.0,
-                                        "hoursDemandedRating" => 4.5
-                                    ),
-                                    array(
-                                        "name" => "CHEM 123",
-                                        "creditHours" => 3,
-                                        "difficultyRating" => 4.0,
-                                        "hoursDemandedRating" => 5.0
-                                    )
+                                array(
+                                    "name" => "PHYS 223",
+                                    "creditHours" => 3,
+                                    "difficultyRating" => 5.0,
+                                    "hoursDemandedRating" => 4.5
+                                ),
+                                array(
+                                    "name" => "CHEM 123",
+                                    "creditHours" => 3,
+                                    "difficultyRating" => 4.0,
+                                    "hoursDemandedRating" => 5.0
                                 )
+                            )
+                        ),
+                        array(
+                            "chosenClass" => array(
+                                "name" => "BIOL 154",
+                                "creditHours" => 1,
+                                "difficultyRating" => 1.5,
+                                "hoursDemandedRating" => 2.5
                             ),
-                            array(
-                                "chosenClass" => array(
+                            "classOptions" => array(
+                                array(
                                     "name" => "BIOL 154",
                                     "creditHours" => 1,
                                     "difficultyRating" => 1.5,
                                     "hoursDemandedRating" => 2.5
                                 ),
-                                "classOptions" => array(
-                                    array(
-                                        "name" => "BIOL 154",
-                                        "creditHours" => 1,
-                                        "difficultyRating" => 1.5,
-                                        "hoursDemandedRating" => 2.5
-                                    ),
-                                    array(
-                                        "name" => "PLAB 224",
-                                        "creditHours" => 1,
-                                        "difficultyRating" => 5.0,
-                                        "hoursDemandedRating" => 4.5
-                                    ),
-                                    array(
-                                        "name" => "CLAB 124",
-                                        "creditHours" => 1,
-                                        "difficultyRating" => 4.0,
-                                        "hoursDemandedRating" => 5.0
-                                    )
-                                )
-                            ),
-                            array(
-                                "chosenClass" => array(
-                                    "name" => "BIO 151",
-                                    "creditHours" => 3,
-                                    "difficultyRating" => 1.5,
-                                    "hoursDemandedRating" => 2.5
-                                ),
-                                "classOptions" => array(
-                                    array(
-                                        "name" => "BIO 151",
-                                        "creditHours" => 3,
-                                        "difficultyRating" => 1.5,
-                                        "hoursDemandedRating" => 2.5
-                                    ),
-                                    array(
-                                        "name" => "PHYS 221",
-                                        "creditHours" => 3,
-                                        "difficultyRating" => 5.0,
-                                        "hoursDemandedRating" => 4.5
-                                    ),
-                                    array(
-                                        "name" => "CHEM 121",
-                                        "creditHours" => 3,
-                                        "difficultyRating" => 4.0,
-                                        "hoursDemandedRating" => 5.0
-                                    )
-                                )
-                            ),
-                            array(
-                                "chosenClass" => array(
-                                    "name" => "CMPS 401",
-                                    "creditHours" => 3,
-                                    "difficultyRating" => 4.5,
-                                    "hoursDemandedRating" => 3.5
-                                ),
-                                "classOptions" => array(
-                                    array(
-                                        "name" => "CMPS 401",
-                                        "creditHours" => 3,
-                                        "difficultyRating" => 4.5,
-                                        "hoursDemandedRating" => 3.5
-                                    )
-                                )
-                            ),
-                            array(
-                                "chosenClass" => array(
-                                    "name" => "CMPS 447",
-                                    "creditHours" => 3,
-                                    "difficultyRating" => 4.5,
-                                    "hoursDemandedRating" => 3.5
-                                ),
-                                "classOptions" => array(
-                                    array(
-                                        "name" => "Search Catalog (CMPS Elective)",
-                                        "creditHours" => 3,
-                                        "difficultyRating" => 4.5,
-                                        "hoursDemandedRating" => 3.5
-                                    )
-                                )
-                            ),
-                            array(
-                                "chosenClass" => array(
-                                    "name" => "ENGL 322",
-                                    "creditHours" => 3,
-                                    "difficultyRating" => 2.5,
-                                    "hoursDemandedRating" => 2.5
-                                ),
-                                "classOptions" => array(
-                                    array(
-                                        "name" => "ENGL 322",
-                                        "creditHours" => 3,
-                                        "difficultyRating" => 2.5,
-                                        "hoursDemandedRating" => 2.5
-                                    )
-                                )
-                            ),
-                            array(
-                                "chosenClass" => array(
-                                    "name" => "MATH 380",
-                                    "creditHours" => 3,
-                                    "difficultyRating" => 4.5,
-                                    "hoursDemandedRating" => 3.5
-                                ),
-                                "classOptions" => array(
-                                    array(
-                                        "name" => "MATH 380",
-                                        "creditHours" => 3,
-                                        "difficultyRating" => 4.5,
-                                        "hoursDemandedRating" => 3.5
-                                    )
-                                )
-                            ),
-                            array(
-                                "chosenClass" => array(
-                                    "name" => "PHYS 221",
-                                    "creditHours" => 3,
+                                array(
+                                    "name" => "PLAB 224",
+                                    "creditHours" => 1,
                                     "difficultyRating" => 5.0,
                                     "hoursDemandedRating" => 4.5
                                 ),
-                                "classOptions" => array(
-                                    array(
-                                        "name" => "BIO 151",
-                                        "creditHours" => 3,
-                                        "difficultyRating" => 1.5,
-                                        "hoursDemandedRating" => 2.5
-                                    ),
-                                    array(
-                                        "name" => "PHYS 221",
-                                        "creditHours" => 3,
-                                        "difficultyRating" => 5.0,
-                                        "hoursDemandedRating" => 4.5
-                                    ),
-                                    array(
-                                        "name" => "CHEM 121",
-                                        "creditHours" => 3,
-                                        "difficultyRating" => 4.0,
-                                        "hoursDemandedRating" => 5.0
-                                    )
+                                array(
+                                    "name" => "CLAB 124",
+                                    "creditHours" => 1,
+                                    "difficultyRating" => 4.0,
+                                    "hoursDemandedRating" => 5.0
                                 )
                             )
                         )
@@ -683,6 +563,132 @@ class InMemoryPlannerDataService implements IPlannerDataService
                 array(
                     "semester" => "Fall",
                     "year" => 2018,
+                    "classes" => array(
+                        array(
+                            "chosenClass" => array(
+                                "name" => "BIO 151",
+                                "creditHours" => 3,
+                                "difficultyRating" => 1.5,
+                                "hoursDemandedRating" => 2.5
+                            ),
+                            "classOptions" => array(
+                                array(
+                                    "name" => "BIO 151",
+                                    "creditHours" => 3,
+                                    "difficultyRating" => 1.5,
+                                    "hoursDemandedRating" => 2.5
+                                ),
+                                array(
+                                    "name" => "PHYS 221",
+                                    "creditHours" => 3,
+                                    "difficultyRating" => 5.0,
+                                    "hoursDemandedRating" => 4.5
+                                ),
+                                array(
+                                    "name" => "CHEM 121",
+                                    "creditHours" => 3,
+                                    "difficultyRating" => 4.0,
+                                    "hoursDemandedRating" => 5.0
+                                )
+                            )
+                        ),
+                        array(
+                            "chosenClass" => array(
+                                "name" => "CMPS 401",
+                                "creditHours" => 3,
+                                "difficultyRating" => 4.5,
+                                "hoursDemandedRating" => 3.5
+                            ),
+                            "classOptions" => array(
+                                array(
+                                    "name" => "CMPS 401",
+                                    "creditHours" => 3,
+                                    "difficultyRating" => 4.5,
+                                    "hoursDemandedRating" => 3.5
+                                )
+                            )
+                        ),
+                        array(
+                            "chosenClass" => array(
+                                "name" => "CMPS 447",
+                                "creditHours" => 3,
+                                "difficultyRating" => 4.5,
+                                "hoursDemandedRating" => 3.5
+                            ),
+                            "classOptions" => array(
+                                array(
+                                    "name" => "Search Catalog (CMPS Elective)",
+                                    "creditHours" => 3,
+                                    "difficultyRating" => 4.5,
+                                    "hoursDemandedRating" => 3.5
+                                )
+                            )
+                        ),
+                        array(
+                            "chosenClass" => array(
+                                "name" => "ENGL 322",
+                                "creditHours" => 3,
+                                "difficultyRating" => 2.5,
+                                "hoursDemandedRating" => 2.5
+                            ),
+                            "classOptions" => array(
+                                array(
+                                    "name" => "ENGL 322",
+                                    "creditHours" => 3,
+                                    "difficultyRating" => 2.5,
+                                    "hoursDemandedRating" => 2.5
+                                )
+                            )
+                        ),
+                        array(
+                            "chosenClass" => array(
+                                "name" => "MATH 380",
+                                "creditHours" => 3,
+                                "difficultyRating" => 4.5,
+                                "hoursDemandedRating" => 3.5
+                            ),
+                            "classOptions" => array(
+                                array(
+                                    "name" => "MATH 380",
+                                    "creditHours" => 3,
+                                    "difficultyRating" => 4.5,
+                                    "hoursDemandedRating" => 3.5
+                                )
+                            )
+                        ),
+                        array(
+                            "chosenClass" => array(
+                                "name" => "PHYS 221",
+                                "creditHours" => 3,
+                                "difficultyRating" => 5.0,
+                                "hoursDemandedRating" => 4.5
+                            ),
+                            "classOptions" => array(
+                                array(
+                                    "name" => "BIO 151",
+                                    "creditHours" => 3,
+                                    "difficultyRating" => 1.5,
+                                    "hoursDemandedRating" => 2.5
+                                ),
+                                array(
+                                    "name" => "PHYS 221",
+                                    "creditHours" => 3,
+                                    "difficultyRating" => 5.0,
+                                    "hoursDemandedRating" => 4.5
+                                ),
+                                array(
+                                    "name" => "CHEM 121",
+                                    "creditHours" => 3,
+                                    "difficultyRating" => 4.0,
+                                    "hoursDemandedRating" => 5.0
+                                )
+                            )
+                        )
+                    )
+                ),
+                array(
+                    "semester" => "Spring",
+                    "year" => 2019,
                     "classes" => array(
                         array(
                             "chosenClass" => array(
@@ -815,7 +821,7 @@ class InMemoryPlannerDataService implements IPlannerDataService
                     )
                 ),
                 array(
-                    "semester" => "Spring",
+                    "semester" => "Fall",
                     "year" => 2019,
                     "classes" => array(
                         array(
@@ -907,8 +913,8 @@ class InMemoryPlannerDataService implements IPlannerDataService
                     )
                 ),
                 array(
-                    "semester" => "Fall",
-                    "year" => 2019,
+                    "semester" => "Spring",
+                    "year" => 2020,
                     "classes" => array(
                         array(
                             "chosenClass" => array(
