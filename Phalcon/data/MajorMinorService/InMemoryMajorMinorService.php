@@ -18,7 +18,10 @@ class InMemoryMajorMinorService implements IMajorMinorDataService
             'id' => 1,
             'name' => 'Computer Science',
             'description' =>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vestibulum, felis id volutpat sollicitudin, quam odio ultrices nisi, eget viverra est eros vel ante.",
-            'progress' => 67
+            'progress' => 67,
+            'catalog' => array(
+                'classes' => array(27,28,30,29,56,58,57,59,60,62,64,41,44,43,42,45,46,47,51,49,1,4,5,17,18,70,7,9,10,12,14,15,16,79,20,21,22,23,24,6,26)
+            )
         ),array(
             'id' => 2,
             'name' => 'Math',

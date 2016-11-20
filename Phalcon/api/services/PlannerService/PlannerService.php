@@ -53,9 +53,22 @@ class PlannerService implements IPlannerService
 
     public function createPlanner($userId)
     {
+        $majors=$this->di["dataMajorMinorService"]->getMajors($userId);
         $response = $this->di["dataClassService"]->GetClasses($userId);
-        $this->remainingClasses = $this->modifyClassesArray($response);
+        $classArray = array();
+        foreach($majors[0]['catalog']['classes'] as $class)
+        {
+            foreach($response as $serviceClass)
+            {
+                if($serviceClass['id']==$class){
+                    array_push($classArray,$serviceClass);
+                }
+            }
+        }
+        echo(json_encode($classArray));
+        $this->remainingClasses = $this->modifyClassesArray($classArray);
         $this->generateHeaderClasses();
+        echo json_encode($this->headerClasses);
         if(is_array($this->headerClasses) || is_object($this->headerClasses)) {
             foreach ($this->headerClasses as $class) {
                 $this->calculateSemestersTillCompletion($class, -1);
@@ -65,8 +78,6 @@ class PlannerService implements IPlannerService
             return $b['postRequisites'] <=> $a['postRequisites'];
         });
         array_push($this->plannedSemester[0], $this->remainingClasses[0]);
-        echo json_encode($this->remainingClasses);
-        
         foreach($this->remainingClasses as $classKey => $class){
             foreach($this->plannedSemester as $semesterKey => $semester){
                 if($this->canScheduleClass($class,$semester)){

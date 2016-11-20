@@ -94,3 +94,43 @@ CREATE TABLE ClassRatings
     REFERENCES Users(UserId)
   , PRIMARY KEY (ClassId, UserId)
 );
+
+CREATE TABLE Semesters
+(
+  SemesterId VARCHAR(32) NOT NULL
+  , SemesterType TINYINT NOT NULL
+  , SemesterYear INT NOT NULL
+  , PRIMARY KEY (SemesterId)
+);
+
+CREATE TABLE UserPlanner
+(
+  UserPlannerId INT NOT NULL
+  , UserId VARCHAR(32) NOT NULL
+  , SemesterId VARCHAR(32) NOT NULL
+  , ClassId VARCHAR(32) NOT NULL
+  , PRIMARY KEY (UserPlannerId)
+  , FOREIGN KEY (UserId)
+    REFERENCES Users(UserId)
+  , FOREIGN KEY (SemesterId)
+    REFERENCES Semesters(SemesterId)
+  , FOREIGN KEY (ClassId)
+    REFERENCES Classes(ClassId)
+);
+
+##############################
+###   Development Tables   ###
+##############################
+
+CREATE TABLE ClassInformation
+(
+  ClassId VARCHAR(32) NOT NULL
+  , ClassName VARCHAR(128) NOT NULL
+  , Availability TINYINT
+);
+
+CREATE TABLE  ClassAvailability
+(
+  AvailabilityId VARCHAR(32) NOT NULL
+  , SemesterType VARCHAR()
+);

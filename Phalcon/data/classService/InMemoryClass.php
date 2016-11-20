@@ -143,7 +143,25 @@ class InMemoryClass implements IClassDataService
                     )
                 ),
                 'semester' =>array(
-                'fa','sp','su'
+                'fa'
+                ),
+                'hours' => 3
+            ),
+            array(
+                'id' => 79,
+                'shortName' => 'CMPS',
+                'classNumber' => 401,
+                'fullName' => ' SURVEY OF PROGRAMMING LANGUAGES',
+                'prerequisites' =>array(
+                    array(
+                        array(
+                            'type' => 'class',
+                            'value' => 'CMPS 390'
+                        )
+                    )
+                ),
+                'semester' =>array(
+                    'fa','sp','su'
                 ),
                 'hours' => 3
             ),
@@ -736,134 +754,12 @@ class InMemoryClass implements IClassDataService
                 'hours' => 3
             ),
             array(
-                'id' => 33,
-                'shortName' => 'SciSeq I',
-                'classNumber' => 1,
-                'fullName' => 'Science Sequence I',
-                'prerequisites' =>array(
-                ),
-                'semester' =>array(
-                    'fa','sp','su'
-                ),
-                'hours' => 3
-            ),
-            array(
-                'id' => 34,
-                'shortName' => 'SciSeqLab I',
-                'classNumber' => 1,
-                'fullName' => 'Science Sequence Lab I',
-                'prerequisites' =>array(
-                ),
-                'semester' =>array(
-                    'fa','sp','su'
-                ),
-                'hours' => 1
-            ),
-            array(
-                'id' => 35,
-                'shortName' => 'SciSeq II',
-                'classNumber' => 1,
-                'fullName' => 'Science Sequence II',
-                'prerequisites' =>array(
-                    array(
-                        array(
-                            'type' => 'class',
-                            'value' => 'Science Sequence I'
-                        )
-                    )
-                ),
-                'semester' =>array(
-                    'fa','sp','su'
-                ),
-                'hours' => 3
-            ),
-            array(
-                'id' => 36,
-                'shortName' => 'SciSeqLab II',
-                'classNumber' => 1,
-                'fullName' => 'Science Sequence Lab II',
-                'prerequisites' =>array(
-                    array(
-                        array(
-                            'type' => 'class',
-                            'value' => 'Science Sequence Lab I'
-                        )
-                    )
-                ),
-                'semester' =>array(
-                    'fa','sp','su'
-                ),
-                'hours' => 3
-            ),
-            array(
-                'id' => 37,
-                'shortName' => 'SciSeqLab II',
-                'classNumber' => 1,
-                'fullName' => 'Science Sequence Lab II',
-                'prerequisites' =>array(
-                    array(
-                        array(
-                            'type' => 'class',
-                            'value' => 'Science Sequence Lab I'
-                        )
-                    )
-                ),
-                'semester' =>array(
-                    'fa','sp','su'
-                ),
-                'hours' => 1
-            ),
-            array(
-                'id' => 38,
-                'shortName' => 'SciCourse',
-                'classNumber' => 1,
-                'fullName' => 'Science Course Lecture',
-                'prerequisites' =>array(
-                ),
-                'semester' =>array(
-                    'fa','sp','su'
-                ),
-                'hours' => 3
-            ),
-            array(
-                'id' => 39,
-                'shortName' => 'SciCourse',
-                'classNumber' => 1,
-                'fullName' => 'Science Course Lecture',
-                'prerequisites' =>array(
-                ),
-                'semester' =>array(
-                    'fa','sp','su'
-                ),
-                'hours' => 3
-            ),
-            array(
-                'id' => 40,
-                'shortName' => 'SciCourseLab',
-                'classNumber' => 1,
-                'fullName' => 'Science Course Lab',
-                'prerequisites' =>array(
-                    array(
-                        array(
-                            'type' => 'class',
-                            'value' => 'Science Course Lecture'
-                        )
-                    )
-                ),
-                'semester' =>array(
-                    'fa','sp','su'
-                ),
-                'hours' => 3
-            ),
-            array(
                 'id' => 41,
                 'shortName' => 'MUS',
                 'classNumber' => 151,
                 'fullName' => 'INTRO TO MUSIC',
                 'prerequisites' =>array(
-                    array(
-                        array()
-                    )
+
                 ),
                 'semester' =>array(
                     'fa','sp','su'
@@ -876,9 +772,6 @@ class InMemoryClass implements IClassDataService
                 'classNumber' => 105,
                 'fullName' => 'SURVEY WORLD ART HISTORY I',
                 'prerequisites' =>array(
-                    array(
-                        array()
-                    )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
@@ -891,9 +784,6 @@ class InMemoryClass implements IClassDataService
                 'classNumber' => 100,
                 'fullName' => ' INTRODUCTION TO DANCE',
                 'prerequisites' =>array(
-                    array(
-                        array()
-                    )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
@@ -906,9 +796,6 @@ class InMemoryClass implements IClassDataService
                 'classNumber' => 131,
                 'fullName' => 'INTRO THEATRE',
                 'prerequisites' =>array(
-                    array(
-                        array()
-                    )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
@@ -921,9 +808,6 @@ class InMemoryClass implements IClassDataService
                 'classNumber' => 101,
                 'fullName' => 'WESTERN CIVILIZATION TO 1500',
                 'prerequisites' =>array(
-                    array(
-                        array()
-                    )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
@@ -936,9 +820,6 @@ class InMemoryClass implements IClassDataService
                 'classNumber' => 211,
                 'fullName' => 'INTRODUCTION TO PUBLIC SPEAKING',
                 'prerequisites' =>array(
-                    array(
-                        array()
-                    )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
@@ -951,9 +832,6 @@ class InMemoryClass implements IClassDataService
                 'classNumber' => 201,
                 'fullName' => 'PRINCIPLES OF  ECONOMICS (MACROECONOMICS)',
                 'prerequisites' =>array(
-                    array(
-                        array()
-                    )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
@@ -966,9 +844,6 @@ class InMemoryClass implements IClassDataService
                 'classNumber' => 202,
                 'fullName' => 'PRINCIPLES OF  ECONOMICS (MICROECONOMICS)',
                 'prerequisites' =>array(
-                    array(
-                        array()
-                    )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
@@ -981,9 +856,6 @@ class InMemoryClass implements IClassDataService
                 'classNumber' => 101,
                 'fullName' => 'CULTURAL ANTHROPOLOGY',
                 'prerequisites' =>array(
-                    array(
-                        array()
-                    )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
@@ -1008,9 +880,6 @@ class InMemoryClass implements IClassDataService
                 'classNumber' => 101,
                 'fullName' => 'INTRODUCTION TO CRIMINAL JUSTICE',
                 'prerequisites' =>array(
-                    array(
-                        array()
-                    )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
@@ -1023,9 +892,6 @@ class InMemoryClass implements IClassDataService
                 'classNumber' => 103,
                 'fullName' => 'INTRODUCTION TO GEOGRAPHY',
                 'prerequisites' =>array(
-                    array(
-                        array()
-                    )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
@@ -1038,9 +904,6 @@ class InMemoryClass implements IClassDataService
                 'classNumber' => 101,
                 'fullName' => 'GEN PSYCHOLOGY I',
                 'prerequisites' =>array(
-                    array(
-                        array()
-                    )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
@@ -1053,9 +916,6 @@ class InMemoryClass implements IClassDataService
                 'classNumber' => 201,
                 'fullName' => 'AMERICAN POLITICS',
                 'prerequisites' =>array(
-                    array(
-                        array()
-                    )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
@@ -1068,9 +928,6 @@ class InMemoryClass implements IClassDataService
                 'classNumber' => 101,
                 'fullName' => 'INTRO SOCIOLOGY',
                 'prerequisites' =>array(
-                    array(
-                        array()
-                    )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
