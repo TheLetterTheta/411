@@ -15,18 +15,19 @@ class InMemoryClass implements IClassDataService
         $this->classes = array(
             array(
                 'id' => 1,
-                'shortName' => 'Math',
+                'shortName' => 'MATH',
                 'classNumber' => 200,
                 'fullName' => 'Calculus I',
                 'prerequisites' =>array(
                     array(
                         array(
-                            'type' => 'Act Math',
+                            'type' => 'Act MATH',
                             'value' => 28
                         ),
                         array(
                             'type' => 'class',
-                            'value' => 'Math 165'
+                            'value' => 'MATH 165', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -37,18 +38,19 @@ class InMemoryClass implements IClassDataService
             ),
             array(
                 'id' => 2,
-                'shortName' => 'Math',
+                'shortName' => 'MATH',
                 'classNumber' => 165,
                 'fullName' => 'PRECALCULUS W/TRIG',
                 'prerequisites' =>array(
                     array(
                         array(
-                            'type' => 'Act Math',
+                            'type' => 'Act MATH',
                             'value' => 25
                         ),
                         array(
                             'type' => 'class',
-                            'value' => 'Math 161'
+                            'value' => 'MATH 161', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -59,13 +61,13 @@ class InMemoryClass implements IClassDataService
             ),
             array(
                 'id' => 3,
-                'shortName' => 'Math',
+                'shortName' => 'MATH',
                 'classNumber' => 161,
                 'fullName' => 'COLLEGE ALGEBRA',
                 'prerequisites' =>array(
                     array(
                         array(
-                            'type' => 'Act Math',
+                            'type' => 'Act MATH',
                             'value' => 21
                         )
                     )
@@ -77,14 +79,15 @@ class InMemoryClass implements IClassDataService
             ),
             array(
                 'id' => 4,
-                'shortName' => 'Math',
+                'shortName' => 'MATH',
                 'classNumber' => 201,
                 'fullName' => 'Calculus II',
                 'prerequisites' =>array(
                     array(
                         array(
                             'type' => 'class',
-                            'value' =>'Math 200'
+                            'value' =>'MATH 200',
+                            'isCorequisite' => false
                         )
                     )
                 ),
@@ -95,14 +98,15 @@ class InMemoryClass implements IClassDataService
             ),
             array(
                 'id' => 5,
-                'shortName' => 'Math',
+                'shortName' => 'MATH',
                 'classNumber' => 380,
-                'fullName' => 'Mathematical Statistics',
+                'fullName' => 'MATHematical Statistics',
                 'prerequisites' =>array(
                     array(
                         array(
                             'type' => 'class',
-                            'value' =>'Math 201'
+                            'value' =>'MATH 201',
+                            'isCorequisite' => false
                         )
                     )
                 ),
@@ -113,14 +117,15 @@ class InMemoryClass implements IClassDataService
             ),
             array(
                 'id' => 70,
-                'shortName' => 'Math',
+                'shortName' => 'MATH',
                 'classNumber' => 370,
                 'fullName' => 'ABSTRACT ALGEBRA I',
                 'prerequisites' =>array(
                     array(
                         array(
                             'type' => 'class',
-                            'value' =>'Math 360'
+                            'value' =>'MATH 360',
+                            'isCorequisite' => false
                         )
                     )
                 ),
@@ -138,7 +143,8 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'Math 161'
+                            'value' => 'MATH 161', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -156,7 +162,8 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 390'
+                            'value' => 'CMPS 390', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -174,17 +181,20 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 161'
+                            'value' => 'CMPS 161', 
+							'isCorequisite' => false
                         )
                     ),
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'Math 161'
+                            'value' => 'MATH 161', 
+							'isCorequisite' => false
                         ),
                         array(
                             'type' => 'class',
-                            'value' => 'Math 165'
+                            'value' => 'MATH 165', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -202,13 +212,15 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 161'
+                            'value' => 'CMPS 161', 
+							'isCorequisite' => false
                         )
                     ),
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'Math 161'
+                            'value' => 'MATH 161', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -226,7 +238,8 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 280'
+                            'value' => 'CMPS 280', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -244,11 +257,13 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'MATH 161'
+                            'value' => 'MATH 161', 
+							'isCorequisite' => false
                         ),
                         array(
                             'type' => 'class',
-                            'value' => 'MATH 165'
+                            'value' => 'MATH 165', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -266,11 +281,13 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 120'
+                            'value' => 'CMPS 120', 
+							'isCorequisite' => false
                         ),
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 161'
+                            'value' => 'CMPS 161', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -288,11 +305,13 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 120'
+                            'value' => 'CMPS 120', 
+							'isCorequisite' => false
                         ),
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 161'
+                            'value' => 'CMPS 161', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -310,7 +329,8 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 290'
+                            'value' => 'CMPS 290', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -328,19 +348,22 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 257'
+                            'value' => 'CMPS 257', 
+							'isCorequisite' => false
                         )
                     ),
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 280'
+                            'value' => 'CMPS 280', 
+							'isCorequisite' => false
                         )
                     ),
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 285'
+                            'value' => 'CMPS 285', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -358,13 +381,15 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 280'
+                            'value' => 'CMPS 280', 
+							'isCorequisite' => false
                         )
                     ),
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'Math 360'
+                            'value' => 'MATH 360', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -382,13 +407,15 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'MATH 201'
+                            'value' => 'MATH 201', 
+							'isCorequisite' => false
                         )
                     ),
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'Math 223'
+                            'value' => 'MATH 223', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -406,7 +433,8 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'MATH 200'
+                            'value' => 'MATH 200', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -424,7 +452,8 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 390'
+                            'value' => 'CMPS 390', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -442,13 +471,15 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 390'
+                            'value' => 'CMPS 390', 
+							'isCorequisite' => false
                         )
                     ),
                     array(
                         array(
                             'type' => 'standing',
-                            'value' => 'senior'
+                            'value' => 'senior', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -466,7 +497,8 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 390'
+                            'value' => 'CMPS 390', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -484,13 +516,15 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 375'
+                            'value' => 'CMPS 375', 
+							'isCorequisite' => false
                         )
                     ),
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 390'
+                            'value' => 'CMPS 390', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -508,7 +542,8 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'MATH 201'
+                            'value' => 'MATH 201', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -526,7 +561,8 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'MATH 201'
+                            'value' => 'MATH 201', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -544,11 +580,13 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 257'
+                            'value' => 'CMPS 257', 
+							'isCorequisite' => false
                         ),
                          array(
                              'type' => 'class',
-                             'value' => 'Math 223'
+                             'value' => 'MATH 223', 
+							'isCorequisite' => false
                          )
                     )
                 ),
@@ -566,13 +604,15 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 411'
+                            'value' => 'CMPS 411', 
+							'isCorequisite' => false
                         )
                     ),
                     array(
                         array(
                             'type' => 'standing',
-                            'value' => 'senior'
+                            'value' => 'senior', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -590,13 +630,15 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 280'
+                            'value' => 'CMPS 280', 
+							'isCorequisite' => false
                         )
                     ),
                     array(
                         array(
                             'type' => 'year',
-                            'value' => 'even'
+                            'value' => 'even', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -614,7 +656,8 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 390'
+                            'value' => 'CMPS 390', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -632,7 +675,8 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 285'
+                            'value' => 'CMPS 285', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -672,7 +716,8 @@ class InMemoryClass implements IClassDataService
                         ),
                         array(
                             'type' => 'class',
-                            'value' => 'ENGL 101'
+                            'value' => 'ENGL 101', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -690,7 +735,8 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'ENGL 102'
+                            'value' => 'ENGL 102', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -708,7 +754,8 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'ENGL 102'
+                            'value' => 'ENGL 102', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -726,7 +773,8 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'ENGL 102'
+                            'value' => 'ENGL 102', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -744,7 +792,8 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'ENGL 102'
+                            'value' => 'ENGL 102', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -940,18 +989,6 @@ class InMemoryClass implements IClassDataService
                 'classNumber' => 151,
                 'fullName' => 'GENERAL BIOLOGY I',
                 'prerequisites' =>array(
-                    array(
-                        array(
-                            'type' => 'class',
-                            'value' => 'ENGL 101'
-                        )
-                    ),
-                    array(
-                        array(
-                            'type' => 'class',
-                            'value' => 'MATH 155'
-                        )
-                    )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
@@ -967,7 +1004,8 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'GBIO 153'
+                            'value' => 'GBIO 151', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -985,7 +1023,8 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'GBIO 151'
+                            'value' => 'GBIO 151', 
+							'isCorequisite' => true
                         )
                     )
                 ),
@@ -1003,7 +1042,8 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'GBIO 153'
+                            'value' => 'GBIO 153', 
+							'isCorequisite' => true
                         )
                     )
                 ),
@@ -1021,7 +1061,8 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'MATH 200'
+                            'value' => 'MATH 200', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -1039,7 +1080,8 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'PHYS 221'
+                            'value' => 'PHYS 221', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -1057,7 +1099,8 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'PHYS 221'
+                            'value' => 'PHYS 221', 
+							'isCorequisite' => true
                         )
                     )
                 ),
@@ -1075,13 +1118,15 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'PHYS 221'
+                            'value' => 'PHYS 222',
+							'isCorequisite' => true
                         )
                     ),
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'PLAB 223'
+                            'value' => 'PLAB 223', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -1098,12 +1143,13 @@ class InMemoryClass implements IClassDataService
                 'prerequisites' =>array(
                     array(
                         array(
-                            'type' => 'Act Math',
+                            'type' => 'Act MATH',
                             'value' => 25
                         ),
                         array(
                             'type' => 'class',
-                            'value' => 'MATH 155'
+                            'value' => 'MATH 155', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -1121,7 +1167,8 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CHEM 121'
+                            'value' => 'CHEM 121', 
+							'isCorequisite' => false
                         )
                     )
                 ),
@@ -1139,7 +1186,8 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CHEM 121'
+                            'value' => 'CHEM 121', 
+							'isCorequisite' => true
                         )
                     )
                 ),
@@ -1157,11 +1205,13 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CHEM 122'
+                            'value' => 'CHEM 122', 
+							'isCorequisite' => true
                         ),
                         array(
                             'type' => 'class',
-                            'value' => 'CLAB 123'
+                            'value' => 'CLAB 123', 
+							'isCorequisite' => false
                         )
                     )
                 ),

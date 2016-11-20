@@ -117,20 +117,3 @@ CREATE TABLE UserPlanner
   , FOREIGN KEY (ClassId)
     REFERENCES Classes(ClassId)
 );
-
-##############################
-###   Development Tables   ###
-##############################
-
-CREATE TABLE ClassInformation
-(
-  ClassId VARCHAR(32) NOT NULL
-  , ClassName VARCHAR(128) NOT NULL
-  , Availability TINYINT
-);
-
-CREATE TABLE  ClassAvailability
-(
-  AvailabilityId VARCHAR(32) NOT NULL
-  , SemesterType VARCHAR()
-);

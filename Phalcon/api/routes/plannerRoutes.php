@@ -10,7 +10,7 @@ $app->get('/planner/{userId}', function($userId) use ($app){
     return json_encode($planner);
 });
 
-$app->get('/planner/buildPlanner/{userId}', function ($userId) use ($app) {
+$app->post('/planner/buildPlanner/{userId}', function ($userId) use ($app) {
     $response = $app->di['plannerService']->createPlanner($userId);
     //return json_encode($response);
 });

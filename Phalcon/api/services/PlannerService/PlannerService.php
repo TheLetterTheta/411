@@ -65,18 +65,18 @@ class PlannerService implements IPlannerService
                 }
             }
         }
-        echo(json_encode($classArray));
         $this->remainingClasses = $this->modifyClassesArray($classArray);
         $this->generateHeaderClasses();
-        echo json_encode($this->headerClasses);
         if(is_array($this->headerClasses) || is_object($this->headerClasses)) {
             foreach ($this->headerClasses as $class) {
+                $this->remainingClasses[$class]['postRequisites'] = 0;
                 $this->calculateSemestersTillCompletion($class, -1);
             }
         }
         usort($this->remainingClasses, function($a, $b){
             return $b['postRequisites'] <=> $a['postRequisites'];
         });
+        echo json_encode($this->remainingClasses);
         array_push($this->plannedSemester[0], $this->remainingClasses[0]);
         foreach($this->remainingClasses as $classKey => $class){
             foreach($this->plannedSemester as $semesterKey => $semester){
@@ -91,7 +91,6 @@ class PlannerService implements IPlannerService
     {
         if(is_array($response)  || is_object($response)) {
             foreach ($response as &$class) {
-                //echo(json_encode($class));
                 $class['postRequisites'] = -1;
                 $class['isPlanned'] = false;
             }
@@ -128,12 +127,16 @@ class PlannerService implements IPlannerService
         if($this->remainingClasses[$classKeyPosition]['postRequisites'] < $previousDepth + 1) {
             $this->remainingClasses[$classKeyPosition]['postRequisites'] = $previousDepth + 1;
         }
+        //echo json_encode($this->remainingClasses[$classKeyPosition]) . ',';
         foreach ($this->remainingClasses[$classKeyPosition]['prerequisites'] as $andLayer) {
             foreach ($andLayer as $prerequisite) {
                 if ($prerequisite['type'] == 'class') {
                     foreach ($this->remainingClasses as $key => $value) {
                         if (strtoupper($value['shortName'] . ' ' . $value['classNumber']) == strtoupper($prerequisite['value'])) {
-                            if ($value['postRequisites'] < $previousDepth + 1) {
+                            //echo '--- FOUND! ---';
+                            //echo json_encode($value) . ' ' . $previousDepth;
+                            if ($value['postRequisites'] <= $previousDepth + 1) {
+                                //echo '--- DIGGING ---';
                                 $this->calculateSemestersTillCompletion($key, $previousDepth + 1);
                             }
                             break;
@@ -146,9 +149,9 @@ class PlannerService implements IPlannerService
 
     private function canScheduleClass($class, $semester)
     {
-        if($semester->hours > $this->semesterHourThreshold){
-            return false;
-        }
+//        if($semester->hours > $this->semesterHourThreshold){
+//            return false;
+//        }
         foreach($this->plannedSemester as $semesters)
         {
             foreach ($semesters['classes'] as $semesterClass)
