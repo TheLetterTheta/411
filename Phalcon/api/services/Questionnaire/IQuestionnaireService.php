@@ -8,5 +8,5 @@
  */
 interface IQuestionnaireService
 {
-    public function getQuestionnaire();
+    public function getQuestionnaire($userId);
 }

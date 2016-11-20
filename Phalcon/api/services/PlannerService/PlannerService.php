@@ -53,7 +53,7 @@ class PlannerService implements IPlannerService
 
     public function createPlanner($userId)
     {
-        $response = $this->di["dataClassService"]->GetClasses();
+        $response = $this->di["dataClassService"]->GetClasses($userId);
         $this->remainingClasses = $this->modifyClassesArray($response);
         $this->generateHeaderClasses();
         if(is_array($this->headerClasses) || is_object($this->headerClasses)) {

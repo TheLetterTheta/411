@@ -80,6 +80,6 @@ require 'routes/plannerRoutes.php';
 require 'routes/userRoutes.php';
 require 'routes/majorMinorRoutes.php';
 require 'routes/classRoutes.php';
-require 'routes/questionnaireroute.php';
+require 'routes/questionnaireRoutes.php';
 
 $app->handle();

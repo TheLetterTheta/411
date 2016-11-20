@@ -27,7 +27,7 @@ class InMemoryMajorMinorService implements IMajorMinorDataService
         ));
         $this->minors = array(
             array(
-                'id' => 1,
+                'id' => 3,
                 'name' => 'English',
                 'description' =>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vestibulum, felis id volutpat sollicitudin, quam odio ultrices nisi, eget viverra est eros vel ante.",
                 'progress' => 10

@@ -12,13 +12,59 @@ CREATE TABLE Users
     PRIMARY KEY (UserId)
 );
 
+CREATE TABLE Catalog
+(
+  CatalogId VARCHAR(32) NOT NULL
+  , IsMajor BIT NOT NULL
+  , PRIMARY KEY (CatalogId)
+);
+
+CREATE TABLE UserCatalog
+(
+  UserId VARCHAR(32) NOT NULL
+  , CatalogId VARCHAR(32) NOT NULL
+  , PRIMARY KEY (UserId, CatalogId)
+  , FOREIGN KEY (UserId)
+    REFERENCES Users(UserId)
+  , FOREIGN KEY (CatalogId)
+    REFERENCES Catalog(CatalogId)
+);
+
+CREATE TABLE Questions
+(
+  QuestionId INT NOT NULL AUTO_INCREMENT
+  , QuestionType TINYINT NOT NULL
+  , PRIMARY KEY (QuestionId)
+);
+
+CREATE TABLE QuestionChoices
+(
+  QuestionChoiceId INT NOT NULL AUTO_INCREMENT
+  , QuestionId INT NOT NULL
+  , ClassId VARCHAR(32) NOT NULL
+);
+
+CREATE TABLE QuestionResponses
+(
+  QuestionResponseId INT NOT NULL AUTO_INCREMENT
+  , UserId VARCHAR(32) NOT NULL
+  , QuestionId VARCHAR(32) NOT NULL
+  , QuestionChoice VARCHAR(32) NOT NULL
+  , ResponseType TINYINT
+  , PRIMARY KEY (QuestionResponseId)
+  , FOREIGN KEY (UserId)
+    REFERENCES Users(UserId)
+  , FOREIGN KEY (QuestionId)
+    REFERENCES Questions(QuestionId)
+);
+
 CREATE TABLE Semesters
 (
     SemesterId VARCHAR(32) NOT NULL
   , SemesterName CHAR(7) NOT NULL
   , `Year` INT NOT NULL
   , CONSTRAINT PK_Semesters
-PRIMARY KEY (SemesterId)
+      PRIMARY KEY (SemesterId)
 );
 
 CREATE TABLE MajorMinors
@@ -35,10 +81,10 @@ CREATE TABLE UserMajorMinors
   , MajorMinorId VARCHAR(32) NOT NULL
   , CONSTRAINT FK_UserMajorMinors_Users
     FOREIGN KEY (UserId)
-    REFERENCES Users(UserId)
+      REFERENCES Users(UserId)
   , CONSTRAINT FK_UserMajorMinors_MajorMinors
-    FOREIGN KEY (MajorMinorId)
-    REFERENCES MajorMinors(MajorMinorId)
+      FOREIGN KEY (MajorMinorId)
+      REFERENCES MajorMinors(MajorMinorId)
 );
 
 CREATE TABLE Classes

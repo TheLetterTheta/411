@@ -9,5 +9,5 @@
 interface IClassDataService
 {
     public function getClasses();
-    public function getClassesById($classId);
+    public function getClassesById($userId);
 }

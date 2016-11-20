@@ -178,33 +178,6 @@ class InMemoryQuestionnaire implements IQuestionnaire
             array(
                 'classOptions'=> array(
                     array(
-
-                    )
-                ),
-                'visibility'=> true,
-                'chosenClass' => null
-            ),
-            array(
-                'classOptions'=> array(
-                    array(
-
-                    )
-                ),
-                'visibility'=> true,
-                'chosenClass' => null
-            ),
-            array(
-                'classOptions'=> array(
-                    array(
-
-                    )
-                ),
-                'visibility'=> true,
-                'chosenClass' => null
-            ),
-            array(
-                'classOptions'=> array(
-                    array(
                         56,57,58,59
                     ),
                     array(
@@ -251,6 +224,33 @@ class InMemoryQuestionnaire implements IQuestionnaire
                     ),
                     array(
                         66
+                    )
+                ),
+                'visibility'=> true,
+                'chosenClass' => null
+            ),
+            array(
+                'classOptions'=> array(
+                    array(
+
+                    )
+                ),
+                'visibility'=> true,
+                'chosenClass' => null
+            ),
+            array(
+                'classOptions'=> array(
+                    array(
+
+                    )
+                ),
+                'visibility'=> true,
+                'chosenClass' => null
+            ),
+            array(
+                'classOptions'=> array(
+                    array(
+
                     )
                 ),
                 'visibility'=> true,

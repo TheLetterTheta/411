@@ -17,7 +17,7 @@ class QuestionnaireService implements IQuestionnaireService
     }
 
 
-    public function GetQuestionnaire()
+    public function getQuestionnaire($userId)
     {
         return $this->di["questionnaireService"]->getQuestionnaire();
     }
