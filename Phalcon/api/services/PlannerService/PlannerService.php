@@ -186,7 +186,7 @@ class PlannerService implements IPlannerService
             //echo($this->plannedSemesters[$minSemesterKey]['ordinal'] . ' ' . 'plannedSemesterDifficulty = ' . $this->plannedSemesters[$minSemesterKey]['difficulty'] . '////////////////////////////////////////////////////////////');
         }
 
-        //echo json_encode($this->plannedSemesters);
+        echo json_encode($this->plannedSemesters);
     }
 
     private function modifyClassesArray(&$response)
@@ -203,7 +203,7 @@ class PlannerService implements IPlannerService
             if(empty($prerequisites)){
                 continue;
             }
-            foreach ($prerequisites as &$andLayer) {
+            foreach ($prerequisites as $andKey => &$andLayer) {
                 foreach ($andLayer as $prereqKey => $prerequisite) {
                     if ($prerequisite['type'] == 'class') {
                         $found = false;
@@ -215,6 +215,9 @@ class PlannerService implements IPlannerService
                         }
                         if(!$found){
                             unset($andLayer[$prereqKey]);
+                            if(empty($andLayer)){
+                                unset($prerequisites[$andKey]);
+                            }
                             break;
                         }
                     }
@@ -284,9 +287,6 @@ class PlannerService implements IPlannerService
 
     private function canScheduleClass($class, $semesterKey)
     {
-        if(strtoupper($class['shortName'] . ' ' . $class['classNumber']) == "CMPS 390"){
-            echo json_encode($class);
-        }
         //echo json_encode($class);
         if($this->plannedSemesters[$semesterKey]['creditHours'] + $class['creditHours'] > $this->plannedSemesters[$semesterKey]['maxHours']){
             return false;
@@ -303,10 +303,6 @@ class PlannerService implements IPlannerService
 
         foreach ($prerequisites as $andLayer) {
             foreach ($andLayer as $prerequisite) {
-
-                if(strtoupper($class['shortName'] . ' ' . $class['classNumber']) == "CMPS 390") {
-                    echo 'Couldn\'t find prerequisites';
-                }
                 if ($prerequisite['type'] == 'class') {
                     $found = false;
                     foreach($this->plannedSemesters as $semester){

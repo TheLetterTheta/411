@@ -380,6 +380,11 @@ class InMemoryClass implements IClassDataService
                             'type' => 'class',
                             'value' => 'CMPS 257', 
 							'isCorequisite' => false
+                        ),
+                        array(
+                            'type' => 'class',
+                            'value' => 'MATH 223',
+                            'isCorequisite' => false
                         )
                     ),
                     array(
