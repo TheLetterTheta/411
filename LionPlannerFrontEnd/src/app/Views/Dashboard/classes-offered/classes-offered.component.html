@@ -3,8 +3,20 @@
     <div class="loader">Loading</div>
   </div>
 
+  <div [hidden]="loading" class="col-lg-8">
+    <div class="card mb-6">
+      <div class="card-header selu-green white-text text-xs-center">Course Details</div>
+
+      <div class="card-block">
+        <div class="flex-center" style="height: 800px">
+          <h5>Course Details will populate here</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div [hidden]="loading" class="row wow fadeIn">
-    <div class="col-lg-8 offset-lg-2">
+    <div id="categories" class="col-lg-4">
       <div class="card mb-6">
         <div class="card-header selu-green white-text text-xs-center">Course Categories</div>
 
@@ -16,16 +28,16 @@
           <div *ngFor="let group of courseGroups; let i = index" class="panel panel-default">
 
             <!--Panel heading-->
-            <div class="panel-heading" role="tab" [id]="'header'+i">
+            <div class="panel-heading" role="tab" id="header{{i}}">
               <h5 class="panel-title">
-                <a class="arrow-r black-text" data-toggle="collapse" data-parent="#accordion" [href]="'#collapse'+i" aria-expanded="false">
+                <a class="arrow-r black-text" data-toggle="collapse" data-parent="#accordion" href="#collapse{{i}}" aria-expanded="false">
                   {{group.name}}<i class="fa fa-angle-down rotate-icon"></i>
                 </a>
               </h5>
             </div>
 
             <!--Panel body-->
-            <div [id]="'collapse'+i" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="">
+            <div id="collapse{{i}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="">
               <div *ngFor="let class of group.classes">
                 <a class="blue-text text-xs-center">{{class}}</a>
               </div>
@@ -38,5 +50,6 @@
         </div>
       </div>
     </div>
+    <br>
   </div>
 </section>

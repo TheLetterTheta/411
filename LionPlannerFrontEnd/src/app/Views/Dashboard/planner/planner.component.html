@@ -1,315 +1,204 @@
-<!--Projects section v.1-->
-<section class="section">
+<!--Planner Section-->
+<section *ngIf="!isLoading && !questionnaireNeeded" class="section">
 
-  <!--Section heading-->
-  <!--Section description-->
-  <!--First row-->
-  <div class="row">
+    <div *ngFor="let year of _years; let i = index;" class="row">
+      <div class="col-lg-6 m-b-r wow fadeInUp">
+        <!--Card-->
+        <div class="card-overlay" style="background: linear-gradient(
+                       rgba(20,20,20, .15),
+                       rgba(20,20,20, .15)),
+                       url('http://www.clipartkid.com/images/381/chalkboard-borders-clipart-izI8Tx-clipart.jpg') center no-repeat;}">
 
-    <!--Second column-->
-    <div class="col-md-6 m-b-r wow fadeInUp">
-      <!--Card-->
-      <div class="card-overlay" style="background: linear-gradient(
-                     rgba(20,20,20, .85),
-                     rgba(20,20,20, .85)),
-                     url('../../../../assets/img/football.jpg') center no-repeat;
-}">
+            <!--Content-->
+            <div class="white-text text-xs-center">
+              <div class="card-block">
+                <h3 class="cyan-text">{{year.semester1.semester}} {{year.semester1.year}}</h3>
+                <a class="btn btn-lg btn-white-outline waves-effect" data-toggle="collapse" href="#Sem1collapseExample{{i}}" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-graduation-cap left"></i> View Semester</a>
+              </div>
+            </div>
+        </div>
+        <!--/.Card-->
 
-        <!--Content-->
-        <div class="white-text text-xs-center">
-          <div class="card-block">
-            <h3 class="cyan-text">Fall 2017</h3>
-            <a class="btn btn-lg btn-white-outline waves-effect" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-graduation-cap left"></i> View Semester</a>
+        <div class="collapse" id="Sem1collapseExample{{i}}">
+          <div class="card card-block">
+
+            <div class="card-block">
+              <!--Text-->
+              <table class="table table-hover table-sm">
+                <thead class="thead-inverse">
+                  <tr>
+                    <th>#</th>
+                    <th>Class</th>
+                    <th>Credits</th>
+                    <th>Difficulty</th>
+                    <th>Time Consumption</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let class of year.semester1.classes; let j = index">
+                    <th scope="row">{{j+1}}</th>
+                    <td>{{class.chosenClass.name}}</td>
+                    <td>{{class.chosenClass.creditHours}}</td>
+                    <td>{{class.chosenClass.difficultyRating}}</td>
+                    <td>{{class.chosenClass.hoursDemandedRating}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!--/.Card content-->
+            <!-- Card footer -->
+            <div class="card-data">
+              <h4>Total Credits: {{year.semester1.creditTotal}}</h4>
+            </div>
           </div>
         </div>
-
       </div>
-      <!--/.Card-->
+      <div class="col-lg-6 m-b-r wow fadeInUp">
+        <!--Card-->
+        <div class="card-overlay" style="background: linear-gradient(
+                       rgba(20,20,20, .15),
+                       rgba(20,20,20, .15)),
+                       url('http://www.clipartkid.com/images/381/chalkboard-borders-clipart-izI8Tx-clipart.jpg') center no-repeat;}">
 
-      <div class="collapse" id="collapseExample">
-        <div class="card card-block">
-
-          <div class="card-block">
-            <!--Text-->
-            <table class="table table-sm">
-              <thead>
-              <tr>
-                <th>#</th>
-                <th>Class</th>
-                <th>Credits</th>
-                <th>Difficulty</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>CMPS 161</td>
-                <td>3</td>
-                <td>3/10</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>CHEM 121</td>
-                <td>3</td>
-                <td>9/10</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>CHEM 123</td>
-                <td>1</td>
-                <td>8/10</td>
-              </tr>
-              <tr>
-                <th scope="row">4</th>
-                <td>ENGL 101</td>
-                <td>3</td>
-                <td>4/10</td>
-              </tr>
-              <tr>
-                <th scope="row">5</th>
-                <td>MATH 200</td>
-                <td>5</td>
-                <td>8/10</td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
-          <!--/.Card content-->
-
-          <!-- Card footer -->
-          <div class="card-data">
-            <h4>Total Credits: 15</h4>
-          </div>
-
+            <!--Content-->
+            <div class="white-text text-xs-center">
+              <div class="card-block">
+                <h3 class="cyan-text">{{year.semester2.semester}} {{year.semester2.year}}</h3>
+                <a class="btn btn-lg btn-white-outline waves-effect" data-toggle="collapse" href="#Sem2collapseExample{{i}}" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-graduation-cap left"></i> View Semester</a>
+              </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <!--/Second column-->
+        <!--/.Card-->
 
+        <div class="collapse" id="Sem2collapseExample{{i}}">
+          <div class="card card-block">
 
-    <!--Third column-->
-    <div class="col-md-6 m-b-r wow fadeInUp" data-wow-delay="0.1s">
-      <!--Card-->
-      <div class="card-overlay" style="background: linear-gradient(
-                     rgba(20,20,20, .85),
-                     rgba(20,20,20, .85)),
-                     url('../../../../assets/img/business_cover.jpg') center no-repeat;
-}">
-
-        <!--Content-->
-        <div class="white-text text-xs-center">
-          <div class="card-block">
-            <h3 class="cyan-text">Spring 2018</h3>
-            <a class="btn btn-lg btn-white-outline waves-effect" data-toggle="collapse" href="#collapseExample2" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-graduation-cap left"></i> View Semester</a>
+            <div class="card-block">
+              <!--Text-->
+              <table class="table table-hover table-sm">
+                <thead class="thead-inverse">
+                  <tr>
+                    <th>#</th>
+                    <th>Class</th>
+                    <th>Credits</th>
+                    <th>Difficulty</th>
+                    <th>Time Consumption</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let class of year.semester2.classes; let j = index">
+                    <th scope="row">{{j+1}}</th>
+                    <td>{{class.chosenClass.name}}</td>
+                    <td>{{class.chosenClass.creditHours}}</td>
+                    <td>{{class.chosenClass.difficultyRating}}</td>
+                    <td>{{class.chosenClass.hoursDemandedRating}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!--/.Card content-->
+            <!-- Card footer -->
+            <div class="card-data">
+              <h4>Total Credits: {{year.semester2.creditTotal}}</h4>
+            </div>
           </div>
-        </div>
-
-      </div>
-
-      <div class="collapse" id="collapseExample2">
-        <div class="card card-block">
-
-          <div class="card-block">
-            <!--Text-->
-            <table class="table table-sm">
-              <thead>
-              <tr>
-                <th>#</th>
-                <th>Class</th>
-                <th>Credits</th>
-                <th>Difficulty</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>CMPS 257</td>
-                <td>3</td>
-                <td>7/10</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>CMPS 280</td>
-                <td>3</td>
-                <td>4/10</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>ECON 201</td>
-                <td>1</td>
-                <td>2/10</td>
-              </tr>
-              <tr>
-                <th scope="row">4</th>
-                <td>ENGL 102</td>
-                <td>3</td>
-                <td>5/10</td>
-              </tr>
-              <tr>
-                <th scope="row">5</th>
-                <td>MATH 201</td>
-                <td>5</td>
-                <td>8/10</td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
-          <!--/.Card content-->
-
-          <!-- Card footer -->
-          <div class="card-data">
-            <h4>Total Credits: 15</h4>
-          </div>
-
         </div>
       </div>
     </div>
 
-    </div>
-
-    <div class="row">
-      <!--Second column-->
-      <div class="col-md-6 m-b-r wow fadeInUp" data-wow-delay="0.2s">
-        <!--Card-->
-        <div class="card-overlay" style="background: linear-gradient(
-                     rgba(20,20,20, .85),
-                     rgba(20,20,20, .85)),
-                     url('../../../../assets/img/fall-ready-cover2.jpg') center no-repeat;
-}">
-
-          <!--Content-->
-          <div class="white-text text-xs-center">
-            <div class="card-block">
-              <h3 class="cyan-text">Fall 2018</h3>
-              <a class="btn btn-lg btn-white-outline"><i class="fa fa-graduation-cap left"></i> View Semester</a>
-            </div>
-          </div>
-
-        </div>
-        <!--/.Card-->
-      </div>
-      <!--/Second column-->
-
-      <!--Third column-->
-      <div class="col-md-6 m-b-r wow fadeInUp" data-wow-delay="0.3s">
-        <!--Card-->
-        <div class="card-overlay" style="background: linear-gradient(
-                     rgba(20,20,20, .85),
-                     rgba(20,20,20, .85)),
-                     url('../../../../assets/img/DORM.jpg') center no-repeat;
-}">
-
-          <!--Content-->
-          <div class="white-text text-xs-center">
-            <div class="card-block">
-              <h3 class="cyan-text">Spring 2019</h3>
-              <a class="btn btn-lg btn-white-outline"><i class="fa fa-graduation-cap left"></i> View Semester</a>
-            </div>
-          </div>
-
-        </div>
-        <!--/.Card-->
-      </div>
-      <!--/Third column-->
-      <!--/.Card-->
-    </div>
-
-    <div class="row">
-      <!--Second column-->
-      <div class="col-md-6 m-b-r wow fadeInUp" data-wow-delay="0.4s">
-        <!--Card-->
-        <div class="card-overlay" style="background: linear-gradient(
-                     rgba(20,20,20, .85),
-                     rgba(20,20,20, .85)),
-                     url('../../../../assets/img/sluext6.jpg') center no-repeat;
-}">
-
-          <!--Content-->
-          <div class="white-text text-xs-center">
-            <div class="card-block">
-              <h3 class="cyan-text">Fall 2019</h3>
-              <a class="btn btn-lg btn-white-outline"><i class="fa fa-graduation-cap left"></i> View Semester</a>
-            </div>
-          </div>
-
-        </div>
-        <!--/.Card-->
-      </div>
-      <!--/Second column-->
-
-      <!--Third column-->
-      <div class="col-md-6 m-b-r wow fadeInUp" data-wow-delay="0.5s">
-        <!--Card-->
-        <div class="card-overlay" style="background: linear-gradient(
-                     rgba(20,20,20, .85),
-                     rgba(20,20,20, .85)),
-                     url('../../../../assets/img/se_entrance.jpg') center no-repeat;
-}">
-
-          <!--Content-->
-          <div class="white-text text-xs-center">
-            <div class="card-block">
-              <h3 class="cyan-text">Spring 2020</h3>
-              <a class="btn btn-lg btn-white-outline"><i class="fa fa-graduation-cap left"></i> View Semester</a>
-            </div>
-          </div>
-
-        </div>
-        <!--/.Card-->
-      </div>
-      <!--/Third column-->
-      <!--/.Card-->
-    </div>
-    <!--/Third column-->
-
-  <div class="row">
-      <!--Second column-->
-      <div class="col-md-6 m-b-r wow fadeInUp" data-wow-delay="0.6s">
-        <!--Card-->
-        <div class="card-overlay" style="background: linear-gradient(
-                     rgba(20,20,20, .85),
-                     rgba(20,20,20, .85)),
-                     url('../../../../assets/img/business_cover.jpg') center no-repeat;
-}">
-
-          <!--Content-->
-          <div class="white-text text-xs-center">
-            <div class="card-block">
-              <h3 class="cyan-text">Fall 2020</h3>
-              <a class="btn btn-lg btn-white-outline"><i class="fa fa-graduation-cap left"></i> View Semester</a>
-            </div>
-          </div>
-
-        </div>
-        <!--/.Card-->
-      </div>
-      <!--/Second column-->
-
-      <!--Third column-->
-      <div class="col-md-6 m-b-r wow fadeInUp" data-wow-delay="0.7s">
-        <!--Card-->
-        <div class="card-overlay" style="background: linear-gradient(
-                     rgba(20,20,20, .85),
-                     rgba(20,20,20, .85)),
-                     url('../../../../assets/img/business_cover.jpg') center no-repeat;
-}">
-
-          <!--Content-->
-          <div class="white-text text-xs-center">
-            <div class="card-block">
-              <h3 class="cyan-text">Spring 2021</h3>
-              <a class="btn btn-lg btn-white-outline"><i class="fa fa-graduation-cap left"></i> View Semester</a>
-            </div>
-          </div>
-
-        </div>
-        <!--/.Card-->
-      </div>
-      <!--/Third column-->
-      <!--/.Card-->
-    </div>
-    <!--/Third column-->
-
-  <!--/First row-->
 </section>
-<!--/Projects section v.1-->
+<!--/Planner Section-->
+<div *ngIf="isLoading">
+  <div class="loader">Loading</div>
+</div>
+
+<section *ngIf="!isLoading && questionnaireNeeded" class="section wow fadeInUp">
+  <div class="divider-new">
+    <h2 class="h2-responsive wow bounceIn" style="visibility: visible; animation-name: bounceIn;">Questionnaire</h2>
+  </div>
+  <div class="row">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div *ngFor="let year of _years">
+        <div *ngIf="year.semester1.questions.length > 0">
+          <div *ngFor="let question of year.semester1.questions; let i = index">
+              <!--First column-->
+              <div class="col-lg-3 col-md-5">
+
+                <!--Card-->
+                <div class="card">
+
+                  <!--Header-->
+                  <div class="card-header selu-green white-text text-xs-center">
+                    {{year.semester1.semester}} {{year.semester1.year}}
+                  </div>
+                  <!--/Header-->
+
+                  <!--Content-->
+                  <div class="card-block">
+                    <h4 class="text-xs-center">Current Course:</h4><h4 class="text-xs-center"><strong> {{question.classChosen.name}}</strong></h4>
+                    <br>
+                    <h4 class="text-xs-center">Available Options:</h4>
+                      <!--Blue select-->
+                    <div class="col-sm-12">
+                      <select id="sem1{{i}}" class="text-xs-center browser-default validate">
+                        <option value="" disabled selected>Choose your option</option>
+                        <option *ngFor="let option of question.options" value="{{option.name}}">{{option.name}}</option>
+                      </select>
+                    </div>
+                      <!--/Blue select-->
+                  </div>
+                  <!--/Content-->
+                </div>
+                <!--/Card-->
+
+              </div>
+              <!--/First column-->
+          </div>
+        </div>
+        <div *ngIf="year.semester2.questions.length > 0">
+          <div *ngFor="let question of year.semester2.questions; let i = index">
+            <!--First column-->
+            <div class="col-lg-3 col-md-5">
+
+              <!--Card-->
+              <div class="card">
+
+                <!--Header-->
+                <div class="card-header selu-green white-text text-xs-center">
+                  {{year.semester2.semester}} {{year.semester2.year}}
+                </div>
+                <!--/Header-->
+
+                <!--Content-->
+                <div class="card-block">
+                  <h4 class="text-xs-center">Current Course:</h4><h4 class="text-xs-center"><strong> {{question.classChosen.name}}</strong></h4>
+                  <br>
+                  <h4 class="text-xs-center">Available Options: </h4>
+                  <div class="col-sm-12">
+                    <select id="sem2{{i}}" class="browser-default validate">
+                      <option value="" disabled selected>Choose your option</option>
+                      <option *ngFor="let option of question.options" value="{{option}}">{{option.name}}</option>
+                    </select>
+                  </div>
+                    <!--/Blue select-->
+                </div>
+                <!--/Content-->
+              </div>
+              <!--/Card-->
+
+            </div>
+            <!--/First column-->
+
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-lg-6 offset-md-5">
+          <button type="submit" class="btn btn-large btn-primary waves-effect" [disabled]="!f.valid" *ngIf="!submitted">Save Changes</button>
+        </div>
+      </div>
+      <br>
+    </form>
+  </div>
+</section>

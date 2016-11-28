@@ -32,7 +32,7 @@
                   <div ngModelGroup="userData">
                   <div class="md-form">
                     <i class="fa fa-user prefix"></i>
-                    <input type="text" id="wNumber" name="wNumber" [(ngModel)]="user.wNumber" class="form-control" #wNumber="ngModel" required>
+                    <input type="text" id="wNumber" name="wNumber" [(ngModel)]="user.wNumber" class="form-control validate" #wNumber="ngModel" minlength="7" maxlength="7" required length="7">
                     <label for="wNumber">Your W# Number</label>
                     <div *ngIf="!wNumber.valid && wNumber.touched">
                       <p class="text-danger">*Required</p>
@@ -41,7 +41,7 @@
 
                   <div class="md-form">
                     <i class="fa fa-lock prefix"></i>
-                    <input type="password" id="password" name="password" [(ngModel)]="user.password" class="form-control" #password="ngModel" required>
+                    <input type="password" id="password" name="password" [(ngModel)]="user.password" class="form-control validate" #password="ngModel" required>
                     <label for="password">Your password</label>
                     <div *ngIf="!password.valid && password.touched">
                       <p class="text-danger">*Required</p>
@@ -64,6 +64,9 @@
                       </div>
                     </div>
                     <div class="text-xs-center text-danger" *ngIf="noMatch">
+                      W Number or Password did not match
+                    </div>
+                    <div class="text-xs-center text-danger" *ngIf="errorOccurred">
                       W Number or Password did not match
                     </div>
                   </div>

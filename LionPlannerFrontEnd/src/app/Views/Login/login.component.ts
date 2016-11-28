@@ -14,6 +14,7 @@ export class LoginComponent {
   private loggingIn: boolean = false;
   private noMatch: boolean;
   private response: any;
+    private errorOccurred: boolean;
   private urlImage: string;
 
   user = {
@@ -29,7 +30,7 @@ export class LoginComponent {
     console.log(form);
 
     setTimeout(() => {
-      this.loggingIn = false;
+
 
       this._userService.Login(form.value.wNumber, form.value.password)
           .subscribe(result => {
@@ -37,15 +38,12 @@ export class LoginComponent {
               if(result.status = 200) {
                 this._router.navigateByUrl('/Dashboard');
               } else {
-                this.noMatch = true;
+                  this.noMatch = true;
+                  this.loggingIn = false;
               }
           });
 
       //this.response = this._userService.LoginWithoutPermission(form.value.userData.wNumber, form.value.userData.password);
-
-      if(!this.response) {
-        this.noMatch = true;
-      }
-    }, 2000);
+    }, 1000);
   }
 }

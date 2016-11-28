@@ -6,6 +6,7 @@ import {ClassesOfferedComponent} from "./classes-offered/classes-offered.compone
 import {SettingsComponent} from "./settings/settings.component";
 import {ClassHistoryComponent} from "./class-history/class-history.component";
 import {ContactComponent} from "./contact/contact.component";
+import {DevelopersComponent} from "./developers/developers.component";
 
 export const DASHBOARD_ROUTES: Routes = [
   { path: '/', redirectTo: 'Profile', pathMatch: 'full' },
@@ -17,5 +18,6 @@ export const DASHBOARD_ROUTES: Routes = [
   { path: 'ClassHistory', component: ClassHistoryComponent },
   { path: 'Settings', component: SettingsComponent },
   { path: 'Contact', component: ContactComponent },
+  { path: 'Developers', component: DevelopersComponent },
   { path: '**', redirectTo: 'Profile', pathMatch: 'full' }
 ];

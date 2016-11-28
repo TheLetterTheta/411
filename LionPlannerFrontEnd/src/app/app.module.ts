@@ -21,6 +21,7 @@ import { LocationStrategy, HashLocationStrategy } from "@angular/common";
 import { UserService } from "./Views/Login/user.service";
 import { LoggedInGuard } from "./shared/logged-in.guard";
 import { PlannerService } from "./Views/Dashboard/planner.service";
+import { DevelopersComponent } from './Views/Dashboard/developers/developers.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { PlannerService } from "./Views/Dashboard/planner.service";
     SettingsComponent,
     ClassHistoryComponent,
     ContactComponent,
+    DevelopersComponent,
   ],
   imports: [
     BrowserModule,

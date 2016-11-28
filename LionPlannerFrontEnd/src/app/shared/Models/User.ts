@@ -7,11 +7,14 @@ export class User {
         public wNumber: string,
         public firstName: string,
         public lastName: string,
+        public actCumulative: number,
         public actEnglish: number,
         public actMath: number,
         public actReading: number,
         public actScience: number,
+        public classification: string,
         public email: string,
-        public gpa: number
+        public gpa: number,
+        public transfer: boolean
     ) {}
 }

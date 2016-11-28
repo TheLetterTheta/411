@@ -1,6 +1,7 @@
 import {Injectable, Inject} from '@angular/core';
 import {Headers, Http, RequestOptions, RequestMethod, Request} from "@angular/http";
 import 'rxjs/Rx';
+import {Observable} from "rxjs";
 
 @Injectable()
 export class UserService {
@@ -27,15 +28,11 @@ export class UserService {
     return this.http.request(new Request(requestOptions))
         .map(res=>res.json())
         .map((res) => {
-          console.log(res);
-          if(res.status = 200) {
-            localStorage.setItem('apiKey', res.apiKey);
-            localStorage.setItem('userId', res.userId);
-            this.loggedIn = true;
-          }
-
+          localStorage.setItem('apiKey', res.apiKey);
+          localStorage.setItem('userId', res.userId);
           return res;
-        });
+        })
+        .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
   // This is for dev purposes only
@@ -62,7 +59,6 @@ export class UserService {
       url: this.apiUrl + 'user/profile/' + localStorage.getItem('userId'),
       headers: this.headers,
     });
-    console.log(localStorage.getItem('userId'));
     return this.http.request(new Request(requestOptions))
         .map(res=>res.json())
   }

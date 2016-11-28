@@ -16,7 +16,6 @@ export class ClassesOfferedComponent {
 
   constructor(private _plannerService: PlannerService) {
     _plannerService.GetCoursesOffered().subscribe(response => {
-      console.log(response);
       this.courseGroups = response;
     });
 

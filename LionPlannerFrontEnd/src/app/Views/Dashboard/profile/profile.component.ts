@@ -21,26 +21,34 @@ export class ProfileComponent {
     this.percentComplete = this.numCredits / 120 * 100;
     _userService.GetUserProfile().subscribe(user => {
       this._user = user;
-      console.log(user);
       this.isLoading = false;
       this.enablePieChart();
     });
+    _userService.GetUserMajors().subscribe(majors => {
+
+    });
+    _userService.GetUserMinors().subscribe(minors => {
+
+    })
   }
 
   enablePieChart() {
-
-
-    $(function() {
-      // instantiate the plugin
-      $('.min-chart#chart-sales').easyPieChart({
-        barColor: "#4caf50",
-        onStep: function (from, to, percent) {
-          $(this.el).find('.percent').text(Math.round(percent));
-        }
+    $(function () {
+      setTimeout(() => {
+        $('.min-chart#chart-sales').easyPieChart({
+          scaleColor: false,
+          trackColor: 'rgba(0,0,0,0.1)',
+          barColor: '#4caf50',
+          lineWidth: 6,
+          lineCap: 'butt',
+          onStep: function (from, to, percent) {
+            $(this.el).find('.percent').text(Math.round(percent));
+          }
+        });
+        //update
+        var percentage = $('#percentage').val();
+        $('.min-chart#chart-sales').data('easyPieChart').update(percentage);
       });
-      // update
-      var percentage = $('#percentage').val();
-      $('.min-chart').data('easyPieChart').update(percentage);
     });
   }
 }
