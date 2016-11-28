@@ -24,6 +24,8 @@ require 'services/MajorMinorService/IMajorMinorService.php';
 require 'services/MajorMinorService/MajorMinorService.php';
 require 'services/ClassService/IClassService.php';
 require 'services/ClassService/ClassService.php';
+require 'services/Questionnaire/IQuestionnaireService.php';
+require 'services/Questionnaire/QuestionnaireService.php';
 
 session_start();
 
@@ -62,6 +64,14 @@ $di->set('dataClassService', function(){
 $di->set('plannerService', function(){
     return new PlannerService();
 });
+$di->set('questionnaireService', function(){
+    $serviceConf = new dataServiceConf();
+    return $serviceConf->GetQuestionnaireService();
+});
+$di->set('plannerDataService', function(){
+    $serviceConf = new dataServiceConf();
+    return $serviceConf->GetPlannerDataService();
+});
 
 $app = new Micro($di);
 
@@ -70,5 +80,6 @@ require 'routes/plannerRoutes.php';
 require 'routes/userRoutes.php';
 require 'routes/majorMinorRoutes.php';
 require 'routes/classRoutes.php';
+require 'routes/questionnaireRoutes.php';
 
 $app->handle();

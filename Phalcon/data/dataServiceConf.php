@@ -12,6 +12,10 @@ require 'MajorMinorService/IMajorMinorDataService.php';
 require 'MajorMinorService/InMemoryMajorMinorService.php';
 require 'classService/IClassDataService.php';
 require 'classService/InMemoryClass.php';
+require 'Planner/IPlannerDataService.php';
+require 'Planner/InMemoryPlannerDataService.php';
+require 'Questionnaire/IQuestionnaire.php';
+require 'Questionnaire/InMemoryQuestionnaire.php';
 
 class dataServiceConf
 {
@@ -25,5 +29,11 @@ class dataServiceConf
     public function GetClassService()
     {
         return new InMemoryClass();
+    }
+    public function GetPlannerDataService(){
+        return new InMemoryPlannerDataService();
+    }
+    public  function GetQuestionnaireService(){
+        return new InMemoryQuestionnaire();
     }
 }

@@ -14,4 +14,9 @@ class ClassService implements IClassService
     {
         return $this->di["dataClassService"]->GetClasses();
     }
+
+    public function getClassById($classId)
+    {
+        return $this->di["dataClassService"]->GetClassesById($classId);
+    }
 }

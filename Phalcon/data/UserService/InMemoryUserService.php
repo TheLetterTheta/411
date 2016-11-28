@@ -19,24 +19,30 @@ class InMemoryUserService implements IDataUserService
                 "wNumber" => "0474731",
                 "firstName" => "Nicholas",
                 "lastName" => "Dolan",
-                "actEnglish" => 24,
-                "actMath" => 32,
+                "actEnglish" => 21,
+                "actMath" => 21,
                 "actReading" => 21,
-                "actScience" => 34,
+                "actScience" => 21,
+                "actCumulative" => 21,
+                "classification" => "Senior",
                 "email" => "nicholas.dolan@selu.edu",
-                'gpa' => 3.9
+                'gpa' => 3.9,
+                'transfer' => false
             ),
             array(
                 "userId" => 2,
-                "wNumber" => "01010101",
+                "wNumber" => "0101010",
                 "firstName" => "Joe",
                 "lastName" => "Wifi",
                 "actEnglish" => 36,
                 "actMath" => 36,
                 "actReading" => 36,
                 "actScience" => 36,
+                "actCumulative" => 36,
+                "classification" => "Freshman",
                 "email" => "Joe.Wifi@selu.edu",
-                'gpa' => 4.5
+                'gpa' => 4.5,
+                'transfer' => true
             )
         );
     }
@@ -48,14 +54,14 @@ class InMemoryUserService implements IDataUserService
     public function GetUsers(){
         return $this->users;
     }
+
     public function getUser($userId)
     {
-        for($i =0; $i<count($this->users);$i++)
-        {
-            if($this->users[$i]['userId'] == $userId)
-            {
-                return $this->users[$i];
+        foreach($this->users as $user){
+            if($user['userId'] == $userId){
+                return $user;
             }
         }
+        return null;
     }
 }

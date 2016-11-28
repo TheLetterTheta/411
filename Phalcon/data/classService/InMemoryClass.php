@@ -15,98 +15,189 @@ class InMemoryClass implements IClassDataService
         $this->classes = array(
             array(
                 'id' => 1,
-                'shortName' => 'Math',
+                'shortName' => 'MATH',
                 'classNumber' => 200,
                 'fullName' => 'Calculus I',
                 'prerequisites' =>array(
                     array(
                         array(
-                            'type' => 'Act Math',
+                            'type' => 'Act MATH',
                             'value' => 28
                         ),
                         array(
                             'type' => 'class',
-                            'value' => 'Math 165'
+                            'value' => 'MATH 165', 
+							'isCorequisite' => false
                         )
                     )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
                 ),
-                'hours' => 5
+                'creditHours' => 5,
+				'difficultyRating' => 5,
+				'hoursDemandedRating' => 5,
+                'minHoursRequired' => 0
             ),
             array(
                 'id' => 2,
-                'shortName' => 'Math',
+                'shortName' => 'MATH',
+                'classNumber' => 165,
+                'fullName' => 'PRECALCULUS W/TRIG',
+                'prerequisites' =>array(
+                    array(
+                        array(
+                            'type' => 'Act MATH',
+                            'value' => 25
+                        ),
+                        array(
+                            'type' => 'class',
+                            'value' => 'MATH 161', 
+							'isCorequisite' => false
+                        )
+                    )
+                ),
+                'semester' =>array(
+                    'fa','sp','su'
+                ),
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 3,
+                'shortName' => 'MATH',
+                'classNumber' => 161,
+                'fullName' => 'COLLEGE ALGEBRA',
+                'prerequisites' =>array(
+                    array(
+                        array(
+                            'type' => 'Act MATH',
+                            'value' => 21
+                        )
+                    )
+                ),
+                'semester' =>array(
+                    'fa','sp','su'
+                ),
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 4,
+                'shortName' => 'MATH',
                 'classNumber' => 201,
                 'fullName' => 'Calculus II',
                 'prerequisites' =>array(
                     array(
                         array(
                             'type' => 'class',
-                            'value' =>'Math 200'
+                            'value' =>'MATH 200',
+                            'isCorequisite' => false
                         )
                     )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
                 ),
-                'hours' => 5
+                'creditHours' => 5,
+				'difficultyRating' => 5,
+				'hoursDemandedRating' => 5,
+                'minHoursRequired' => 0
             ),
             array(
-                'id' => 3,
-                'shortName' => 'Math',
+                'id' => 5,
+                'shortName' => 'MATH',
                 'classNumber' => 380,
-                'fullName' => 'Mathematical Statistics',
+                'fullName' => 'MATHematical Statistics',
                 'prerequisites' =>array(
                     array(
                         array(
                             'type' => 'class',
-                            'value' =>'Math 201'
+                            'value' =>'MATH 201',
+                            'isCorequisite' => false
                         )
                     )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
                 ),
-                'hours' => 3
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
-                'id' => 4,
-                'shortName' => 'MATHElect',
-                'classNumber' => 1,
-                'fullName' => 'Math Elective',
+                'id' => 70,
+                'shortName' => 'MATH',
+                'classNumber' => 370,
+                'fullName' => 'ABSTRACT ALGEBRA I',
                 'prerequisites' =>array(
                     array(
+                        array(
+                            'type' => 'class',
+                            'value' =>'MATH 360',
+                            'isCorequisite' => false
+                        )
                     )
                 ),
                 'semester' =>array(
-                    'fa','sp','su'
+                    'fa'
                 ),
-                'hours' => 3
-            ),  array(
-                'id' => 10,
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 7,
                 'shortName' => 'CMPS',
                 'classNumber' => 161,
                 'fullName' => ' ALGORITHM DESIGN AND IMPLEMENTATION I',
                 'prerequisites' =>array(
                     array(
                         array(
-                        'type' => 'class',
-                        'value' => 'Math 155'
-                        ),
-                        array(
                             'type' => 'class',
-                            'value' => 'Math 161'
+                            'value' => 'MATH 161', 
+							'isCorequisite' => false
                         )
                     )
                 ),
                 'semester' =>array(
-                'fa','sp','su'
+                'fa'
                 ),
-                'hours' => 3
-            ),            array(
-                'id' => 11,
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 79,
+                'shortName' => 'CMPS',
+                'classNumber' => 401,
+                'fullName' => ' SURVEY OF PROGRAMMING LANGUAGES',
+                'prerequisites' =>array(
+                    array(
+                        array(
+                            'type' => 'class',
+                            'value' => 'CMPS 390', 
+							'isCorequisite' => false
+                        )
+                    )
+                ),
+                'semester' =>array(
+                    'fa','sp','su'
+                ),
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 8,
                 'shortName' => 'CMPS',
                 'classNumber' => 257,
                 'fullName' => 'DISCRETE STRUCTURE',
@@ -114,34 +205,33 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 161'
-                        ),
-                        array(
-                            'type' => 'class',
-                            'value' => 'CMPS 169'
+                            'value' => 'CMPS 161', 
+							'isCorequisite' => false
                         )
                     ),
                     array(
                         array(
-                        'type' => 'class',
-                        'value' => 'Math 155'
+                            'type' => 'class',
+                            'value' => 'MATH 161', 
+							'isCorequisite' => false
                         ),
                         array(
                             'type' => 'class',
-                            'value' => 'Math 161'
-                        ),
-                        array(
-                            'type' => 'class',
-                            'value' => 'Math 165'
+                            'value' => 'MATH 165', 
+							'isCorequisite' => false
                         )
                     )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
                 ),
-                'hours' => 3
-            ),           array(
-                'id' => 12,
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 9,
                 'shortName' => 'CMPS',
                 'classNumber' => 280,
                 'fullName' => 'ALGORITHM DESIGN AND IMPLEMENTATION II',
@@ -149,26 +239,28 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 161'
+                            'value' => 'CMPS 161', 
+							'isCorequisite' => false
                         )
                     ),
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'Math 155'
-                        ),
-                        array(
-                            'type' => 'class',
-                            'value' => 'Math 161'
+                            'value' => 'MATH 161', 
+							'isCorequisite' => false
                         )
                     )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
                 ),
-                'hours' => 3
-            ),          array(
-                'id' => 13,
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 10,
                 'shortName' => 'CMPS',
                 'classNumber' => 285,
                 'fullName' => 'SOFTWARE ENGINEERING',
@@ -176,16 +268,48 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 280'
+                            'value' => 'CMPS 280', 
+							'isCorequisite' => false
                         )
                     )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
                 ),
-                'hours' => 3
-            ),          array(
-                'id' => 14,
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 11,
+                'shortName' => 'CMPS',
+                'classNumber' => 120,
+                'fullName' => 'VISUAL PROGRAMMING',
+                'prerequisites' =>array(
+                    array(
+                        array(
+                            'type' => 'class',
+                            'value' => 'MATH 161', 
+							'isCorequisite' => false
+                        ),
+                        array(
+                            'type' => 'class',
+                            'value' => 'MATH 165', 
+							'isCorequisite' => false
+                        )
+                    )
+                ),
+                'semester' =>array(
+                    'fa','sp','su'
+                ),
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 12,
                 'shortName' => 'CMPS',
                 'classNumber' => 290,
                 'fullName' => 'COMPUTER ORGANIZATION',
@@ -193,24 +317,26 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 120'
+                            'value' => 'CMPS 120', 
+							'isCorequisite' => false
                         ),
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 161'
-                        ),
-                        array(
-                            'type' => 'class',
-                            'value' => 'ET 212'
+                            'value' => 'CMPS 161', 
+							'isCorequisite' => false
                         )
                     )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
                 ),
-                'hours' => 3
-            ),         array(
-                'id' => 15,
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 13,
                 'shortName' => 'CMPS',
                 'classNumber' => 293,
                 'fullName' => 'INTRODUCTION TO ASSEMBLY LANGUAGE',
@@ -218,24 +344,26 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 120'
+                            'value' => 'CMPS 120', 
+							'isCorequisite' => false
                         ),
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 161'
-                        ),
-                        array(
-                            'type' => 'class',
-                            'value' => 'ET 212'
+                            'value' => 'CMPS 161', 
+							'isCorequisite' => false
                         )
                     )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
                 ),
-                'hours' => 3
-            ),        array(
-                'id' => 16,
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 14,
                 'shortName' => 'CMPS',
                 'classNumber' => 375,
                 'fullName' => 'COMPUTER ARCHITECTURE',
@@ -243,20 +371,21 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 290'
-                        ),
-                        array(
-                            'type' => 'class',
-                            'value' => 'CMPS 293'
+                            'value' => 'CMPS 290', 
+							'isCorequisite' => false
                         )
                     )
                 ),
                 'semester' =>array(
                     'sp'
                 ),
-                'hours' => 3
-            ),       array(
-                'id' => 17,
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 15,
                 'shortName' => 'CMPS',
                 'classNumber' => 390,
                 'fullName' => 'DATA STRUCTURES',
@@ -264,28 +393,40 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 257'
+                            'value' => 'CMPS 257', 
+							'isCorequisite' => false
+                        ),
+                        array(
+                            'type' => 'class',
+                            'value' => 'MATH 223',
+                            'isCorequisite' => false
                         )
                     ),
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 280'
+                            'value' => 'CMPS 280', 
+							'isCorequisite' => false
                         )
                     ),
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 285'
+                            'value' => 'CMPS 285', 
+							'isCorequisite' => true
                         )
                     )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
                 ),
-                'hours' => 3
-            ),       array(
-                'id' => 18,
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 16,
                 'shortName' => 'CMPS',
                 'classNumber' => 391,
                 'fullName' => 'NUMERICAL METHODS',
@@ -293,25 +434,78 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 270'
-                        ),
-                        array(
-                            'type' => 'class',
-                            'value' => 'CMPS 280'
+                            'value' => 'CMPS 280', 
+							'isCorequisite' => false
                         )
                     ),
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'Math 360'
+                            'value' => 'MATH 360', 
+							'isCorequisite' => false
                         )
                     )
                 ),
                 'semester' =>array(
                     'fa'
                 ),
-                'hours' => 3
-            ),      array(
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 17,
+                'shortName' => 'MATH',
+                'classNumber' => 360,
+                'fullName' => 'LINEAR ALGEBRA I',
+                'prerequisites' =>array(
+                    array(
+                        array(
+                            'type' => 'class',
+                            'value' => 'MATH 201', 
+							'isCorequisite' => false
+                        )
+                    ),
+                    array(
+                        array(
+                            'type' => 'class',
+                            'value' => 'MATH 223', 
+							'isCorequisite' => false
+                        )
+                    )
+                ),
+                'semester' =>array(
+                    'fa','sp'
+                ),
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 18,
+                'shortName' => 'MATH',
+                'classNumber' => 223,
+                'fullName' => 'FOUNDA OF DISCRETE MATH',
+                'prerequisites' =>array(
+                    array(
+                        array(
+                            'type' => 'class',
+                            'value' => 'MATH 200', 
+							'isCorequisite' => false
+                        )
+                    )
+                ),
+                'semester' =>array(
+                    'fa','sp'
+                ),
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
                 'id' => 19,
                 'shortName' => 'CMPS',
                 'classNumber' => 401,
@@ -320,15 +514,20 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 390'
+                            'value' => 'CMPS 390', 
+							'isCorequisite' => false
                         )
                     )
                 ),
                 'semester' =>array(
                     'fa'
                 ),
-                'hours' => 3
-            ),      array(
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
                 'id' => 20,
                 'shortName' => 'CMPS',
                 'classNumber' => 411,
@@ -337,21 +536,20 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 390'
-                        )
-                    ),
-                    array(
-                        array(
-                            'type' => 'standing',
-                            'value' => 'senior'
+                            'value' => 'CMPS 390', 
+							'isCorequisite' => false
                         )
                     )
                 ),
                 'semester' =>array(
                     'fa'
                 ),
-                'hours' => 3
-            ),     array(
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 90
+            ),
+            array(
                 'id' => 21,
                 'shortName' => 'CMPS',
                 'classNumber' => 415,
@@ -360,15 +558,20 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 390'
+                            'value' => 'CMPS 390', 
+							'isCorequisite' => false
                         )
                     )
                 ),
                 'semester' =>array(
                     'sp'
                 ),
-                'hours' => 3
-            ),    array(
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
                 'id' => 22,
                 'shortName' => 'CMPS',
                 'classNumber' => 431,
@@ -377,21 +580,71 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 375'
+                            'value' => 'CMPS 375', 
+							'isCorequisite' => false
                         )
                     ),
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 390'
+                            'value' => 'CMPS 390', 
+							'isCorequisite' => false
                         )
                     )
                 ),
                 'semester' =>array(
                     'fa'
                 ),
-                'hours' => 3
-            ),    array(
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 69,
+                'shortName' => 'MATH',
+                'classNumber' => 312,
+                'fullName' => 'CALCULUS III',
+                'prerequisites' =>array(
+                    array(
+                        array(
+                            'type' => 'class',
+                            'value' => 'MATH 201', 
+							'isCorequisite' => false
+                        )
+                    )
+                ),
+                'semester' =>array(
+                    'fa','sp'
+                ),
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 68,
+                'shortName' => 'MATH',
+                'classNumber' => 350,
+                'fullName' => 'ORDINARY DIFFERENTIAL EQUATIONS',
+                'prerequisites' =>array(
+                    array(
+                        array(
+                            'type' => 'class',
+                            'value' => 'MATH 201', 
+							'isCorequisite' => false
+                        )
+                    )
+                ),
+                'semester' =>array(
+                    'fa','sp'
+                ),
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
                 'id' => 23,
                 'shortName' => 'CMPS',
                 'classNumber' => 479,
@@ -400,19 +653,25 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 257'
+                            'value' => 'CMPS 257', 
+							'isCorequisite' => false
                         ),
                          array(
                              'type' => 'class',
-                             'value' => 'Math 223'
+                             'value' => 'MATH 223', 
+							'isCorequisite' => false
                          )
                     )
                 ),
                 'semester' =>array(
                     'sp'
                 ),
-                'hours' => 3
-            ),   array(
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
                 'id' => 24,
                 'shortName' => 'CMPS',
                 'classNumber' => 482,
@@ -421,43 +680,93 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'CMPS 411'
-                        )
-                    ),
-                    array(
-                        array(
-                            'type' => 'standing',
-                            'value' => 'senior'
+                            'value' => 'CMPS 411', 
+							'isCorequisite' => false
                         )
                     )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
                 ),
-                'hours' => 3
-            ),   array(
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 90
+            ),
+            array(
                 'id' => 25,
-                'shortName' => 'CMPSElective',
-                'classNumber' => 1,
-                'fullName' => 'Elective',
+                'shortName' => 'CMPS',
+                'classNumber' => 447,
+                'fullName' => 'INTRODUCTION TO ROBOTICS',
                 'prerequisites' =>array(
+                    array(
+                        array(
+                            'type' => 'class',
+                            'value' => 'CMPS 280', 
+							'isCorequisite' => false
+                        )
+                    ),
+                    array(
+                        array(
+                            'type' => 'year',
+                            'value' => 'even', 
+							'isCorequisite' => false
+                        )
+                    )
                 ),
                 'semester' =>array(
-                    'fa','sp','su'
+                    'fa'
                 ),
-                'hours' => 3
-            ),  array(
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 6,
+                'shortName' => 'CMPS',
+                'classNumber' => 420,
+                'fullName' => 'HUMAN COMPUTER INTERACTION',
+                'prerequisites' =>array(
+                    array(
+                        array(
+                            'type' => 'class',
+                            'value' => 'CMPS 390', 
+							'isCorequisite' => false
+                        )
+                    )
+                ),
+                'semester' =>array(
+                    'fa'
+                ),
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
                 'id' => 26,
-                'shortName' => 'CMPSElective',
-                'classNumber' => 1,
-                'fullName' => 'Elective',
+                'shortName' => 'CMPS',
+                'classNumber' => 315,
+                'fullName' => 'SYSTEM ADMINISTRATION',
                 'prerequisites' =>array(
+                    array(
+                        array(
+                            'type' => 'class',
+                            'value' => 'CMPS 285', 
+							'isCorequisite' => false
+                        )
+                    )
                 ),
                 'semester' =>array(
-                    'fa','sp','su'
+                    'fa'
                 ),
-                'hours' => 3
-            ),   array(
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
                 'id' => 27,
                 'shortName' => 'ENGL',
                 'classNumber' => 101,
@@ -473,8 +782,12 @@ class InMemoryClass implements IClassDataService
                 'semester' =>array(
                     'fa','sp','su'
                 ),
-                'hours' => 3
-            ),  array(
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
                 'id' => 28,
                 'shortName' => 'ENGL',
                 'classNumber' => 102,
@@ -487,19 +800,20 @@ class InMemoryClass implements IClassDataService
                         ),
                         array(
                             'type' => 'class',
-                            'value' => 'ENGL 101'
-                        ),
-                        array(
-                            'type' => 'class',
-                            'value' => 'ENGL 121H'
+                            'value' => 'ENGL 101', 
+							'isCorequisite' => false
                         )
                     )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
                 ),
-                'hours' => 3
-            ),  array(
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
                 'id' => 29,
                 'shortName' => 'ENGL',
                 'classNumber' => 322,
@@ -508,198 +822,163 @@ class InMemoryClass implements IClassDataService
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'ENGL 102'
-                        ),
-                        array(
-                            'type' => 'class',
-                            'value' => 'ENGL 122H'
+                            'value' => 'ENGL 102', 
+							'isCorequisite' => false
                         )
                     )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
                 ),
-                'hours' => 3
-            ),  array(
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
                 'id' => 30,
-                'shortName' => 'ENGLElective',
-                'classNumber' => 1,
-                'fullName' => 'Elective',
+                'shortName' => 'ENGL',
+                'classNumber' => 230,
+                'fullName' => 'WORLD LITERATURE',
                 'prerequisites' =>array(
+                    array(
+                        array(
+                            'type' => 'class',
+                            'value' => 'ENGL 102', 
+							'isCorequisite' => false
+                        )
+                    )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
                 ),
-                'hours' => 3
-            ),  array(
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
                 'id' => 31,
-                'shortName' => 'SciSeq I',
-                'classNumber' => 1,
-                'fullName' => 'Science Sequence I',
+                'shortName' => 'ENGL',
+                'classNumber' => 231,
+                'fullName' => 'ENGLISH LITERATURE',
                 'prerequisites' =>array(
+                    array(
+                        array(
+                            'type' => 'class',
+                            'value' => 'ENGL 102', 
+							'isCorequisite' => false
+                        )
+                    )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
                 ),
-                'hours' => 3
-            ),  array(
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
                 'id' => 32,
-                'shortName' => 'SciSeqLab I',
-                'classNumber' => 1,
-                'fullName' => 'Science Sequence Lab I',
-                'prerequisites' =>array(
-                ),
-                'semester' =>array(
-                    'fa','sp','su'
-                ),
-                'hours' => 1
-            ),  array(
-                'id' => 33,
-                'shortName' => 'SciSeq II',
-                'classNumber' => 1,
-                'fullName' => 'Science Sequence II',
+                'shortName' => 'ENGL',
+                'classNumber' => 232,
+                'fullName' => 'AMERICAN LITERATURE',
                 'prerequisites' =>array(
                     array(
                         array(
                             'type' => 'class',
-                            'value' => 'Science Sequence I'
+                            'value' => 'ENGL 102', 
+							'isCorequisite' => false
                         )
                     )
                 ),
                 'semester' =>array(
                     'fa','sp','su'
                 ),
-                'hours' => 3
-            ), array(
-                'id' => 34,
-                'shortName' => 'SciSeqLab II',
-                'classNumber' => 1,
-                'fullName' => 'Science Sequence Lab II',
-                'prerequisites' =>array(
-                    array(
-                        array(
-                            'type' => 'class',
-                            'value' => 'Science Sequence Lab I'
-                        )
-                    )
-                ),
-                'semester' =>array(
-                    'fa','sp','su'
-                ),
-                'hours' => 3
-            ), array(
-                'id' => 35,
-                'shortName' => 'SciSeqLab II',
-                'classNumber' => 1,
-                'fullName' => 'Science Sequence Lab II',
-                'prerequisites' =>array(
-                    array(
-                        array(
-                            'type' => 'class',
-                            'value' => 'Science Sequence Lab I'
-                        )
-                    )
-                ),
-                'semester' =>array(
-                    'fa','sp','su'
-                ),
-                'hours' => 1
-            ),  array(
-                'id' => 36,
-                'shortName' => 'SciCourse',
-                'classNumber' => 1,
-                'fullName' => 'Science Course Lecture',
-                'prerequisites' =>array(
-                ),
-                'semester' =>array(
-                    'fa','sp','su'
-                ),
-                'hours' => 3
-            ),  array(
-                'id' => 37,
-                'shortName' => 'SciCourseLab',
-                'classNumber' => 1,
-                'fullName' => 'Science Course Lab',
-                'prerequisites' =>array(
-                    array(
-                        array(
-                            'type' => 'class',
-                            'value' => 'Science Course Lecture'
-                        )
-                    )
-                ),
-                'semester' =>array(
-                    'fa','sp','su'
-                ),
-                'hours' => 3
-            ),  array(
-                'id' => 38,
-                'shortName' => 'FElect',
-                'classNumber' => 1,
-                'fullName' => 'Free Elective',
-                'prerequisites' =>array(
-                ),
-                'semester' =>array(
-                    'fa','sp','su'
-                ),
-                'hours' => 3
-            ),  array(
-                'id' => 39,
-                'shortName' => 'FElect',
-                'classNumber' => 1,
-                'fullName' => 'Free Elective',
-                'prerequisites' =>array(
-                ),
-                'semester' =>array(
-                    'fa','sp','su'
-                ),
-                'hours' => 3
-            ),  array(
-                'id' => 40,
-                'shortName' => 'FElect',
-                'classNumber' => 2,
-                'fullName' => 'Free Elective',
-                'prerequisites' =>array(
-                ),
-                'semester' =>array(
-                    'fa','sp','su'
-                ),
-                'hours' => 3
-            ),  array(
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
                 'id' => 41,
-                'shortName' => 'FElect',
-                'classNumber' => 3,
-                'fullName' => 'Free Elective',
+                'shortName' => 'MUS',
+                'classNumber' => 151,
+                'fullName' => 'INTRO TO MUSIC',
                 'prerequisites' =>array(
+
                 ),
                 'semester' =>array(
                     'fa','sp','su'
                 ),
-                'hours' => 3
-            ), array(
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
                 'id' => 42,
-                'shortName' => 'ADMTElect',
-                'classNumber' => 3,
-                'fullName' => 'Free Elective',
+                'shortName' => 'ART',
+                'classNumber' => 105,
+                'fullName' => 'SURVEY WORLD ART HISTORY I',
                 'prerequisites' =>array(
                 ),
                 'semester' =>array(
                     'fa','sp','su'
                 ),
-                'hours' => 3
-            ), array(
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
                 'id' => 43,
-                'shortName' => 'HistElect',
-                'classNumber' => 3,
-                'fullName' => 'Free Elective',
+                'shortName' => 'DNC',
+                'classNumber' => 100,
+                'fullName' => ' INTRODUCTION TO DANCE',
                 'prerequisites' =>array(
                 ),
                 'semester' =>array(
                     'fa','sp','su'
                 ),
-                'hours' => 3
-            ), array(
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
                 'id' => 44,
+                'shortName' => 'THEA',
+                'classNumber' => 131,
+                'fullName' => 'INTRO THEATRE',
+                'prerequisites' =>array(
+                ),
+                'semester' =>array(
+                    'fa','sp','su'
+                ),
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 45,
+                'shortName' => 'HIST',
+                'classNumber' => 101,
+                'fullName' => 'WESTERN CIVILIZATION TO 1500',
+                'prerequisites' =>array(
+                ),
+                'semester' =>array(
+                    'fa','sp','su'
+                ),
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 46,
                 'shortName' => 'COMM',
                 'classNumber' => 211,
                 'fullName' => 'INTRODUCTION TO PUBLIC SPEAKING',
@@ -708,31 +987,58 @@ class InMemoryClass implements IClassDataService
                 'semester' =>array(
                     'fa','sp','su'
                 ),
-                'hours' => 3
-            ), array(
-                'id' => 45,
-                'shortName' => 'EconElect',
-                'classNumber' => 1,
-                'fullName' => 'Economic Elective',
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 47,
+                'shortName' => 'ECON',
+                'classNumber' => 201,
+                'fullName' => 'PRINCIPLES OF  ECONOMICS (MACROECONOMICS)',
                 'prerequisites' =>array(
                 ),
                 'semester' =>array(
                     'fa','sp','su'
                 ),
-                'hours' => 3
-            ), array(
-                'id' => 46,
-                'shortName' => 'SocScience',
-                'classNumber' => 1,
-                'fullName' => 'Social Science Elective',
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 48,
+                'shortName' => 'ECON',
+                'classNumber' => 202,
+                'fullName' => 'PRINCIPLES OF  ECONOMICS (MICROECONOMICS)',
                 'prerequisites' =>array(
                 ),
                 'semester' =>array(
                     'fa','sp','su'
                 ),
-                'hours' => 3
-            ), array(
-                'id' => 46,
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 50,
+                'shortName' => 'ANTH',
+                'classNumber' => 101,
+                'fullName' => 'CULTURAL ANTHROPOLOGY',
+                'prerequisites' =>array(
+                ),
+                'semester' =>array(
+                    'fa','sp','su'
+                ),
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 49,
                 'shortName' => 'SE',
                 'classNumber' => 101,
                 'fullName' => 'FRESHMAN ACADEMIC SUCCESS AT SOUTHEASTERN',
@@ -741,7 +1047,358 @@ class InMemoryClass implements IClassDataService
                 'semester' =>array(
                     'fa','sp','su'
                 ),
-                'hours' => 2
+                'creditHours' => 2,
+				'difficultyRating' => 2,
+				'hoursDemandedRating' => 2,
+                'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 51,
+                'shortName' => 'CJ',
+                'classNumber' => 101,
+                'fullName' => 'INTRODUCTION TO CRIMINAL JUSTICE',
+                'prerequisites' =>array(
+                ),
+                'semester' =>array(
+                    'fa','sp','su'
+                ),
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 52,
+                'shortName' => 'GEOG',
+                'classNumber' => 103,
+                'fullName' => 'INTRODUCTION TO GEOGRAPHY',
+                'prerequisites' =>array(
+                ),
+                'semester' =>array(
+                    'fa','sp','su'
+                ),
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 53,
+                'shortName' => 'PSYC',
+                'classNumber' => 101,
+                'fullName' => 'GEN PSYCHOLOGY I',
+                'prerequisites' =>array(
+                ),
+                'semester' =>array(
+                    'fa','sp','su'
+                ),
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 54,
+                'shortName' => 'POLI',
+                'classNumber' => 201,
+                'fullName' => 'AMERICAN POLITICS',
+                'prerequisites' =>array(
+                ),
+                'semester' =>array(
+                    'fa','sp','su'
+                ),
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 55,
+                'shortName' => 'SOC',
+                'classNumber' => 101,
+                'fullName' => 'INTRO SOCIOLOGY',
+                'prerequisites' =>array(
+                ),
+                'semester' =>array(
+                    'fa','sp','su'
+                ),
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 56,
+                'shortName' => 'GBIO',
+                'classNumber' => 151,
+                'fullName' => 'GENERAL BIOLOGY I',
+                'prerequisites' =>array(
+                ),
+                'semester' =>array(
+                    'fa','sp','su'
+                ),
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 57,
+                'shortName' => 'GBIO',
+                'classNumber' => 153,
+                'fullName' => 'GENERAL BIOLOGY II',
+                'prerequisites' =>array(
+                    array(
+                        array(
+                            'type' => 'class',
+                            'value' => 'GBIO 151', 
+							'isCorequisite' => false
+                        )
+                    )
+                ),
+                'semester' =>array(
+                    'fa','sp','su'
+                ),
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 58,
+                'shortName' => 'BIOL',
+                'classNumber' => 152,
+                'fullName' => 'GENERAL BIOLOGY LAB I',
+                'prerequisites' =>array(
+                    array(
+                        array(
+                            'type' => 'class',
+                            'value' => 'GBIO 151', 
+							'isCorequisite' => true
+                        )
+                    )
+                ),
+                'semester' =>array(
+                    'fa','sp','su'
+                ),
+                'creditHours' => 1,
+				'difficultyRating' => 1,
+				'hoursDemandedRating' => 1,
+                'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 59,
+                'shortName' => 'BIOL',
+                'classNumber' => 154,
+                'fullName' => 'GENERAL BIOLOGY LAB II',
+                'prerequisites' =>array(
+                    array(
+                        array(
+                            'type' => 'class',
+                            'value' => 'GBIO 153', 
+							'isCorequisite' => true
+                        )
+                    )
+                ),
+                'semester' =>array(
+                    'fa','sp','su'
+                ),
+                'creditHours' => 1,
+				'difficultyRating' => 1,
+				'hoursDemandedRating' => 1,
+                'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 60,
+                'shortName' => 'PHYS',
+                'classNumber' => 221,
+                'fullName' => 'GEN PHYSICS',
+                'prerequisites' =>array(
+                    array(
+                        array(
+                            'type' => 'class',
+                            'value' => 'MATH 200', 
+							'isCorequisite' => false
+                        )
+                    )
+                ),
+                'semester' =>array(
+                    'fa','sp'
+                ),
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 61,
+                'shortName' => 'PHYS',
+                'classNumber' => 222,
+                'fullName' => 'GEN PHYSICS',
+                'prerequisites' =>array(
+                    array(
+                        array(
+                            'type' => 'class',
+                            'value' => 'PHYS 221', 
+							'isCorequisite' => false
+                        )
+                    )
+                ),
+                'semester' =>array(
+                    'fa','sp'
+                ),
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 62,
+                'shortName' => 'PLAB',
+                'classNumber' => 223,
+                'fullName' => 'GEN PHYS LAB',
+                'prerequisites' =>array(
+                    array(
+                        array(
+                            'type' => 'class',
+                            'value' => 'PHYS 221', 
+							'isCorequisite' => true
+                        )
+                    )
+                ),
+                'semester' =>array(
+                    'fa','sp'
+                ),
+                'creditHours' => 1,
+				'difficultyRating' => 1,
+				'hoursDemandedRating' => 1,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 63,
+                'shortName' => 'PLAB',
+                'classNumber' => 224,
+                'fullName' => 'GEN PHYS LAB',
+                'prerequisites' =>array(
+                    array(
+                        array(
+                            'type' => 'class',
+                            'value' => 'PHYS 222',
+							'isCorequisite' => true
+                        )
+                    ),
+                    array(
+                        array(
+                            'type' => 'class',
+                            'value' => 'PLAB 223', 
+							'isCorequisite' => false
+                        )
+                    )
+                ),
+                'semester' =>array(
+                    'fa','sp'
+                ),
+                'creditHours' => 1,
+				'difficultyRating' => 1,
+				'hoursDemandedRating' => 1,
+                'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 64,
+                'shortName' => 'CHEM',
+                'classNumber' => 121,
+                'fullName' => 'GENERAL CHEMISTRY I FOR SCIENCE MAJORS',
+                'prerequisites' =>array(
+                    array(
+                        array(
+                            'type' => 'Act MATH',
+                            'value' => 25
+                        ),
+                        array(
+                            'type' => 'class',
+                            'value' => 'MATH 155', 
+							'isCorequisite' => false
+                        )
+                    )
+                ),
+                'semester' =>array(
+                    'fa','sp','su'
+                ),
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 65,
+                'shortName' => 'CHEM',
+                'classNumber' => 122,
+                'fullName' => 'GENERAL CHEMISTRY II FOR SCIENCE MAJORS',
+                'prerequisites' =>array(
+                    array(
+                        array(
+                            'type' => 'class',
+                            'value' => 'CHEM 121', 
+							'isCorequisite' => false
+                        )
+                    )
+                ),
+                'semester' =>array(
+                    'fa','sp','su'
+                ),
+                'creditHours' => 3,
+				'difficultyRating' => 3,
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 66,
+                'shortName' => 'CLAB',
+                'classNumber' => 123,
+                'fullName' => 'GENERAL CHEMISTRY LABORATORY I FOR SCIENCE MAJORS',
+                'prerequisites' =>array(
+                    array(
+                        array(
+                            'type' => 'class',
+                            'value' => 'CHEM 121', 
+							'isCorequisite' => true
+                        )
+                    )
+                ),
+                'semester' =>array(
+                    'fa','sp','su'
+                ),
+                'creditHours' => 1,
+				'difficultyRating' => 1,
+				'hoursDemandedRating' => 1,
+                'minHoursRequired' => 0
+            ),
+            array(
+                'id' => 67,
+                'shortName' => 'CLAB',
+                'classNumber' => 124,
+                'fullName' => 'GENERAL CHEMISTRY LABORATORY II FOR SCIENCE MAJORS',
+                'prerequisites' =>array(
+                    array(
+                        array(
+                            'type' => 'class',
+                            'value' => 'CHEM 122', 
+							'isCorequisite' => true
+                        ),
+                        array(
+                            'type' => 'class',
+                            'value' => 'CLAB 123', 
+							'isCorequisite' => false
+                        )
+                    )
+                ),
+                'semester' =>array(
+                    'fa','sp','su'
+                ),
+                'creditHours' => 1,
+				'difficultyRating' => 1,
+				'hoursDemandedRating' => 1,
+                'minHoursRequired' => 0
             )
         );
     }
@@ -751,4 +1408,10 @@ class InMemoryClass implements IClassDataService
         return $this->classes;
     }
 
+    public function getClassesById($userId)
+    {
+        foreach($this->classes as $class){
+            
+        }
+    }
 }
