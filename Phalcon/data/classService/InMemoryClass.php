@@ -36,7 +36,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 5,
 				'difficultyRating' => 5,
-				'hoursDemandedRating' => 5
+				'hoursDemandedRating' => 5,
+                'minHoursRequired' => 0
             ),
             array(
                 'id' => 2,
@@ -61,7 +62,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 3,
@@ -81,7 +83,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 4,
@@ -102,7 +105,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 5,
 				'difficultyRating' => 5,
-				'hoursDemandedRating' => 5
+				'hoursDemandedRating' => 5,
+                'minHoursRequired' => 0
             ),
             array(
                 'id' => 5,
@@ -123,7 +127,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 70,
@@ -144,7 +149,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 7,
@@ -165,7 +171,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 79,
@@ -186,7 +193,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 8,
@@ -219,7 +227,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 9,
@@ -247,7 +256,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 10,
@@ -268,7 +278,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 11,
@@ -294,7 +305,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 12,
@@ -320,7 +332,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 13,
@@ -346,7 +359,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 14,
@@ -367,7 +381,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 15,
@@ -407,7 +422,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 16,
@@ -435,7 +451,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 17,
@@ -463,7 +480,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 18,
@@ -484,7 +502,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 19,
@@ -505,7 +524,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 20,
@@ -519,13 +539,6 @@ class InMemoryClass implements IClassDataService
                             'value' => 'CMPS 390', 
 							'isCorequisite' => false
                         )
-                    ),
-                    array(
-                        array(
-                            'type' => 'standing',
-                            'value' => 'senior', 
-							'isCorequisite' => false
-                        )
                     )
                 ),
                 'semester' =>array(
@@ -533,7 +546,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 90
             ),
             array(
                 'id' => 21,
@@ -554,7 +568,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 22,
@@ -582,7 +597,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 69,
@@ -603,7 +619,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 68,
@@ -624,7 +641,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 23,
@@ -650,7 +668,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 24,
@@ -664,13 +683,6 @@ class InMemoryClass implements IClassDataService
                             'value' => 'CMPS 411', 
 							'isCorequisite' => false
                         )
-                    ),
-                    array(
-                        array(
-                            'type' => 'standing',
-                            'value' => 'senior', 
-							'isCorequisite' => false
-                        )
                     )
                 ),
                 'semester' =>array(
@@ -678,7 +690,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 90
             ),
             array(
                 'id' => 25,
@@ -706,7 +719,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 6,
@@ -727,7 +741,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 26,
@@ -748,7 +763,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 27,
@@ -768,7 +784,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 28,
@@ -793,7 +810,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 29,
@@ -814,7 +832,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 30,
@@ -835,7 +854,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 31,
@@ -856,7 +876,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 32,
@@ -877,7 +898,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 41,
@@ -892,7 +914,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 42,
@@ -906,7 +929,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 43,
@@ -920,7 +944,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 44,
@@ -934,7 +959,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 45,
@@ -948,7 +974,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 46,
@@ -962,7 +989,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 47,
@@ -976,7 +1004,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 48,
@@ -990,7 +1019,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 50,
@@ -1004,7 +1034,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 49,
@@ -1018,7 +1049,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 2,
 				'difficultyRating' => 2,
-				'hoursDemandedRating' => 2
+				'hoursDemandedRating' => 2,
+                'minHoursRequired' => 0
             ),
             array(
                 'id' => 51,
@@ -1032,7 +1064,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 52,
@@ -1046,7 +1079,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 53,
@@ -1060,7 +1094,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 54,
@@ -1074,7 +1109,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 55,
@@ -1088,7 +1124,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 56,
@@ -1102,7 +1139,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 57,
@@ -1123,7 +1161,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 58,
@@ -1144,7 +1183,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 1,
 				'difficultyRating' => 1,
-				'hoursDemandedRating' => 1
+				'hoursDemandedRating' => 1,
+                'minHoursRequired' => 0
             ),
             array(
                 'id' => 59,
@@ -1165,7 +1205,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 1,
 				'difficultyRating' => 1,
-				'hoursDemandedRating' => 1
+				'hoursDemandedRating' => 1,
+                'minHoursRequired' => 0
             ),
             array(
                 'id' => 60,
@@ -1186,7 +1227,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 61,
@@ -1207,7 +1249,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 62,
@@ -1228,7 +1271,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 1,
 				'difficultyRating' => 1,
-				'hoursDemandedRating' => 1
+				'hoursDemandedRating' => 1,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 63,
@@ -1256,7 +1300,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 1,
 				'difficultyRating' => 1,
-				'hoursDemandedRating' => 1
+				'hoursDemandedRating' => 1,
+                'minHoursRequired' => 0
             ),
             array(
                 'id' => 64,
@@ -1281,7 +1326,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 65,
@@ -1302,7 +1348,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 3,
 				'difficultyRating' => 3,
-				'hoursDemandedRating' => 3
+				'hoursDemandedRating' => 3,
+				'minHoursRequired' => 0
             ),
             array(
                 'id' => 66,
@@ -1323,7 +1370,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 1,
 				'difficultyRating' => 1,
-				'hoursDemandedRating' => 1
+				'hoursDemandedRating' => 1,
+                'minHoursRequired' => 0
             ),
             array(
                 'id' => 67,
@@ -1349,7 +1397,8 @@ class InMemoryClass implements IClassDataService
                 ),
                 'creditHours' => 1,
 				'difficultyRating' => 1,
-				'hoursDemandedRating' => 1
+				'hoursDemandedRating' => 1,
+                'minHoursRequired' => 0
             )
         );
     }
