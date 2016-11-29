@@ -134,14 +134,21 @@ class PlannerService implements IPlannerService
                     foreach ($andLayer as $prerequisite) {
                         if ($prerequisite['type'] == 'class' && $prerequisite['isCorequisite']) {
                             return -1;
+                        }elseif (((($b['creditHours'] * $b['difficultyRating'] * $b['hoursDemandedRating'])**(1/3)) <=> (($a['creditHours'] * $a['difficultyRating'] * $a['hoursDemandedRating'])**(1/3))) == 0){
+                            return 1;
                         }
-                        return 1;
+                        return ($b['creditHours'] * $b['difficultyRating'] * $b['hoursDemandedRating'])**(1/3) <=> ($a['creditHours'] * $a['difficultyRating'] * $a['hoursDemandedRating'])**(1/3);
                     }
                 }
-                return 1;
+                if (((($b['creditHours'] * $b['difficultyRating'] * $b['hoursDemandedRating'])**(1/3)) <=> (($a['creditHours'] * $a['difficultyRating'] * $a['hoursDemandedRating'])**(1/3))) == 0){
+                    return 1;
+                }
+                return ($b['creditHours'] * $b['difficultyRating'] * $b['hoursDemandedRating'])**(1/3) <=> ($a['creditHours'] * $a['difficultyRating'] * $a['hoursDemandedRating'])**(1/3);
             }
             return $b['postRequisites'] <=> $a['postRequisites'];
         });
+
+        //echo json_encode($this->remainingClasses);
 
         foreach($this->remainingClasses as $classKey => $class){
             //echo json_encode($class);
