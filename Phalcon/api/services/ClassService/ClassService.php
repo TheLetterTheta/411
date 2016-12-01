@@ -12,11 +12,16 @@ class ClassService implements IClassService
 
     public function getClasses()
     {
-        return $this->di["dataClassService"]->GetClasses();
+        return $this->di["dataClassService"]->getClasses();
     }
 
     public function getClassById($classId)
     {
-        return $this->di["dataClassService"]->GetClassesById($classId);
+        return $this->di["dataClassService"]->getClassesById($classId);
+    }
+
+    public function getClassHistoryByUserId($userId)
+    {
+        return $this->di["dataClassService"]->getClassHistoryByUserId($userId);
     }
 }
