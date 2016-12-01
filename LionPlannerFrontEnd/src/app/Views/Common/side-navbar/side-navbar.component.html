@@ -29,19 +29,19 @@
   <li>
     <ul class="collapsible collapsible-accordion">
       <li routerLinkActive="active" >
-        <a class="collapsible-header waves-effect arrow-r" [routerLink]="['/Dashboard/Planner']"><i class="fa fa-calendar-check-o fa-fw"></i>Planner</a>
+        <a class="collapsible-header waves-effect arrow-r" (click)="closeNav()" [routerLink]="['/Dashboard/Planner']"><i class="fa fa-calendar-check-o fa-fw"></i>Planner</a>
       </li>
       <li routerLinkActive="active">
-        <a class="collapsible-header waves-effect arrow-r" [routerLink]="['/Dashboard/ClassHistory']"><i class="fa fa-history fa-fw"></i>Class History</a>
+        <a class="collapsible-header waves-effect arrow-r" (click)="closeNav()" [routerLink]="['/Dashboard/ClassHistory']"><i class="fa fa-history fa-fw"></i>Class History</a>
       </li>
       <li routerLinkActive="active">
-        <a class="collapsible-header waves-effect arrow-r" [routerLink]="['/Dashboard/ClassesOffered']"><i class="fa fa-book fa-fw"></i>Classes Offered</a>
+        <a class="collapsible-header waves-effect arrow-r" (click)="closeNav()" [routerLink]="['/Dashboard/ClassesOffered']"><i class="fa fa-book fa-fw"></i>Classes Offered</a>
       </li>
       <li routerLinkActive="active">
-        <a class="collapsible-header waves-effect arrow-r" [routerLink]="['/Dashboard/FinancialAid']"><i class="fa fa-usd fa-fw"></i>Financial Aid</a>
+        <a class="collapsible-header waves-effect arrow-r" (click)="closeNav()" [routerLink]="['/Dashboard/FinancialAid']"><i class="fa fa-usd fa-fw"></i>Financial Aid</a>
       </li>
       <li routerLinkActive="active">
-        <a class="collapsible-header waves-effect arrow-r" [routerLink]="['/Dashboard/Settings']"><i class="fa fa-cog fa-fw"></i>Settings</a>
+        <a class="collapsible-header waves-effect arrow-r" (click)="closeNav()" [routerLink]="['/Dashboard/Settings']"><i class="fa fa-cog fa-fw"></i>Settings</a>
       </li>
     </ul>
   </li>

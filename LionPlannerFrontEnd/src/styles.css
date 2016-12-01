@@ -192,6 +192,14 @@ header,
   max-height: 500px;
 }
 
+.customRadio {
+  padding-top: 45px;
+}
+
+.media {
+  border-bottom: 1px solid #ccc;
+}
+
 /*.team-section img {*/
   /*height: 250px;*/
   /*width: 250px;*/

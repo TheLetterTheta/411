@@ -7,7 +7,7 @@
         <div class="card-overlay" style="background: linear-gradient(
                        rgba(20,20,20, .15),
                        rgba(20,20,20, .15)),
-                       url('http://www.clipartkid.com/images/381/chalkboard-borders-clipart-izI8Tx-clipart.jpg') center no-repeat;}">
+                       url('../../../../assets/img/chalkboard.jpg') center no-repeat;}">
 
             <!--Content-->
             <div class="white-text text-xs-center">
@@ -28,19 +28,19 @@
                 <thead class="thead-inverse">
                   <tr>
                     <th>#</th>
-                    <th>Class</th>
-                    <th>Credits</th>
-                    <th>Difficulty</th>
-                    <th>Time Consumption</th>
+                    <th class="text-xs-center">Class</th>
+                    <th class="text-xs-center">Credits</th>
+                    <th class="text-xs-center">Difficulty</th>
+                    <th class="text-xs-center">Time Consumption</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let class of year.semester1.classes; let j = index">
                     <th scope="row">{{j+1}}</th>
-                    <td>{{class.chosenClass.name}}</td>
-                    <td>{{class.chosenClass.creditHours}}</td>
-                    <td>{{class.chosenClass.difficultyRating}}</td>
-                    <td>{{class.chosenClass.hoursDemandedRating}}</td>
+                    <td class="text-xs-center">{{class.chosenClass.name}}</td>
+                    <td class="text-xs-center">{{class.chosenClass.creditHours}}</td>
+                    <td class="text-xs-center">{{class.chosenClass.difficultyRating}}</td>
+                    <td class="text-xs-center">{{class.chosenClass.hoursDemandedRating}}</td>
                   </tr>
                 </tbody>
               </table>
@@ -48,7 +48,7 @@
             <!--/.Card content-->
             <!-- Card footer -->
             <div class="card-data">
-              <h4>Total Credits: {{year.semester1.creditTotal}}</h4>
+              <h4 class="text-xs-center">Total Credits: {{year.semester1.creditTotal}}</h4>
             </div>
           </div>
         </div>
@@ -58,7 +58,7 @@
         <div class="card-overlay" style="background: linear-gradient(
                        rgba(20,20,20, .15),
                        rgba(20,20,20, .15)),
-                       url('http://www.clipartkid.com/images/381/chalkboard-borders-clipart-izI8Tx-clipart.jpg') center no-repeat;}">
+                       url('../../../../assets/img/chalkboard.jpg') center no-repeat;}">
 
             <!--Content-->
             <div class="white-text text-xs-center">
@@ -79,19 +79,19 @@
                 <thead class="thead-inverse">
                   <tr>
                     <th>#</th>
-                    <th>Class</th>
-                    <th>Credits</th>
-                    <th>Difficulty</th>
-                    <th>Time Consumption</th>
+                    <th class="text-xs-center">Class</th>
+                    <th class="text-xs-center">Credits</th>
+                    <th class="text-xs-center">Difficulty</th>
+                    <th class="text-xs-center">Time Consumption</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let class of year.semester2.classes; let j = index">
                     <th scope="row">{{j+1}}</th>
-                    <td>{{class.chosenClass.name}}</td>
-                    <td>{{class.chosenClass.creditHours}}</td>
-                    <td>{{class.chosenClass.difficultyRating}}</td>
-                    <td>{{class.chosenClass.hoursDemandedRating}}</td>
+                    <td class="text-xs-center">{{class.chosenClass.name}}</td>
+                    <td class="text-xs-center">{{class.chosenClass.creditHours}}</td>
+                    <td class="text-xs-center">{{class.chosenClass.difficultyRating}}</td>
+                    <td class="text-xs-center">{{class.chosenClass.hoursDemandedRating}}</td>
                   </tr>
                 </tbody>
               </table>
@@ -99,7 +99,7 @@
             <!--/.Card content-->
             <!-- Card footer -->
             <div class="card-data">
-              <h4>Total Credits: {{year.semester2.creditTotal}}</h4>
+              <h4 class="text-xs-center">Total Credits: {{year.semester2.creditTotal}}</h4>
             </div>
           </div>
         </div>
@@ -108,97 +108,76 @@
 
 </section>
 <!--/Planner Section-->
-<div *ngIf="isLoading">
+<div class="flex-center" *ngIf="isLoading">
   <div class="loader">Loading</div>
 </div>
 
 <section *ngIf="!isLoading && questionnaireNeeded" class="section wow fadeInUp">
-  <div class="divider-new">
-    <h2 class="h2-responsive wow bounceIn" style="visibility: visible; animation-name: bounceIn;">Questionnaire</h2>
-  </div>
   <div class="row">
-    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-      <div *ngFor="let year of _years">
-        <div *ngIf="year.semester1.questions.length > 0">
-          <div *ngFor="let question of year.semester1.questions; let i = index">
-              <!--First column-->
-              <div class="col-lg-3 col-md-5">
-
-                <!--Card-->
-                <div class="card">
-
-                  <!--Header-->
-                  <div class="card-header selu-green white-text text-xs-center">
-                    {{year.semester1.semester}} {{year.semester1.year}}
-                  </div>
-                  <!--/Header-->
-
-                  <!--Content-->
-                  <div class="card-block">
-                    <h4 class="text-xs-center">Current Course:</h4><h4 class="text-xs-center"><strong> {{question.classChosen.name}}</strong></h4>
-                    <br>
-                    <h4 class="text-xs-center">Available Options:</h4>
-                      <!--Blue select-->
-                    <div class="col-sm-12">
-                      <select id="sem1{{i}}" class="text-xs-center browser-default validate">
-                        <option value="" disabled selected>Choose your option</option>
-                        <option *ngFor="let option of question.options" value="{{option.name}}">{{option.name}}</option>
-                      </select>
-                    </div>
-                      <!--/Blue select-->
-                  </div>
-                  <!--/Content-->
-                </div>
-                <!--/Card-->
-
-              </div>
-              <!--/First column-->
+    <form class="form-inline" (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div class="col-lg-8 offset-lg-2">
+        <div class="card">
+          <!--Header-->
+          <div class="card-header selu-green white-text text-xs-center">
+            Course Choice
           </div>
-        </div>
-        <div *ngIf="year.semester2.questions.length > 0">
-          <div *ngFor="let question of year.semester2.questions; let i = index">
-            <!--First column-->
-            <div class="col-lg-3 col-md-5">
+          <!--/Header-->
 
-              <!--Card-->
-              <div class="card">
-
-                <!--Header-->
-                <div class="card-header selu-green white-text text-xs-center">
-                  {{year.semester2.semester}} {{year.semester2.year}}
+          <!--Content-->
+          <div class="card-block">
+            <p class="flex-center">Please complete the following Course Selections</p>
+            <h4 class="text-xs-center">Available Options:</h4>
+            <br>
+            <!--Blue select-->
+            <div class="col-sm-12">
+              <!--<select id="choice" class="centerAlign browser-default validate">-->
+                <!--<option value="" disabled selected>Select a class</option>-->
+                <!--<option *ngFor="let option of currentQuestion.options" value="{{option.name}}">{{option.name}}</option>-->
+              <!--</select>-->
+              <div *ngFor="let option of currentQuestion.options; let k = index" class="media">
+                <a class="media-left waves-light">
+                  <fieldset class="form-group customRadio">
+                    <input name="group1" type="radio" id="radio{{k}}" value="{{option.name}}">
+                    <label for="radio{{k}}"><i class="fa fa-book fa-2x"></i></label>
+                  </fieldset>
+                </a>
+                <div class="media-body">
+                  <h4 class="media-heading">{{option.name}}</h4>
+                  <ul class="inline-ul">
+                    Difficulty:
+                    <li><i class="fa fa-star amber-text"></i></li>
+                    <li><i class="fa fa-star amber-text"></i></li>
+                    <li><i class="fa fa-star amber-text"></i></li>
+                    <li><i class="fa fa-star grey-text"></i></li>
+                    <li><i class="fa fa-star grey-text"></i></li>
+                  </ul>
+                  <ul class="inline-ul">
+                    Time:
+                    <li><i class="fa fa-clock-o red-text"></i></li>
+                    <li><i class="fa fa-clock-o red-text"></i></li>
+                    <li><i class="fa fa-clock-o grey-text"></i></li>
+                    <li><i class="fa fa-clock-o grey-text"></i></li>
+                    <li><i class="fa fa-clock-o grey-text"></i></li>
+                  </ul>
+                  <p>This is where the Course Description will appear when the database is successfully connected. </p>
                 </div>
-                <!--/Header-->
-
-                <!--Content-->
-                <div class="card-block">
-                  <h4 class="text-xs-center">Current Course:</h4><h4 class="text-xs-center"><strong> {{question.classChosen.name}}</strong></h4>
-                  <br>
-                  <h4 class="text-xs-center">Available Options: </h4>
-                  <div class="col-sm-12">
-                    <select id="sem2{{i}}" class="browser-default validate">
-                      <option value="" disabled selected>Choose your option</option>
-                      <option *ngFor="let option of question.options" value="{{option}}">{{option.name}}</option>
-                    </select>
-                  </div>
-                    <!--/Blue select-->
-                </div>
-                <!--/Content-->
               </div>
-              <!--/Card-->
-
+              <br>
+              <div class="col-sm-9">
+                <p>Selections Left: {{questionsRemaining}}</p>
+              </div>
+              <div class="col-sm-3">
+                <button *ngIf="!questionsRemaining == 0" [disabled]="!f.valid" type="button" (click)="onNextQuestion()" class="btn btn-default login waves-effect">Next</button>
+                <button *ngIf="questionsRemaining == 0" [disabled]="!f.valid" type="submit" class="btn btn-default login waves-effect">Finish</button>
+              </div>
             </div>
-            <!--/First column-->
-
+            <!--/Blue select-->
           </div>
+          <!--/Content-->
         </div>
+        <!--/Card-->
+
       </div>
-      <br>
-      <div class="row">
-        <div class="col-lg-6 offset-md-5">
-          <button type="submit" class="btn btn-large btn-primary waves-effect" [disabled]="!f.valid" *ngIf="!submitted">Save Changes</button>
-        </div>
-      </div>
-      <br>
     </form>
   </div>
 </section>

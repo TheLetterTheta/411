@@ -4,52 +4,71 @@
   </div>
 
   <div [hidden]="loading" class="col-lg-8">
-    <div class="card mb-6">
+    <div class="card mb-6 animated fadeInLeft">
       <div class="card-header selu-green white-text text-xs-center">Course Details</div>
 
-      <div class="card-block">
-        <div class="flex-center" style="height: 800px">
-          <h5>Course Details will populate here</h5>
-        </div>
+      <div class="card-block" style="height: 600px">
+        <br>
+        <h2 id="top-section" class="h2-responsive text-xl-center"><strong>{{selectedCourse.name}}</strong></h2>
+        <br>
+        <h3><strong>Credits:</strong> {{selectedCourse.creditHours}}</h3>
+        <h3 class="h3-responsive">
+          <ul class="inline-ul">
+            <strong>Difficulty:</strong>
+            <li><i class="fa fa-star amber-text"></i></li>
+            <li><i class="fa fa-star amber-text"></i></li>
+            <li><i class="fa fa-star amber-text"></i></li>
+            <li><i class="fa fa-star amber-text"></i></li>
+            <li><i class="fa fa-star grey-text"></i></li>
+          </ul>
+        </h3>
+        <h3 class="h3-responsive">
+          <ul class="inline-ul">
+            <strong>Time:</strong>
+            <li><i class="fa fa-clock-o red-text"></i></li>
+            <li><i class="fa fa-clock-o red-text"></i></li>
+            <li><i class="fa fa-clock-o grey-text"></i></li>
+            <li><i class="fa fa-clock-o grey-text"></i></li>
+            <li><i class="fa fa-clock-o grey-text"></i></li>
+          </ul>
+        </h3>
+        <h3 class="h3-responsive"><strong>Description:</strong></h3><h4 class="text-fluid">Credit 3 hours. Prerequisite: Registration in or prior credit for Mathematics 155 or 161, or permission of the Department Head. Basic concepts of computer programming, problem solving, algorithm development, and program coding using a high-level, block-structured language. Credit may be given for both Computer Science 110 and 161</h4>
+        <h3 class="h3-responsive"><strong>Semesters Offered: </strong></h3>
       </div>
     </div>
   </div>
 
-  <div [hidden]="loading" class="row wow fadeIn">
-    <div id="categories" class="col-lg-4">
-      <div class="card mb-6">
-        <div class="card-header selu-green white-text text-xs-center">Course Categories</div>
+  <div [hidden]="loading" id="categories" class="col-lg-4">
+    <div class="card mb-6 animated fadeInRight">
+      <div class="card-header selu-green white-text text-xs-center">Course Categories</div>
 
-        <div class="card-block">
-        <!--Accordion wrapper-->
-        <div class="accordion" id="accordion" role="tablist" aria-multiselectable="false">
+      <div class="card-block" style="height: 600px; overflow-y: scroll">
+          <!--Accordion wrapper-->
+          <div class="accordion" id="accordion" role="tablist" aria-multiselectable="false">
+            <!--First panel-->
+            <div *ngFor="let group of courseGroups; let i = index" class="panel panel-default">
 
-          <!--First panel-->
-          <div *ngFor="let group of courseGroups; let i = index" class="panel panel-default">
+              <!--Panel heading-->
+              <div class="panel-heading" role="tab" id="header{{i}}">
+                <h5 class="panel-title">
+                  <a class="arrow-r black-text" data-toggle="collapse" data-parent="#accordion" href="#collapse{{i}}" aria-expanded="false">
+                    {{group.name}}<i class="fa fa-angle-down rotate-icon"></i>
+                  </a>
+                </h5>
+              </div>
 
-            <!--Panel heading-->
-            <div class="panel-heading" role="tab" id="header{{i}}">
-              <h5 class="panel-title">
-                <a class="arrow-r black-text" data-toggle="collapse" data-parent="#accordion" href="#collapse{{i}}" aria-expanded="false">
-                  {{group.name}}<i class="fa fa-angle-down rotate-icon"></i>
-                </a>
-              </h5>
-            </div>
-
-            <!--Panel body-->
-            <div id="collapse{{i}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="">
-              <div *ngFor="let class of group.classes">
-                <a class="blue-text text-xs-center">{{class}}</a>
+              <!--Panel body-->
+              <div id="collapse{{i}}" class="panel-collapse collapse in" role="tabpanel">
+                <div style="border-bottom: 1px solid #ccc;" *ngFor="let class of group.classes">
+                  <a class="blue-text text-xs-center" (click)="changeCourse(class)">{{class}}</a>
+                </div>
               </div>
             </div>
+            <!--/.First panel-->
           </div>
-          <!--/.First panel-->
-
-        </div>
-        <!--/.Accordion wrapper-->
-        </div>
+          <!--/.Accordion wrapper-->
       </div>
     </div>
-    <br>
   </div>
+  <br>
 </section>

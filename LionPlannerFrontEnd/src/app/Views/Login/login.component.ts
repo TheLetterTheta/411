@@ -14,7 +14,7 @@ export class LoginComponent {
   private loggingIn: boolean = false;
   private noMatch: boolean;
   private response: any;
-    private errorOccurred: boolean;
+  private errorOccurred: boolean;
   private urlImage: string;
 
   user = {
@@ -27,11 +27,9 @@ export class LoginComponent {
   onSubmit(form: NgForm) {
     this.loggingIn = true;
     this.noMatch = false;
-    console.log(form);
+    this.errorOccurred = false;
 
     setTimeout(() => {
-
-
       this._userService.Login(form.value.wNumber, form.value.password)
           .subscribe(result => {
               this.response = result;
@@ -41,9 +39,13 @@ export class LoginComponent {
                   this.noMatch = true;
                   this.loggingIn = false;
               }
-          });
+          },
+          (err => {
+              this.loggingIn = false;
+              this.errorOccurred = true;
+          })
 
       //this.response = this._userService.LoginWithoutPermission(form.value.userData.wNumber, form.value.userData.password);
-    }, 1000);
+      )}, 1000);
   }
 }

@@ -12,13 +12,11 @@
       <!--Form with header-->
       <div class="card">
 
-        <div class="card-block">
+        <div *ngIf="!submitted" class="card-block">
           <!--Header-->
           <div class="form-header selu-green">
             <h3><i class="fa fa-envelope"></i> Write to us:</h3>
           </div>
-
-          <p>We love to hear from you! Not really...</p>
           <br>
 
           <!--Body-->
@@ -47,9 +45,19 @@
           </div>
 
           <div class="text-xs-center">
-            <button class="btn btn-mdb selu-green">Submit</button>
+            <button type="button" (click)="onSubmit()" class="btn btn-mdb selu-green">Submit</button>
           </div>
 
+        </div>
+        <div *ngIf="submitted" class="card-block">
+          <div class="form-header selu-green">
+            <h3><i class="fa fa-envelope"></i> Write to us:</h3>
+          </div>
+          <br>
+
+          <h1 class="text-xs-center green-text"><i class="fa fa-check fa-3x"></i></h1>
+          <br>
+          <h1 class="text-xs-center">Message Sent</h1>
         </div>
 
       </div>

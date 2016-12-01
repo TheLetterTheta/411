@@ -9,6 +9,8 @@ declare var google: any;
 })
 export class ContactComponent implements AfterViewInit {
 
+  private submitted: boolean = false;
+
   constructor() {
 
   }
@@ -45,5 +47,12 @@ export class ContactComponent implements AfterViewInit {
       else
         window.open("http://maps.google.com/maps?daddr=30.514823,-90.466531&amp;ll=");
 
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    setTimeout(() => {
+      this.submitted = false;
+    }, 2000);
   }
 }

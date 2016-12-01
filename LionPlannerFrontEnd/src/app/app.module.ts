@@ -50,7 +50,7 @@ import { DevelopersComponent } from './Views/Dashboard/developers/developers.com
     UserService,
     PlannerService,
     LoggedInGuard,
-    {provide: 'ApiEndpoint', useValue: 'http://147.174.59.127/411/Phalcon/api/'},
+    {provide: 'ApiEndpoint', useValue: 'https://2168-411-01.csit.selu.edu/411/Phalcon/api/'},
     {provide: Headers, useValue: {'Content-Type': 'application/x-www-form-urlencoded'}},
     {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],

@@ -24,11 +24,14 @@ export class PlannerComponent {
     private questionnaireNeededForFollowing: boolean = false;
     private showQuestions: boolean = true;
     private questions: Question[] = new Array<Question>();
+    private currentQuestion: Question;
+    private questionsRemaining: number;
+    private ugly = false;
+    private index = 0;
 
     constructor(private _plannerService: PlannerService) {
         _plannerService.GetPlanner()
             .subscribe(planner => {
-                console.log(planner);
                 this._planner = planner;
                 this.combineSemesters();
                 this.isQuestionnaireNeededForUpcomingSemester();
@@ -37,7 +40,12 @@ export class PlannerComponent {
                     this.questionnaireNeeded = true;
                     setTimeout(() => {
                         this.isLoading = false;
+                        setTimeout(() => {
+                            $("#radio0").prop("checked", true);
+                        }, 100);
                     }, 2000);
+                    this.currentQuestion = this.questions[this.index];
+                    this.questionsRemaining = this.questions.length-1;
                     this.showQuestions = true;
                 } else {
                     this.calculateCreditTotal();
@@ -46,13 +54,6 @@ export class PlannerComponent {
                     }, 2000);
                 }
             });
-        //this.enableSelect();
-    }
-
-    enableSelect() {
-        setTimeout(() => {
-            $('.mdb-select').material_select();
-        }, 3000);
     }
 
     onSubmit(form: NgForm) {
@@ -62,36 +63,39 @@ export class PlannerComponent {
 
     isQuestionnaireNeededForUpcomingSemester() {
         var classes = this._planner.upcomingSemester.classes;
-        var questions = new Array<Question>();
+        //var questions = new Array<Question>();
         for(var i = 0; i < classes.length; i++) {
             if(classes[i].classOptions.length > 1) {
                 this.questionnaireNeededForUpcoming = true;
-                questions.push(new Question(classes[i].chosenClass, classes[i].classOptions));
+                this.questions.push(new Question(classes[i].chosenClass, classes[i].classOptions));
             }
         }
-        this._planner.upcomingSemester.questions = questions;
+        this._planner.upcomingSemester.questions = this.questions;
     }
 
     isQuestionnaireNeededForRemainingSemesters() {
         var semesters = this._planner.followingSemesters;
         for(var i = 0; i < semesters.length; i++) {
-            var questions = new Array<Question>();
+            //var questions = new Array<Question>();
             for(var j = 0; j < semesters[i].classes.length; j++) {
                 if(semesters[i].classes[j].classOptions.length > 1) {
                     this.questionnaireNeededForFollowing = true;
-                    questions.push(new Question(semesters[i].classes[j].chosenClass, semesters[i].classes[j].classOptions));
+                    this.questions.push(new Question(semesters[i].classes[j].chosenClass, semesters[i].classes[j].classOptions));
                 }
             }
-            semesters[i].questions = questions;
+            semesters[i].questions = this.questions;
         }
     }
 
     calculateCreditTotal() {
+        this._planner.upcomingSemester.creditTotal = 0;
+
         for(var k = 0; k < this._planner.upcomingSemester.classes.length; k++) {
             this._planner.upcomingSemester.creditTotal += this._planner.upcomingSemester.classes[k].chosenClass.creditHours;
         }
         var semesters = this._planner.followingSemesters;
         for(var i = 0; i < semesters.length; i++) {
+            semesters[i].creditTotal = 0;
             for(var j = 0; j < semesters[i].classes.length; j++) {
                 semesters[i].creditTotal += semesters[i].classes[j].chosenClass.creditHours;
             }
@@ -105,6 +109,17 @@ export class PlannerComponent {
             if(i == 2 || i == 4 || i == 6) {
             this._years.push(new Year(semesters[i-1], semesters[i]))
             }
+        }
+    }
+
+    onNextQuestion() {
+        if(this.questionsRemaining != 0) {
+            this.questionsRemaining -= 1;
+            this.index += 1;
+            this.currentQuestion = this.questions[this.index];
+            setTimeout(() => {
+                $("#radio0").prop("checked", true);
+            }, 1);
         }
     }
 }

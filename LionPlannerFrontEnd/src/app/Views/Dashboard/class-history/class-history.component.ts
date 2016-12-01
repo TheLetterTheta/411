@@ -5,11 +5,16 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './class-history.component.html',
   styleUrls: ['./class-history.component.css']
 })
-export class ClassHistoryComponent implements OnInit {
+export class ClassHistoryComponent {
+
+  private loading: boolean = true;
 
   constructor() { }
 
-  ngOnInit() {
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.loading = false;
+    }, 2000);
   }
 
 }

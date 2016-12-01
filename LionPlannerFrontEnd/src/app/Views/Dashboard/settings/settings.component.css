@@ -1,0 +1,11 @@
+.section {
+    padding-top: 50px;
+}
+
+.switch label input[type=checkbox]:checked+.lever:after {
+    background-color: #006633;
+}
+
+.switch label input[type=checkbox]:checked+.lever {
+    background-color: greenyellow;
+}

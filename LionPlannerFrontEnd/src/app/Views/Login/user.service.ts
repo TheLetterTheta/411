@@ -28,6 +28,7 @@ export class UserService {
     return this.http.request(new Request(requestOptions))
         .map(res=>res.json())
         .map((res) => {
+          this.loggedIn = true;
           localStorage.setItem('apiKey', res.apiKey);
           localStorage.setItem('userId', res.userId);
           return res;

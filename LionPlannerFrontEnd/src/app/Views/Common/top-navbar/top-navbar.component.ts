@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "../../Login/user.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'lion-top-navbar',
@@ -8,7 +9,7 @@ import {UserService} from "../../Login/user.service";
 })
 export class TopNavbarComponent {
 
-  constructor(private _user: UserService) { }
+  constructor(private _user: UserService, private _router: Router) { }
 
   onLogoutClicked() {
     this._user.Logout();

@@ -24,7 +24,7 @@
 
                 <!--Header-->
                 <div class="form-header login">
-                  <h3>Lion Planner Login</h3>
+                  <h3><i class="fa fa-lock"></i> Lion Planner Login:</h3>
                 </div>
 
                 <!--Body-->
@@ -32,7 +32,7 @@
                   <div ngModelGroup="userData">
                   <div class="md-form">
                     <i class="fa fa-user prefix"></i>
-                    <input type="text" id="wNumber" name="wNumber" [(ngModel)]="user.wNumber" class="form-control validate" #wNumber="ngModel" minlength="7" maxlength="7" required length="7">
+                    <input type="text" id="wNumber" name="wNumber" PLACEHOLDER="ex: w1234567" [(ngModel)]="user.wNumber" class="form-control validate" #wNumber="ngModel" minlength="8" maxlength="8" required length="8">
                     <label for="wNumber">Your W# Number</label>
                     <div *ngIf="!wNumber.valid && wNumber.touched">
                       <p class="text-danger">*Required</p>
@@ -66,8 +66,9 @@
                     <div class="text-xs-center text-danger" *ngIf="noMatch">
                       W Number or Password did not match
                     </div>
+                    <br>
                     <div class="text-xs-center text-danger" *ngIf="errorOccurred">
-                      W Number or Password did not match
+                      There was an error with the Server. Please try again later.
                     </div>
                   </div>
                   </div>
