@@ -1408,10 +1408,29 @@ class InMemoryClass implements IClassDataService
         return $this->classes;
     }
 
-    public function getClassesById($userId)
+    public function getClassesById($classIds)
     {
-        foreach($this->classes as $class){
-            
+        $data=array();
+        foreach($this->classes as $class)
+        {
+            foreach($classIds as $selectedClass)
+            {
+                if($selectedClass == $class['id'])
+                {
+                    $newClass = array(
+                      'id'=>$class['id'],
+                      'shortName' => $class['shortName']." ".$class['classNumber'],
+                      'fullName' =>$class['fullName'],
+                      'creditHours'=> $class['creditHours'],
+                      'difficultyRating' => $class['difficultyRating'],
+                      'hoursDemandedRating' => $class['hoursDemandedRating'],
+                      'description' =>"Bacon ipsum dolor amet kielbasa frankfurter sirloin pastrami ham swine flank shankle. Picanha pork sirloin jowl, cow pork belly shoulder rump ribeye frankfurter ham pancetta pork chop doner."
+                    );
+                    array_push($data,$newClass);
+                    break;
+                }
+            }
         }
+        return $data;
     }
 }
