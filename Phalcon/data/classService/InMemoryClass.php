@@ -1446,50 +1446,50 @@ class InMemoryClass implements IClassDataService
                         'year' => 2015,
                         'gradeReceived' => 'W'
                     )
-                ),
-                array(
-                    'subject' => 'Computer Science',
-                    'totalHours' => 9,
-                    'classes' => array(
-                        array(
-                            'id' => 7,
-                            'shortName' => 'CMPS',
-                            'classNumber' => 161,
-                            'fullName' => 'Algorithm Design and Implementation I',
-                            'creditHours' => 3,
-                            'difficultyRating' => 2,
-                            'hoursDemandedRating' => 3,
-                            'status' => 'Completed',
-                            'semester' => 'Fall',
-                            'year' => 2015,
-                            'gradeReceived' => 'B'
-                        ),
-                        array(
-                            'id' => 9,
-                            'shortName' => 'CMPS',
-                            'classNumber' => 280,
-                            'fullName' => 'Algorithm Design and Implementation II',
-                            'creditHours' => 3,
-                            'difficultyRating' => 3,
-                            'hoursDemandedRating' => 2,
-                            'status' => 'Completed',
-                            'semester' => 'Spring',
-                            'year' => 2016,
-                            'gradeReceived' => 'A'
-                        ),
-                        array(
-                            'id' => 8,
-                            'shortName' => 'CMPS',
-                            'classNumber' => 257,
-                            'fullName' => 'College Algebra',
-                            'creditHours' => 3,
-                            'difficultyRating' => 3,
-                            'hoursDemandedRating' => 3,
-                            'status' => 'Completed',
-                            'semester' => 'Fall',
-                            'year' => 2016,
-                            'gradeReceived' => 'A'
-                        )
+                )
+            ),
+            array(
+                'subject' => 'Computer Science',
+                'totalHours' => 9,
+                'classes' => array(
+                    array(
+                        'id' => 7,
+                        'shortName' => 'CMPS',
+                        'classNumber' => 161,
+                        'fullName' => 'Algorithm Design and Implementation I',
+                        'creditHours' => 3,
+                        'difficultyRating' => 2,
+                        'hoursDemandedRating' => 3,
+                        'status' => 'Completed',
+                        'semester' => 'Fall',
+                        'year' => 2015,
+                        'gradeReceived' => 'B'
+                    ),
+                    array(
+                        'id' => 9,
+                        'shortName' => 'CMPS',
+                        'classNumber' => 280,
+                        'fullName' => 'Algorithm Design and Implementation II',
+                        'creditHours' => 3,
+                        'difficultyRating' => 3,
+                        'hoursDemandedRating' => 2,
+                        'status' => 'Completed',
+                        'semester' => 'Spring',
+                        'year' => 2016,
+                        'gradeReceived' => 'A'
+                    ),
+                    array(
+                        'id' => 8,
+                        'shortName' => 'CMPS',
+                        'classNumber' => 257,
+                        'fullName' => 'College Algebra',
+                        'creditHours' => 3,
+                        'difficultyRating' => 3,
+                        'hoursDemandedRating' => 3,
+                        'status' => 'Completed',
+                        'semester' => 'Fall',
+                        'year' => 2016,
+                        'gradeReceived' => 'A'
                     )
                 )
             )
