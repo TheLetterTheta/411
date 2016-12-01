@@ -10,4 +10,5 @@ interface IClassService
 {
     public function getClasses();
     public function getClassById($classId);
+    public function getClassHistoryByUserId($userId);
 }

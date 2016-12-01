@@ -129,19 +129,23 @@ class PlannerService implements IPlannerService
         }
 
         usort($this->remainingClasses, function($a, $b){
-            if(($b['postRequisites'] <=> $a['postRequisites']) == 0){
+            if($b['postRequisites'] == $a['postRequisites']){
                 foreach ($b['prerequisites'] as $andLayer) {
                     foreach ($andLayer as $prerequisite) {
                         if ($prerequisite['type'] == 'class' && $prerequisite['isCorequisite']) {
                             return -1;
                         }
-                        return 1;
                     }
                 }
-                return 1;
+                if ((($b['creditHours'] * $b['difficultyRating'] * $b['hoursDemandedRating'])**(1/3)) == (($a['creditHours'] * $a['difficultyRating'] * $a['hoursDemandedRating'])**(1/3))){
+                    return 1;
+                }
+                return ($b['creditHours'] * $b['difficultyRating'] * $b['hoursDemandedRating'])**(1/3) <=> ($a['creditHours'] * $a['difficultyRating'] * $a['hoursDemandedRating'])**(1/3);
             }
             return $b['postRequisites'] <=> $a['postRequisites'];
         });
+
+        echo json_encode($this->remainingClasses);
 
         foreach($this->remainingClasses as $classKey => $class){
             //echo json_encode($class);
@@ -244,7 +248,7 @@ class PlannerService implements IPlannerService
                 $this->plannedSemesters[$minSemesterKey]['difficulty'] = ($chunkA)**($chunkB);
             }
         }
-        echo json_encode($this->plannedSemesters);
+        //echo json_encode($this->plannedSemesters);
     }
 
     private function modifyClassesArray(&$response)

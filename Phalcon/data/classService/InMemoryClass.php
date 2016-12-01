@@ -9,6 +9,7 @@
 class InMemoryClass implements IClassDataService
 {
     private $classes;
+    private $classHistory;
 
     public function __construct()
     {
@@ -1401,6 +1402,98 @@ class InMemoryClass implements IClassDataService
                 'minHoursRequired' => 0
             )
         );
+        $this->classHistory = array(
+            array(
+                'subject' => 'Math',
+                'totalHours' => 13,
+                'classes' => array(
+                    array(
+                        'id' => 1,
+                        'shortName' => 'MATH',
+                        'classNumber' => 200,
+                        'fullName' => 'Calculus I',
+                        'creditHours' => 5,
+                        'difficultyRating' => 5,
+                        'hoursDemandedRating' => 5,
+                        'status' => 'Transferred',
+                        'semester' => 'Fall',
+                        'year' => 2015,
+                        'gradeReceived' => 'B'
+                    ),
+                    array(
+                        'id' => 4,
+                        'shortName' => 'MATH',
+                        'classNumber' => 201,
+                        'fullName' => 'Calculus II',
+                        'creditHours' => 5,
+                        'difficultyRating' => 5,
+                        'hoursDemandedRating' => 5,
+                        'status' => 'Completed',
+                        'semester' => 'Spring',
+                        'year' => 2016,
+                        'gradeReceived' => 'A'
+                    ),
+                    array(
+                        'id' => 3,
+                        'shortName' => 'MATH',
+                        'classNumber' => 161,
+                        'fullName' => 'College Algebra',
+                        'creditHours' => 3,
+                        'difficultyRating' => 3,
+                        'hoursDemandedRating' => 3,
+                        'status' => 'Completed',
+                        'semester' => 'Spring',
+                        'year' => 2015,
+                        'gradeReceived' => 'W'
+                    )
+                )
+            ),
+            array(
+                'subject' => 'Computer Science',
+                'totalHours' => 9,
+                'classes' => array(
+                    array(
+                        'id' => 7,
+                        'shortName' => 'CMPS',
+                        'classNumber' => 161,
+                        'fullName' => 'Algorithm Design and Implementation I',
+                        'creditHours' => 3,
+                        'difficultyRating' => 2,
+                        'hoursDemandedRating' => 3,
+                        'status' => 'Completed',
+                        'semester' => 'Fall',
+                        'year' => 2015,
+                        'gradeReceived' => 'B'
+                    ),
+                    array(
+                        'id' => 9,
+                        'shortName' => 'CMPS',
+                        'classNumber' => 280,
+                        'fullName' => 'Algorithm Design and Implementation II',
+                        'creditHours' => 3,
+                        'difficultyRating' => 3,
+                        'hoursDemandedRating' => 2,
+                        'status' => 'Completed',
+                        'semester' => 'Spring',
+                        'year' => 2016,
+                        'gradeReceived' => 'A'
+                    ),
+                    array(
+                        'id' => 8,
+                        'shortName' => 'CMPS',
+                        'classNumber' => 257,
+                        'fullName' => 'College Algebra',
+                        'creditHours' => 3,
+                        'difficultyRating' => 3,
+                        'hoursDemandedRating' => 3,
+                        'status' => 'Completed',
+                        'semester' => 'Fall',
+                        'year' => 2016,
+                        'gradeReceived' => 'A'
+                    )
+                )
+            )
+        );
     }
 
     public function getClasses()
@@ -1408,10 +1501,34 @@ class InMemoryClass implements IClassDataService
         return $this->classes;
     }
 
-    public function getClassesById($userId)
+    public function getClassesById($classIds)
     {
-        foreach($this->classes as $class){
-            
+        $data=array();
+        foreach($this->classes as $class)
+        {
+            foreach($classIds as $selectedClass)
+            {
+                if($selectedClass == $class['id'])
+                {
+                    $newClass = array(
+                      'id'=>$class['id'],
+                      'shortName' => $class['shortName']." ".$class['classNumber'],
+                      'fullName' =>$class['fullName'],
+                      'creditHours'=> $class['creditHours'],
+                      'difficultyRating' => $class['difficultyRating'],
+                      'hoursDemandedRating' => $class['hoursDemandedRating'],
+                      'description' =>"Bacon ipsum dolor amet kielbasa frankfurter sirloin pastrami ham swine flank shankle. Picanha pork sirloin jowl, cow pork belly shoulder rump ribeye frankfurter ham pancetta pork chop doner."
+                    );
+                    array_push($data,$newClass);
+                    break;
+                }
+            }
         }
+        return $data;
+    }
+
+    public function getClassHistoryByUserId($userId)
+    {
+        return $this->classHistory;
     }
 }
